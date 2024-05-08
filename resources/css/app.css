@@ -1,0 +1,116 @@
+@import 'bootstrap';
+
+:root {
+    --colorPrimario: #1A1C20;
+    --colorSecundario: #6EBCAE;
+    --gris: #808080;
+    --blanco: #fff;
+    --negro: #000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* Inicio */
+
+
+/* Navegaciob */
+
+.container-fluid {
+    max-width: 1200px;
+}
+
+.navegacion {
+    padding: 1rem 0 1rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 1.8rem;
+}
+
+.navegacion {
+    @media (min-width:992px) {
+        padding: 2.5rem 0rem 2.5rem 10rem;
+    }
+}
+
+.navegacion.scrolled {
+    @media (min-width:992px) {
+        padding: 2rem 0rem 2rem 10rem;
+    }
+
+    background-color: var(--colorPrimario) !important;
+    transition: all 0.3s ease;
+}
+
+
+.navegacion-enlaces {
+    @media (min-width:992px) {
+        margin-left: 10rem;
+    }
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navegacion-titulo {
+    color: var(--gris);
+}
+
+.navegacion-titulo.blanco {
+    color: var(--blanco);
+}
+
+.nav-link {
+    padding-left: 3rem !important;
+    font-weight: 600;
+    position: relative;
+    align-self: flex-start;
+    /* Evita que se expanda completamente */
+    width: auto;
+}
+
+.nav-link.selected {
+    color: var(--colorSecundario) !important;
+}
+
+.nav-link.scroll {
+    color: var(--blanco);
+    transition: all 0.3s ease;
+}
+
+.nav-link.scroll:hover {
+    color: var(--colorSecundario);
+    transition: all 0.3s ease;
+}
+
+.navlinkEdit::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 3rem;
+    height: 2px;
+    width: 0;
+    background-color: var(--colorSecundario);
+    transition: width 0.3s ease;
+}
+
+.navlinkEdit:hover::after {
+    width: 80%;
+}
+
+
+.imagenLogo {
+    width: 32px;
+    height: 40px;
+}
