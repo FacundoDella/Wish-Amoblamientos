@@ -20,13 +20,16 @@
     @include('includes-generales.navegacion')
     @include('includes-inicio.carrousel')
 
-    <div class="seccion1">
-        <div class="seccion1-info">
-            <h2>Especialistas en diseño, creación y colocación</h2>
-            <p>Somos una empresa con más de 20 años de experiencia en la entrega de productos de calidad.</p>
-        </div>
-        <div class="seccion1-boton">
-            <a href="" class="info-boton">Nuestros Asociados</a>
+
+    <div class="seccion1Fondo">
+        <div class="seccion1">
+            <div class="seccion1-info">
+                <h2>Especialistas en diseño, creación y colocación</h2>
+                <p>Somos una empresa con más de 20 años de experiencia en la entrega de productos de calidad.</p>
+            </div>
+            <div class="seccion1-boton">
+                <a href="" class="boton btnRed">Nuestros Asociados</a>
+            </div>
         </div>
     </div>
 
@@ -44,41 +47,57 @@
                 </a>
                 <a href="" class="productos">
                     <h3 class="productosTitulo">Sala de Estar</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/salaDeEstar.jpg') }}"
+                        alt="Imagen Producto">
                 </a>
                 <a href="" class="productos">
                     <h3 class="productosTitulo">Comedor</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/comedor.jpg') }}"
+                        alt="Imagen Producto">
                 </a>
                 <a href="" class="productos">
-                    <h3 class="productosTitulo">Dormitorios</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
+                    <h3 class="productosTitulo">Dormitorio</h3>
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/dormitorio.jpg') }}"
+                        alt="Imagen Producto">
                 </a>
                 <a href="" class="productos">
                     <h3 class="productosTitulo">Baño</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/baño.jpg') }}" alt="Imagen Producto">
                 </a>
                 <a href="" class="productos">
                     <h3 class="productosTitulo">Oficina o Estudio</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/estudio.jpg') }}"
+                        alt="Imagen Producto">
                 </a>
                 <a href="" class="productos">
                     <h3 class="productosTitulo">Exterior</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/exterior.jpg') }}"
+                        alt="Imagen Producto">
                 </a>
                 <a href="" class="productos">
                     <h3 class="productosTitulo">Espacios Multifuncionales</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/multifuncional.jpg') }}"
+                        alt="Imagen Producto">
                 </a>
                 <a href="" class="productos">
                     <h3 class="productosTitulo">Muebles Personalizados</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/perzonalizado.jpg') }}"
+                        alt="Imagen Producto">
                 </a>
             </div>
         </div>
     </div>
-
     <div class="contenedor-imagenFija">
+        <div class="seccion2">
+                <h2>¡Visita nuestro blog!</h2>
+                <p>Descubre consejos, guías, materiales y herramientas que utilizamos para inspirarte y ayudarte en tus
+                    proyectos.</p>
+                <a href="" class="boton btnBorder">Nuestro Blog</a>
+        </div>
+    </div>
+
+    <div class="contacto">
+        contacto
     </div>
 
 </body>
