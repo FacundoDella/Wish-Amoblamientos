@@ -8,6 +8,8 @@
     --blanco: #fff;
     --negro: #000;
     --fuentePrincipal: "Poppins", sans-serif;
+    --colorLogo: #ff311a;
+    --colorLogoHover: #ff4f3c;
 }
 
 html {
@@ -79,6 +81,17 @@ a {
     white-space: nowrap
 }
 
+.icono-top {
+    padding: 1rem;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+.icono-top:hover {
+    background-color: var(--colorLogoHover);
+    transition: all 0.3s ease-in-out;
+}
+
 .enlace-svg {
     color: var(--blanco);
     max-width: 24px;
@@ -95,28 +108,29 @@ a {
     padding: 1rem 0 1rem 1rem;
     transition: all 0.3s ease;
     font-size: 1.8rem;
+
+    @media (max-width: 991px) {
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
 .navegacion {
     @media (min-width:992px) {
-        padding: 2.5rem 0rem 2.5rem 10rem;
+        padding: 2.5rem 0rem 2.5rem 0rem;
     }
 }
 
 .navegacion.scrolled {
     @media (min-width:992px) {
-        padding: 2rem 0rem 2rem 10rem;
+        padding: 2rem 0rem 2rem 0rem;
     }
 
     background-color: var(--colorPrimario) !important;
     transition: all 0.3s ease;
-}
-
-
-.navegacion-enlaces {
-    @media (min-width:992px) {
-        margin-left: 10rem;
-    }
 }
 
 .navbar-brand {
@@ -144,7 +158,7 @@ a {
 }
 
 .nav-link.selected {
-    color: var(--colorSecundario) !important;
+    color: var(--colorLogo) !important;
 }
 
 .nav-link.scroll {
@@ -153,7 +167,7 @@ a {
 }
 
 .nav-link.scroll:hover {
-    color: var(--colorSecundario);
+    color: var(--colorLogo);
     transition: all 0.3s ease;
 }
 
@@ -164,7 +178,7 @@ a {
     left: 3rem;
     height: 2px;
     width: 0;
-    background-color: var(--colorSecundario);
+    background-color: var(--colorLogo);
     transition: width 0.3s ease;
 }
 
@@ -214,8 +228,8 @@ a {
 
 
 .carousel-inner {
-    max-height: 50rem;
-    min-height: 50rem;
+    max-height: 60rem;
+    min-height: 60rem;
     overflow: hidden;
     position: relative;
 }
@@ -239,31 +253,33 @@ a {
 
 
 .carrousel-imagen {
-    min-height: 70rem;
-    max-height: 70rem;
+    min-height: 75rem;
+    max-height: 75rem;
     object-fit: cover;
 }
 
 /* Carousel info  */
 .info-container {
     position: absolute;
-    z-index: 999;
-    margin-top: 12rem;
+    z-index: 998;
+    margin-top: 24rem;
     left: 5%;
     right: 5%;
 
     @media (min-width: 768px) {
         right: 10%;
         left: 10%;
-        margin-top: 20rem;
+        margin-top: 22rem;
     }
+
     @media (min-width: 1280px) {
         right: 25%;
         left: 25%;
-        margin-top: 15rem;
+        margin-top: 20rem;
     }
 
 }
+
 .info-titulo {
     font-size: 3rem;
     color: var(--blanco);
@@ -287,7 +303,7 @@ a {
 
 .info-boton {
     cursor: pointer;
-    background-color: var(--colorSecundario);
+    background-color: var(--colorLogo);
     color: var(--blanco);
     font-size: 1.5rem;
     padding: 1.5rem 2.5rem 1.5rem 2.5rem;
@@ -300,5 +316,5 @@ a {
 }
 
 .info-boton:hover {
-    background-color: var(--colorSecundarioHover);
+    background-color: var(--colorLogoHover);
 }
