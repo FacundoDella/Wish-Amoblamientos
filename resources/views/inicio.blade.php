@@ -25,7 +25,8 @@
         <div class="seccion1">
             <div class="seccion1-info">
                 <h2>Especialistas en diseño, creación y colocación</h2>
-                <p>Somos una empresa con más de 20 años de experiencia en la entrega de productos de calidad.</p>
+                <p>Contamos con un equipo experto en diseño, creatividad y estrategia de colocación, dedicado a superar
+                    las expectativas de nuestros clientes con soluciones innovadoras y personalizadas.</p>
             </div>
             <div class="seccion1-boton">
                 <a href="" class="boton btnRed">Nuestros Asociados</a>
@@ -89,17 +90,57 @@
     </div>
     <div class="contenedor-imagenFija">
         <div class="seccion2">
-                <h2>¡Visita nuestro blog!</h2>
-                <p>Descubre consejos, guías, materiales y herramientas que utilizamos para inspirarte y ayudarte en tus
-                    proyectos.</p>
-                <a href="" class="boton btnBorder">Nuestro Blog</a>
+            <h2>¡Visita nuestro blog!</h2>
+            <p>Descubre consejos, guías, materiales y herramientas que utilizamos para inspirarte y ayudarte en tus
+                proyectos.</p>
+            <a href="" class="boton btnBorder">Nuestro Blog</a>
         </div>
     </div>
 
-    <div class="contacto">
-        contacto
+    <div class="sobreNosotrosContainer">
+        <div class="grid">
+            <div class="nosotrosInfo">
+                <h2>¿Quienes Somos?</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae, quibusdam debitis! Veniam fugiat
+                    cumque molestias? Voluptatibus repudiandae sapiente, ullam debitis quis eaque impedit commodi, earum
+                    dicta fuga illum quidem dolorem.</p>
+            </div>
+            <div class="nosotrosImagen">
+                <div class="imagenContainer">
+                    <img src="{{ asset('imagenes/carrousel-1.jpg') }}" alt="">
+                </div>
+
+            </div>
+        </div>
     </div>
 
+    <div class="seccion3">
+        <div class="contenedor">
+            <div class="informacion">
+                <div class="informacionTitulo">
+                    <h2>¿Por qué nos eligen?</h2>
+                </div>
+                <div class="itemsContainer">
+                    <div class="items">
+                        <h4>Diseño Personalizado</h4>
+                        <p>Muebles únicos y a medida.</p>
+                    </div>
+                    <div class="items">
+                        <h4>Calidad Artesanal</h4>
+                        <p>Estándares de calidad excepcionales.</p>
+                    </div>
+                    <div class="items">
+                        <h4>Sostenibilidad Ambiental</h4>
+                        <p>Materiales sostenibles y ecoamigables.</p>
+                    </div>
+                    <div class="items">
+                        <h4>Experiencia de Cliente Excepcional</h4>
+                        <p>Atención dedicada y satisfacción garantizada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

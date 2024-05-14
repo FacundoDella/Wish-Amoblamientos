@@ -13,8 +13,8 @@
                 <a class="nav-link navlinkEdit" href="#">Inicio</a>
                 <a class="nav-link navlinkEdit" aria-current="page" href="#">Sobre Nosotros</a>
                 <a class="nav-link navlinkEdit" href="#">Blog</a>
-                <a class="nav-link navlinkEdit" href="#">Trabajos</a>
-                <a class="nav-link navlinkEdit" href="#">Proveedores</a>
+                <a class="nav-link navlinkEdit" href="#">Obras</a>
+                <a class="nav-link navlinkEdit" href="#">Asociados</a>
                 <a class="nav-link navlinkEdit" href="#">Contacto</a>
             </div>
         </div>
