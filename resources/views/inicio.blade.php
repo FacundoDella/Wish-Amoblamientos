@@ -109,7 +109,6 @@
                 <div class="imagenContainer">
                     <img src="{{ asset('imagenes/carrousel-1.jpg') }}" alt="">
                 </div>
-
             </div>
         </div>
     </div>
@@ -141,6 +140,8 @@
             </div>
         </div>
     </div>
+
+    @include('includes-generales.footer')
 </body>
 
 </html>

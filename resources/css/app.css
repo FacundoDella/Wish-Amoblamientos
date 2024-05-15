@@ -194,6 +194,7 @@ a {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    border-radius: 1rem;
 
     @media (min-width: 992px) {
         width: 95%;
@@ -330,11 +331,12 @@ a {
     max-width: 55rem;
     align-items: center;
     margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 .imagenContainer {
     margin: 0 auto;
-
 }
 
 .imagenContainer img {
@@ -717,11 +719,116 @@ a {
 
 .info-descripcion {
     color: var(--blanco);
-    font-size: var(--fuenteParrafo);
     margin-bottom: 4rem;
+    font-size: var(--fuenteParrafo);
 
     @media (min-width: 992px) {
         font-size: var(--fuenteParrafoLong);
     }
 
+}
+
+/* Footer */
+
+.footerContenedor {
+    min-height: 20rem;
+    width: 100%;
+    background-color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin: 0;
+    padding-top: 4rem;
+    font-size: var(--fuenteParrafo);
+
+    @media (min-width: 996px) {
+        font-size: var(--fuenteParrafoLong);
+    }
+}
+
+.derechos {
+    background-color: var(--gris);
+    padding: 2rem;
+    width: 100%;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+    }
+}
+
+.footerContacto {
+    width: 50%;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.footerItems {
+    display: flex;
+    min-width: 25rem;
+    padding-top: 1rem;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.footerLogo {
+    max-width: 10rem;
+    width: 50%;
+    margin: 0 auto;
+
+    @media (max-width: 480px) {
+        width: 100%;
+    }
+}
+
+.footerLogo img {
+    max-width: 100%;
+}
+
+.svgFooter {
+    max-width: 3rem;
+    margin-right: 1rem;
+}
+
+.footerRedes {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.icono-footer {
+    padding: 1rem;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    max-width: 4rem;
+}
+
+.icono-footer:hover {
+    background-color: var(--colorLogoHover);
+    transition: all 0.3s ease-in-out;
+}
+
+.enlace-svgFooter {
+    color: var(--negro);
+    width: 4rem;
+    height: 4rem;
 }

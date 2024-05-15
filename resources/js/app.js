@@ -41,33 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-let carrouselItems = document.querySelectorAll('.carousel-item');
-
-function alternarClases() {
-    carrouselItems.forEach(item => {
-        if (item.classList.contains('animate-move')) {
-            // Si tiene la clase 'animate-move', quítala y añade 'animate-move-up'
-            item.classList.remove('animate-move');
-            item.classList.add('animate-move-up');
-        } else if (item.classList.contains('animate-move-up')) {
-            // Si tiene la clase 'animate-move-up', quítala y añade 'animate-move-down'
-            item.classList.remove('animate-move-up');
-            item.classList.add('animate-move-down');
-        } else if (item.classList.contains('animate-move-down')) {
-            // Si tiene la clase 'animate-move-down', quítala y añade 'animate-move-up'
-            item.classList.remove('animate-move-down');
-            item.classList.add('animate-move-up');
-        }
-    });
-    // Programa la próxima llamada a esta función después de 5 segundos
-    setTimeout(alternarClases, 5000);
-}
-
-// Llama a la función inicialmente para comenzar la alternancia de clases
-alternarClases();
 
 
-
+// Carrousel 
 
 const myCarouselElement = document.querySelector('#carouselExampleSlidesOnly')
 
@@ -76,3 +52,34 @@ const carousel = new bootstrap.Carousel(myCarouselElement, {
   touch: false,
   pause:false
 })
+
+let currentIndex = 0;
+let carrouselItems = document.querySelectorAll('.carousel-item');
+
+function alternarClases() {
+    carrouselItems.forEach(item => {
+        if (item.classList.contains('animate-move')) {
+            item.classList.remove('animate-move');
+            item.classList.add('animate-move-up');
+        } else if (item.classList.contains('animate-move-up')) {
+            item.classList.remove('animate-move-up');
+            item.classList.add('animate-move-down');
+        } else if (item.classList.contains('animate-move-down')) {
+            item.classList.remove('animate-move-down');
+            item.classList.add('animate-move-up');
+        }
+    });
+    currentIndex++;
+    if (currentIndex >= carrouselItems.length) {
+        currentIndex = 0; // Reinicia el índice al principio
+        carousel.next(); 
+    }
+    
+    setTimeout(alternarClases, 5000);
+}
+
+alternarClases();
+
+
+
+
