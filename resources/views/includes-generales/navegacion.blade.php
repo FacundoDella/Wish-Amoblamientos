@@ -14,7 +14,7 @@
                 <a class="nav-link navlinkEdit" aria-current="page" href="#">Sobre Nosotros</a>
                 <a class="nav-link navlinkEdit" href="#">Blog</a>
                 <a class="nav-link navlinkEdit" href="#">Obras</a>
-                <a class="nav-link navlinkEdit" href="#">Asociados</a>
+                <a class="nav-link navlinkEdit" href="#">Colaboradores</a>
                 <a class="nav-link navlinkEdit" href="#">Contacto</a>
             </div>
         </div>
