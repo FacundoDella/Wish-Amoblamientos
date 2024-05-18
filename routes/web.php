@@ -17,4 +17,13 @@ Route::get('/', function () {
     return view('inicio');
 });
 
+// Colaboradores
+Route::get('/colaboradores', function () {
+    return view('colaboradores.colaboradores');
+});
+Route::get('/colaboradores/1', function () {
+    return view('colaboradores.colaborador1');
+});
+
+
 

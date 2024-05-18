@@ -10,11 +10,11 @@
         </button>
         <div class=" collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav navegacion-enlaces">
-                <a class="nav-link navlinkEdit" href="#">Inicio</a>
+                <a class="nav-link navlinkEdit" href="/">Inicio</a>
                 <a class="nav-link navlinkEdit" aria-current="page" href="#">Sobre Nosotros</a>
                 <a class="nav-link navlinkEdit" href="#">Blog</a>
                 <a class="nav-link navlinkEdit" href="#">Obras</a>
-                <a class="nav-link navlinkEdit" href="#">Colaboradores</a>
+                <a class="nav-link navlinkEdit" href="/colaboradores">Colaboradores</a>
                 <a class="nav-link navlinkEdit" href="#">Contacto</a>
             </div>
         </div>
