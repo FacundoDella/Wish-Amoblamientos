@@ -13,18 +13,23 @@
     --negro: #000;
     --negroClaro: #292929;
     --fuentePrincipal: "Poppins", sans-serif;
-    --colorLogo: #ff311a;
-    --colorLogoHover: #bb3526;
+    --Boton: #48D1CC;
+    --BotonHover: #000000;
+    --BotonClaroHover: #ADD8E6;
+
 
     --fontSizeH1: 4.5rem;
     --fontSizeH2: 4rem;
     --fontSizeH3: 3rem;
     --fontSizeH4: 2.6rem;
-    --fontSizeH5: 2.2rem;
+    --fontSizeH5: 2rem;
     --fuenteParrafoLong: 2rem;
     --fuenteParrafo: 1.5rem;
-
     --widthPhone: 95%;
+
+
+    --BotonVejo: #ff311a;
+    --BotonVejoHover: #b81d0c;
 }
 
 html {
@@ -66,7 +71,7 @@ ul {
 
 .botonMini {
     cursor: pointer;
-    color: var(--blanco);
+    color: var(--negro);
     font-size: 1.2rem;
     padding: 1.2rem 2rem 1.2rem 2rem;
     border-radius: 1rem;
@@ -79,21 +84,34 @@ ul {
     }
 }
 
-.btnRed {
-    background-color: var(--colorLogo);
+.btn {
+    background-color: var(--Boton);
+    color: var(--blanco);
 }
 
-.btnRed:hover {
-    background-color: var(--colorLogoHover);
+.btn:hover {
+    background-color: var(--BotonHover);
+    color: var(--blanco);
 }
+
+.btnClaro {
+    background-color: var(--Boton);
+    color: var(--blanco);
+}
+
+.btnClaro:hover {
+    background-color: var(--BotonClaroHover);
+    color: var(--negro);
+}
+
 
 .btnBorder {
     border: 1px solid var(--blanco);
 }
 
 .btnBorder:hover {
-    border: 1px solid var(--colorLogo);
-    background-color: var(--colorLogoHover);
+    border: 1px solid var(--Boton);
+    background-color: var(--Boton);
 }
 
 .btnM {
@@ -540,7 +558,7 @@ ul {
     transform: translateX(-50%);
     height: 2px;
     width: 30%;
-    background-color: var(--colorLogo);
+    background-color: var(--Boton);
 }
 
 .itemsContainer {
@@ -668,7 +686,7 @@ ul {
 }
 
 .icono-top:hover {
-    background-color: var(--colorLogoHover);
+    background-color: var(--BotonHover);
     transition: all 0.3s ease-in-out;
 }
 
@@ -745,7 +763,7 @@ ul {
 }
 
 .nav-link.selected {
-    color: var(--colorLogo) !important;
+    color: var(--Boton) !important;
 }
 
 .nav-link.scroll {
@@ -754,7 +772,7 @@ ul {
 }
 
 .nav-link.scroll:hover {
-    color: var(--colorLogo);
+    color: var(--Boton);
     transition: all 0.3s ease;
 }
 
@@ -766,7 +784,7 @@ ul {
         left: 0rem;
         height: 2px;
         width: 0;
-        background-color: var(--colorLogo);
+        background-color: var(--Boton);
         transition: width 0.3s ease;
     }
 
@@ -1020,7 +1038,7 @@ ul {
 }
 
 .icono-footer:hover {
-    background-color: var(--colorLogoHover);
+    background-color: var(--BotonHover);
     transition: all 0.3s ease-in-out;
 }
 
@@ -1083,6 +1101,13 @@ ul {
     display: flex;
 }
 
+.card-img-top {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    border-radius: 1rem;
+}
+
 .presetacion {
     margin-top: 6rem;
     margin-bottom: 6rem;
@@ -1103,7 +1128,7 @@ ul {
     transform: translateX(-50%);
     height: 2px;
     width: 10%;
-    background-color: var(--colorLogo);
+    background-color: var(--Boton);
 }
 
 .presetacion p {
@@ -1111,53 +1136,146 @@ ul {
     color: var(--grisClaro);
 }
 
+
+/** Cards estilos generales **/
 .flex {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
     gap: 2rem;
     margin-bottom: 6rem;
-    /* Espacio entre los elementos hijos */
+    width: 100%;
 }
 
 .card {
-    padding-bottom: 1.5rem;
-    transition: all 0.3s ease-in-out;
+    position: relative;
     width: 37rem !important;
+    height: 30rem;
+    background: var(--blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
     border: none;
     border-radius: 1rem;
-    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.30);
-    -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.30);
-    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.30);
 }
 
-.card:hover {
-    transition: all 0.3s ease-in-out;
-    transform: translateY(-0.5rem);
-    -webkit-box-shadow: 0px 0px 19px 3px rgba(0, 0, 0, 0.60);
-    -moz-box-shadow: 0px 0px 19px 3px rgba(0, 0, 0, 0.60);
-    box-shadow: 0px 0px 19px 3px rgba(0, 0, 0, 0.60);
+.card::before,
+.card::after {
+    position: absolute;
+    content: "";
+    width: 20%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: var(--BotonClaroHover);
+    transition: all 0.5s;
+}
+
+.card::before {
+    top: 0;
+    right: 0;
+    border-radius: 0 1rem 0 100%;
+}
+
+.card::after {
+    bottom: 0;
+    left: 0;
+    border-radius: 0 100% 0 1rem;
+}
+
+.card:hover::before,
+.card:hover:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    transition: all 0.5s;
 }
 
 .card-body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    margin: auto auto;
 }
 
 .card-title {
     font-size: var(--fontSizeH4);
+    color: var(--blanco);
 }
 
 .card-Subtitle {
     font-size: var(--fontSizeH5);
+    color: var(--grisClaro);
 }
 
 .card-text {
     font-size: var(--fuenteParrafo);
     margin-bottom: 2rem;
+    color: var(--negro);
 }
 
+.cardInfo {
+    position: absolute;
+}
+
+.imagenCard {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.hover {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 998;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.hover:hover {
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+/** Cards particulares **/
+.card1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/imagenes/colaboradores/arquitectoEjemplo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.card2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/imagenes/colaboradores/diseñadoraEjemplo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.card3 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/imagenes/colaboradores/diseñadoraEjemplo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.card4 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/imagenes/colaboradores/arquitectoEjemplo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
 
 @media (max-width: 768px) {
     .presetacion {
@@ -1199,8 +1317,15 @@ ul {
         transform: translateX(-50%);
         height: 2px;
         width: 20%;
-        background-color: var(--colorLogo);
+        background-color: var(--Boton);
     }
+
+    .card {
+        position: relative;
+        width: 100% !important;
+        height: 30rem;
+    }
+    
 
 }
 

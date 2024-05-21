@@ -29,7 +29,7 @@
                     las expectativas de nuestros clientes con soluciones innovadoras y personalizadas.</p>
             </div>
             <div class="seccion1-boton">
-                <a href="/colaboradores" class="boton btnRed">Colaboradores</a>
+                <a href="/colaboradores" class="boton btn">Colaboradores</a>
             </div>
         </div>
     </div>
