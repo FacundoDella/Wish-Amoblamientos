@@ -26,4 +26,37 @@ Route::get('/colaboradores/1', function () {
 });
 
 
+// Obras
+Route::get('/cocina', function () {
+    return view('obras.cocina');
+});
+Route::get('/salaDeEstar', function () {
+    return view('obras.salaDeEstar');
+});
+Route::get('/comedor', function () {
+    return view('obras.comedor');
+});
+Route::get('/dormitorio', function () {
+    return view('obras.dormitorio');
+});
+Route::get('/baño', function () {
+    return view('obras.baño');
+});
+Route::get('/oficina', function () {
+    return view('obras.oficina');
+});
+Route::get('/exterior', function () {
+    return view('obras.exterior');
+});
+Route::get('/multifuncionales', function () {
+    return view('obras.multifuncionales');
+});
+Route::get('/personalizados', function () {
+    return view('obras.personalizados');
+});
+
+
+Route::get('/obra', function () {
+    return view('obras.obra');
+});
 

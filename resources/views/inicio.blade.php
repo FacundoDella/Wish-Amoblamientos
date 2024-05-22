@@ -42,45 +42,45 @@
             </div>
 
             <div class="productosGrid">
-                <a href="" class="productos producto1">
+                <a href="/cocina" class="productos producto1">
                     <h3 class="productosTitulo">Cocina</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/carrousel-3.jpg') }}" alt="Imagen Producto">
                 </a>
-                <a href="" class="productos producto2">
+                <a href="/salaDeEstar" class="productos producto2">
                     <h3 class="productosTitulo">Sala de Estar</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/trabajos/salaDeEstar.jpg') }}"
                         alt="Imagen Producto">
                 </a>
-                <a href="" class="productos producto3">
+                <a href="/comedor" class="productos producto3">
                     <h3 class="productosTitulo">Comedor</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/trabajos/comedor.jpg') }}"
                         alt="Imagen Producto">
                 </a>
-                <a href="" class="productos producto4">
+                <a href="/dormitorio" class="productos producto4">
                     <h3 class="productosTitulo">Dormitorio</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/trabajos/dormitorio.jpg') }}"
                         alt="Imagen Producto">
                 </a>
-                <a href="" class="productos producto5">
+                <a href="/baño" class="productos producto5">
                     <h3 class="productosTitulo">Baño</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/trabajos/baño.jpg') }}" alt="Imagen Producto">
                 </a>
-                <a href="" class="productos producto6">
+                <a href="/oficina" class="productos producto6">
                     <h3 class="productosTitulo">Oficina o Estudio</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/trabajos/estudio.jpg') }}"
                         alt="Imagen Producto">
                 </a>
-                <a href="" class="productos producto7">
+                <a href="/exterior" class="productos producto7">
                     <h3 class="productosTitulo">Exterior</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/trabajos/exterior.jpg') }}"
                         alt="Imagen Producto">
                 </a>
-                <a href="" class="productos producto8">
+                <a href="/multifuncionales" class="productos producto8">
                     <h3 class="productosTitulo">Espacios Multifuncionales</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/trabajos/multifuncional.jpg') }}"
                         alt="Imagen Producto">
                 </a>
-                <a href="" class="productos producto9">
+                <a href="/personalizados" class="productos producto9">
                     <h3 class="productosTitulo">Muebles Personalizados</h3>
                     <img class="imagenProductos" src="{{ asset('imagenes/trabajos/perzonalizado.jpg') }}"
                         alt="Imagen Producto">

@@ -2,22 +2,21 @@
 
 /* Generales */
 :root {
-    --colorPrimario: #1A1C20;
-    --colorSecundario: #37b9a1;
-    --colorSecundarioHover: #126959;
-    --grisOscuro: #4b4b4b;
-    --gris: #808080;
-    --grisClaro: #ececec;
-    --grisBody: #F2F3F5;
+    --colorBody: #F2F3F5;
     --blanco: #fff;
     --negro: #000;
-    --negroClaro: #292929;
+    --gris: #808080;
+    --grisClaro: #d4d4d4;
+    --grisOscuro: #4b4b4b;
+    --colorPrimario: #FF311A;
+    --colorPrimarioHover: #F06151;
+    --colorSecundario: #1A1C20;
+    --cremita: #9B6D68;
+    --cremitaOscuro: #70605E;
+    --marronClaro: #463937;
+    --marron: #332220;
+
     --fuentePrincipal: "Poppins", sans-serif;
-    --Boton: #48D1CC;
-    --BotonHover: #000000;
-    --BotonClaroHover: #ADD8E6;
-
-
     --fontSizeH1: 4.5rem;
     --fontSizeH2: 4rem;
     --fontSizeH3: 3rem;
@@ -28,8 +27,7 @@
     --widthPhone: 95%;
 
 
-    --BotonVejo: #ff311a;
-    --BotonVejoHover: #b81d0c;
+
 }
 
 html {
@@ -62,74 +60,48 @@ ul {
 .boton {
     cursor: pointer;
     color: var(--blanco);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: 1.5rem 2.5rem 1.5rem 2.5rem;
     border-radius: 1rem;
     transition: all 0.3s ease-in-out;
 }
 
-
 .botonMini {
     cursor: pointer;
-    color: var(--negro);
+    color: var(--blanco);
     font-size: 1.2rem;
-    padding: 1.2rem 2rem 1.2rem 2rem;
+    padding: 1rem 1.8rem 1rem 1.8rem;
     border-radius: 1rem;
     transition: all 0.3s ease-in-out;
 }
 
-@media (min-width: 992px) {
-    .boton {
-        font-size: 1.7rem;
-    }
-}
 
 .btn {
-    background-color: var(--Boton);
+    background-color: var(--colorPrimario);
     color: var(--blanco);
 }
 
 .btn:hover {
-    background-color: var(--BotonHover);
+    background-color: var(--colorPrimarioHover);
     color: var(--blanco);
 }
-
-.btnClaro {
-    background-color: var(--Boton);
-    color: var(--blanco);
-}
-
-.btnClaro:hover {
-    background-color: var(--BotonClaroHover);
-    color: var(--negro);
-}
-
 
 .btnBorder {
     border: 1px solid var(--blanco);
 }
 
 .btnBorder:hover {
-    border: 1px solid var(--Boton);
-    background-color: var(--Boton);
-}
-
-.btnM {
-    font-size: 1.2rem;
+    border: 1px solid var(--colorPrimario);
+    background-color: var(--colorPrimario);
 }
 
 
-@media (min-width: 480px) {
-    .btnM {
-        margin: 1rem;
-        font-size: 1.4rem;
-    }
 
-}
+@media (min-width: 480px) {}
 
 @media (min-width: 992px) {
-    .btnM {
-        font-size: 1.5rem;
+    .boton {
+        font-size: 1.7rem;
     }
 }
 
@@ -189,7 +161,7 @@ ul {
 
 .seccion1-info h2 {
     font-size: var(--fontSizeH3);
-    color: var(--negroClaro);
+    color: var(--colorSecundario);
     text-align: center;
 }
 
@@ -238,13 +210,13 @@ ul {
 }
 
 .productosInfo h2 {
-    color: var(--negroClaro);
+    color: var(--negro);
     font-size: var(--fontSizeH3);
     text-align: center;
 }
 
 .productosInfo p {
-    color: var(--negroClaro);
+    color: var(--marron);
     font-size: var(--fuenteParrafo);
     text-align: center;
     padding-top: 2rem;
@@ -270,7 +242,6 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Asegura que el pseudo-elemento tenga la misma altura que el elemento principal */
     z-index: 1;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     opacity: 100%;
@@ -426,7 +397,7 @@ ul {
 }
 
 .seccion2 p {
-    color: var(--grisClaro);
+    color: var(--colorBody);
     font-size: var(--fuenteParrafo);
     padding-top: 2rem;
     padding-bottom: 3rem;
@@ -447,7 +418,7 @@ ul {
 .sobreNosotrosContainer {
     width: 100%;
     min-height: 40rem;
-    background-color: var(--grisClaro);
+    background-color: var(--cremita);
     padding-top: 6rem;
     padding-bottom: 6rem;
 
@@ -465,12 +436,14 @@ ul {
 
 .nosotrosInfo h2 {
     font-size: var(--fontSizeH3);
+    color: var(--negro);
 }
 
 .nosotrosInfo p {
     font-size: var(--fuenteParrafo);
     margin-top: 2rem;
     margin-bottom: 4rem;
+    color: var(--negro);
 }
 
 .nosotrosImagen {
@@ -519,7 +492,7 @@ ul {
 
 .seccion3 {
     height: 60rem;
-    background-color: var(--colorPrimario);
+    background-color: var(--colorSecundario);
 }
 
 .contenedor {
@@ -558,7 +531,7 @@ ul {
     transform: translateX(-50%);
     height: 2px;
     width: 30%;
-    background-color: var(--Boton);
+    background-color: var(--colorPrimario);
 }
 
 .itemsContainer {
@@ -624,13 +597,10 @@ ul {
 
 /* Top */
 .contenedor-top-bg {
-    background-color: var(--colorPrimario);
+    background-color: var(--colorSecundario);
     color: var(--blanco);
     padding: 1.5rem;
     font-size: 1.3rem;
-
-
-
 }
 
 @media (max-width: 768px) {
@@ -686,7 +656,7 @@ ul {
 }
 
 .icono-top:hover {
-    background-color: var(--BotonHover);
+    background-color: var(--colorPrimario);
     transition: all 0.3s ease-in-out;
 }
 
@@ -734,7 +704,7 @@ ul {
 }
 
 .navegacion.scrolled {
-    background-color: var(--colorPrimario) !important;
+    background-color: var(--colorSecundario) !important;
     transition: all 0.3s ease;
 }
 
@@ -758,12 +728,11 @@ ul {
     font-weight: 600;
     position: relative;
     align-self: flex-start;
-    /* Evita que se expanda completamente */
     width: auto;
 }
 
 .nav-link.selected {
-    color: var(--Boton) !important;
+    color: var(--colorPrimario) !important;
 }
 
 .nav-link.scroll {
@@ -772,7 +741,7 @@ ul {
 }
 
 .nav-link.scroll:hover {
-    color: var(--Boton);
+    color: var(--colorPrimario);
     transition: all 0.3s ease;
 }
 
@@ -784,7 +753,7 @@ ul {
         left: 0rem;
         height: 2px;
         width: 0;
-        background-color: var(--Boton);
+        background-color: var(--colorPrimario);
         transition: width 0.3s ease;
     }
 
@@ -901,7 +870,6 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Asegura que el pseudo-elemento tenga la misma altura que el elemento principal */
     z-index: 1;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
 }
@@ -1084,7 +1052,7 @@ ul {
 
 /* Colaboradores Ruta */
 .colaboradoresBody {
-    background-color: var(--grisBody);
+    background-color: var(--colorBody);
 }
 
 .colaboradoresHeader {
@@ -1099,13 +1067,6 @@ ul {
     background-size: cover;
     background-position: center center;
     display: flex;
-}
-
-.card-img-top {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 1.5rem;
-    border-radius: 1rem;
 }
 
 .presetacion {
@@ -1138,143 +1099,76 @@ ul {
 
 
 /** Cards estilos generales **/
-.flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: row;
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-bottom: 6rem;
     width: 100%;
+    padding-bottom: 6rem;
 }
 
 .card {
-    position: relative;
-    width: 37rem !important;
-    height: 30rem;
-    background: var(--blanco);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    border: none;
-    border-radius: 1rem;
-}
-
-.card::before,
-.card::after {
-    position: absolute;
-    content: "";
-    width: 20%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: var(--BotonClaroHover);
-    transition: all 0.5s;
-}
-
-.card::before {
-    top: 0;
-    right: 0;
-    border-radius: 0 1rem 0 100%;
-}
-
-.card::after {
-    bottom: 0;
-    left: 0;
-    border-radius: 0 100% 0 1rem;
-}
-
-.card:hover::before,
-.card:hover:after {
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-    transition: all 0.5s;
-}
-
-.card-body {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    width: 37rem;
+    height: 45rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    -webkit-box-shadow: 2px 2px 0px 0px rgba(255, 49, 26, 1);
+    -moz-box-shadow: 2px 2px 0px 0px rgba(255, 49, 26, 1);
+    box-shadow: 2px 2px 0px 0px rgba(255, 49, 26, 1);
+    margin: 0 auto;
+}
+
+.cardHeader {
+    display: flex;
     justify-content: space-around;
-    padding: 1rem;
-    width: 100%;
-    height: 100%;
-    margin: auto auto;
-}
-
-.card-title {
-    font-size: var(--fontSizeH4);
-    color: var(--blanco);
-}
-
-.card-Subtitle {
-    font-size: var(--fontSizeH5);
-    color: var(--grisClaro);
-}
-
-.card-text {
-    font-size: var(--fuenteParrafo);
+    align-items: center;
     margin-bottom: 2rem;
-    color: var(--negro);
-}
-
-.cardInfo {
-    position: absolute;
 }
 
 .imagenCard {
-    width: 100%;
-    height: 100%;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 1px solid var(--gris);
+    object-fit: cover;
+}
+
+
+.cardTitle {
+    font-size: var(--fontSizeH4);
+}
+
+.cardSubtitle {
+    font-size: var(--fontSizeH5);
+    color: var(--negro);
+    background-color: var(--gris);
+    text-align: center;
+    display: inline-block;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 1rem;
 }
 
-.hover {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 998;
-    position: absolute;
-    transition: all 0.3s ease-in-out;
+.cardText {
+    background-color: var(--colorBody);
+    border-radius: 1rem;
+    color: var(--grisOscuro);
+    font-size: var(--fuenteParrafo);
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 
-.hover:hover {
-    opacity: 1;
-    transition: all 0.3s ease-in-out;
-}
 
-/** Cards particulares **/
-.card1 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/imagenes/colaboradores/arquitectoEjemplo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-.card2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/imagenes/colaboradores/diseñadoraEjemplo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-.card3 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/imagenes/colaboradores/diseñadoraEjemplo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-.card4 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/imagenes/colaboradores/arquitectoEjemplo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+
+@media (max-width:1280px) {
+    .cardGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -1293,6 +1187,17 @@ ul {
         margin-bottom: 6rem;
         margin-top: 0;
         padding-bottom: 6rem;
+        padding-top: 4rem;
+    }
+
+    .cardGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
         padding-top: 4rem;
     }
 }
@@ -1320,12 +1225,6 @@ ul {
         background-color: var(--Boton);
     }
 
-    .card {
-        position: relative;
-        width: 100% !important;
-        height: 30rem;
-    }
-    
 
 }
 
@@ -1495,4 +1394,157 @@ ul {
         font-size: var(--fontSizeH4);
     }
 
+}
+
+
+/* Apartado de obras */
+.trabajosHeader {
+    width: 100%;
+    height: 25rem;
+    margin-bottom: 6rem;
+    margin-top: 0;
+    padding-bottom: 4rem;
+    padding-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bañoHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/baño.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.cocinaHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/cocina.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.comedorHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/comedor.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.dormitorioHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/dormitorio.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.espaciosHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/multifuncional.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.exteriorHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/exterior.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.oficinaHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/estudio.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.personalizadosHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/perzonalizado.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.salaDeEstarHeader {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../public/imagenes/trabajos/salaDeEstar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+.trabajosGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 6rem;
+}
+
+.trabajo {
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid var(--grisClaro);
+}
+
+.trabajoInfo {
+    border: 1px solid var(--grisClaro);
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.trabajoImagen {
+    width: 100%;
+    height: 20rem;
+    border-radius: 1rem 1rem 0rem 0rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.trabajoImagen:hover {
+    transition: all 0.3s ease-in-out;
+
+}
+
+.trabajoName {
+    font-size: var(--fontSizeH5);
+    color: var(--negro);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 480px) {
+    .trabajosHeader {
+        padding-top: 4rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .trabajosGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+}
+
+@media (min-width: 992px) {
+    .trabajosGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* Apartado de obra */
+.headerObra {
+    height: 16rem;
+    padding-top: 0.1rem;
+    background-color: var(--gris);
 }

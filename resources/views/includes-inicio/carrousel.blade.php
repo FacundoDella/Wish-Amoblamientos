@@ -14,7 +14,7 @@
       <div class="info-container">
         <h2 class="info-titulo">Creando Muebles Excepcionales: Diseño y Fabricación de Alta Calidad</h2>
         <p class="info-descripcion">Personaliza tu ambiente con muebles de alta calidad</p>
-        <a class="boton btnClaro">Contactanos ahora</a>
+        <a class="boton btn">Contactanos ahora</a>
     </div>
     </div>
   </div>
