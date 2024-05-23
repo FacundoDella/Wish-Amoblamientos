@@ -101,9 +101,23 @@
         <div class="grid">
             <div class="nosotrosInfo">
                 <h2>¿Quienes Somos?</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae, quibusdam debitis! Veniam fugiat
-                    cumque molestias? Voluptatibus repudiandae sapiente, ullam debitis quis eaque impedit commodi, earum
-                    dicta fuga illum quidem dolorem.</p>
+                <p class="nosotrosParrafo">En Wish Amoblamientos, contamos con 20 años de experiencia en la creación de muebles y soluciones
+                    personalizadas en madera. Nuestro equipo de artesanos combina tradición y tecnología moderna para
+                    ofrecer calidad y diseño en cada proyecto.
+                    Nos especializamos en muebles a medida, remodelaciones de interiores y carpintería estructural,
+                    siempre utilizando materiales
+                    de la más alta calidad.<span class="tresPuntos nosotrosTextoExtraVisible">...</span> 
+                    <span class="nosotrosTextoExtra nosotrosTextoExtraOculto">
+                        <br>
+                        Nuestra pasión por la madera
+                        y el compromiso
+                        con la excelencia nos permite transformar espacios y superar las expectativas de nuestros
+                        clientes.Elige Wish Amoblamientos para tu próximo proyecto y experimenta la diferencia que dos
+                        décadas de
+                        experiencia pueden hacer.</span>
+                </p>
+
+                <a class="verMas botonMini btnBorder">Ver mas</a>
             </div>
             <div class="nosotrosImagen">
                 <div class="imagenContainer">

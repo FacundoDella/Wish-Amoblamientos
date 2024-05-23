@@ -484,10 +484,9 @@ ul {
 .sobreNosotrosContainer {
     width: 100%;
     min-height: 40rem;
-    background-color: var(--cremita);
+    background-color: var(--cremitaOscuro);
     padding-top: 6rem;
     padding-bottom: 6rem;
-
 }
 
 .grid {
@@ -502,14 +501,23 @@ ul {
 
 .nosotrosInfo h2 {
     font-size: var(--fontSizeH3);
-    color: var(--negro);
+    color: var(--blanco);
 }
 
-.nosotrosInfo p {
+.nosotrosParrafo {
     font-size: var(--fuenteParrafo);
     margin-top: 2rem;
-    margin-bottom: 4rem;
-    color: var(--negro);
+    margin-bottom: 2rem;
+    color: var(--grisClaro);
+    max-height: 24rem;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.parrafoHeight {
+    max-height: 50rem !important;
+    transition: all 0.3s ease-in-out;
 }
 
 .nosotrosImagen {
@@ -521,7 +529,8 @@ ul {
 }
 
 .imagenContainer {
-    margin: 0 auto;
+    margin: 2rem 0 0 0;
+    border-radius: 1rem;
 }
 
 .imagenContainer img {
@@ -529,14 +538,61 @@ ul {
     height: 100%;
     max-height: 35rem;
     object-fit: cover;
-
+    border-radius: 1rem;
 }
 
+.nosotrosTextoExtra {
+    transition: opacity .5s ease, visibility 0.5s ease;
+}
+
+.nosotrosTextoExtraOculto {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.nosotrosTextoExtraVisible {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (min-width: 300px) {
+    .nosotrosParrafo {
+        max-height: 27rem;
+    }
+
+}
+@media (min-width: 400px) {
+    .nosotrosParrafo {
+        max-height: 20rem;
+    }
+
+}
+@media (min-width: 480px) {
+    .nosotrosParrafo {
+        max-height: 17.5rem;
+    }
+
+}
+@media (min-width: 768px) {
+    .nosotrosParrafo {
+        max-height: 12rem;
+    }
+
+}
 
 @media (min-width: 992px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .imagenContainer {
+        margin: 0 auto;
+    }
+
+    .nosotrosParrafo {
+        max-height: 30rem;
+    }
+
 
     .nosotrosInfo h2 {
         font-size: var(--fontSizeH2);
@@ -551,6 +607,11 @@ ul {
     .grid {
         width: 100%;
     }
+
+    .nosotrosParrafo {
+        max-height: 24.5rem;
+    }
+
 }
 
 
