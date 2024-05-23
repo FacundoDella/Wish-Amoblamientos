@@ -45,41 +45,95 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Carrousel 
 
-const myCarouselElement = document.querySelector('#carouselExampleSlidesOnly')
+let carouselInstance;
 
-const carousel = new bootstrap.Carousel(myCarouselElement, {
-  interval: 5000,
-  touch: false,
-  pause:false
-})
+document.addEventListener('DOMContentLoaded', () => {
+    const initCarousel = () => {
+        const myCarouselElement = document.querySelector('#carouselExampleSlidesOnly');
 
-let currentIndex = 0;
-let carrouselItems = document.querySelectorAll('.carousel-item');
+        // Verifica si el elemento del carrusel existe
+        if (myCarouselElement) {
+            // Inicializa el carrusel
+            carouselInstance = new bootstrap.Carousel(myCarouselElement, {
+                interval: 5000,
+                touch: false,
+                pause: false
+            });
 
-function alternarClases() {
-    carrouselItems.forEach(item => {
-        if (item.classList.contains('animate-move')) {
-            item.classList.remove('animate-move');
-            item.classList.add('animate-move-up');
-        } else if (item.classList.contains('animate-move-up')) {
-            item.classList.remove('animate-move-up');
-            item.classList.add('animate-move-down');
-        } else if (item.classList.contains('animate-move-down')) {
-            item.classList.remove('animate-move-down');
-            item.classList.add('animate-move-up');
+            let currentIndex = 0;
+            const carrouselItems = document.querySelectorAll('.carousel-item');
+
+            const alternarClases = () => {
+                carrouselItems.forEach(item => {
+                    if (item.classList.contains('animate-move')) {
+                        item.classList.remove('animate-move');
+                        item.classList.add('animate-move-up');
+                    } else if (item.classList.contains('animate-move-up')) {
+                        item.classList.remove('animate-move-up');
+                        item.classList.add('animate-move-down');
+                    } else if (item.classList.contains('animate-move-down')) {
+                        item.classList.remove('animate-move-down');
+                        item.classList.add('animate-move-up');
+                    }
+                });
+                currentIndex++;
+                if (currentIndex >= carrouselItems.length) {
+                    currentIndex = 0; // Reinicia el índice al principio
+                    carouselInstance.next();
+                }
+                setTimeout(alternarClases, 5000);
+            };
+
+            alternarClases();
         }
+    };
+
+    const destroyCarousel = () => {
+        if (carouselInstance) {
+            carouselInstance.dispose();
+            carouselInstance = null;
+        }
+    };
+
+    initCarousel();
+
+    // Si estás utilizando un enrutador JavaScript, puedes necesitar volver a inicializar y destruir cuando cambias de ruta
+    window.addEventListener('popstate', () => {
+        destroyCarousel();
+        initCarousel();
     });
-    currentIndex++;
-    if (currentIndex >= carrouselItems.length) {
-        currentIndex = 0; // Reinicia el índice al principio
-        carousel.next(); 
-    }
-    
-    setTimeout(alternarClases, 5000);
+});
+
+
+let imagenesConBotones = document.querySelector('.itemActiveButons');
+let botonesDeImagen = document.querySelectorAll('.boton-elegante');
+let informacionVariable = document.querySelector('.informacionVariable');
+if (imagenesConBotones) {
+    imagenesConBotones.addEventListener('click', () => {
+        botonesDeImagen.forEach(boton => {
+            if (boton.classList.contains('botonEleganteOculto')) {
+                boton.classList.remove('botonEleganteOculto');
+                boton.classList.add('botonEleganteVisible');
+            } else {
+                boton.classList.remove('botonEleganteVisible');
+                boton.classList.add('botonEleganteOculto');
+                informacionVariable.classList.remove('informacionVariableVisible');
+                informacionVariable.classList.add('informacionVariableOculto');
+            }
+        });
+    });
 }
 
-alternarClases();
-
-
-
-
+botonesDeImagen.forEach(boton => {
+    boton.addEventListener('click', () => {
+        if (informacionVariable.classList.contains('informacionVariableOculto')) {
+            informacionVariable.classList.remove('informacionVariableOculto');
+            informacionVariable.classList.add('informacionVariableVisible');
+            console.log('visible');
+        } else {
+            informacionVariable.classList.remove('informacionVariableVisible');
+            informacionVariable.classList.add('informacionVariableOculto');
+            console.log('oculto');
+        }
+    })
+})
