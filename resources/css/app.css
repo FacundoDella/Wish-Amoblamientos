@@ -731,7 +731,7 @@ ul {
 .contenedor-top-bg {
     background-color: var(--colorSecundario);
     color: var(--blanco);
-    padding: 1.5rem;
+    padding: 1rem;
     font-size: 1.3rem;
 }
 
@@ -781,33 +781,14 @@ ul {
     white-space: nowrap
 }
 
-.icono-top {
-    padding: 1rem;
-    border-radius: 50%;
-    transition: all 0.3s ease-in-out;
-}
-
-.icono-top:hover {
-    background-color: var(--colorPrimario);
-    transition: all 0.3s ease-in-out;
-}
-
-.enlace-svg {
-    color: var(--blanco);
-    max-width: 24px;
-}
-
-
-
 /* Navegacion */
-
 
 .container-fluid {
     max-width: 120rem;
 }
 
 .navegacion {
-    padding: 1rem 0 1rem 1rem;
+    padding: 1rem 0 1rem 0rem;
     transition: all 0.3s ease;
     font-size: 1.8rem;
 }
@@ -1190,7 +1171,6 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
     gap: 1rem;
 }
 
@@ -1207,6 +1187,11 @@ ul {
     transition-duration: .3s;
 }
 
+/* whatsapp*/
+.containerCero:hover {
+    background-color: #11C146;
+    transition-duration: .3s;
+}
 /* instagram*/
 .containerOne:hover {
     background-color: #d62976;
@@ -1214,7 +1199,7 @@ ul {
 }
 
 /* Youtube*/
-.containerFour:hover {
+.containerTwo:hover {
     background-color: #FF0000;
     transition-duration: .3s;
 }

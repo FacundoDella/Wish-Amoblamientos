@@ -21,34 +21,36 @@
             </div>
         </div>
 
-        <div class="enlaces">
-            <a class="icono-top" href=""><svg class="enlace-svg" xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-brand-whatsapp" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-                    <path
-                        d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-                </svg></a>
-            <a class="icono-top" href=""><svg class="enlace-svg" xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
-                    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                    <path d="M16.5 7.5l0 .01" />
-                </svg></a>
-            <a class="icono-top" href=""><svg class="enlace-svg" xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-brand-youtube-filled" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                        d="M18 3a5 5 0 0 1 5 5v8a5 5 0 0 1 -5 5h-12a5 5 0 0 1 -5 -5v-8a5 5 0 0 1 5 -5zm-9 6v6a1 1 0 0 0 1.514 .857l5 -3a1 1 0 0 0 0 -1.714l-5 -3a1 1 0 0 0 -1.514 .857z"
-                        stroke-width="0" fill="currentColor" />
-                </svg></a>
-        </div>
+            <div class="cardFooter">
+                <a class="socialContainer containerCero" href="#">
+                    <svg class="instagramSvg socialSvg "  xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                        <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                      </svg>
+                </a>
+                <a class="socialContainer containerOne" href="#">
+                    <svg class="instagramSvg socialSvg " xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24"
+                        viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                        <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M16.5 7.5l0 .01" />
+                    </svg>
+                </a>
+                <a class="socialContainer containerTwo" href="#">
+                    <svg class="socialSvg" xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-brand-youtube-filled" width="24" height="24"
+                        viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M18 3a5 5 0 0 1 5 5v8a5 5 0 0 1 -5 5h-12a5 5 0 0 1 -5 -5v-8a5 5 0 0 1 5 -5zm-9 6v6a1 1 0 0 0 1.514 .857l5 -3a1 1 0 0 0 0 -1.714l-5 -3a1 1 0 0 0 -1.514 .857z"
+                            stroke-width="0" fill="currentColor" />
+                    </svg>
+                </a>
+            </div>
     </div>
 </div>

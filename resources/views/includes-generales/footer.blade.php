@@ -31,7 +31,7 @@
                         <path d="M16.5 7.5l0 .01" />
                     </svg>
                 </a>
-                <a class="socialContainer containerFour" href="#">
+                <a class="socialContainer containerTwo" href="#">
                     <svg class="socialSvg" xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-brand-youtube-filled" width="24" height="24"
                         viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
@@ -43,9 +43,6 @@
                     </svg>
                 </a>
             </div>
-
-
-
         </div>
     </div>
 
