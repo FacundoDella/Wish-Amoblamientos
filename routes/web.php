@@ -60,3 +60,25 @@ Route::get('/obra', function () {
     return view('obras.obra');
 });
 
+// Blog
+Route::get('/blog', function () {
+    return view('blog.blog');
+});
+Route::get('/blog/blog1', function () {
+    return view('blog.blog1');
+});
+Route::get('/blog/blog2', function () {
+    return view('blog.blog2');
+});
+Route::get('/blog/blog3', function () {
+    return view('blog.blog3');
+});
+Route::get('/blog/blog4', function () {
+    return view('blog.blog4');
+});
+Route::get('/blog/blog5', function () {
+    return view('blog.blog5');
+});
+Route::get('/blog/blog6', function () {
+    return view('blog.blog6');
+});

@@ -93,7 +93,7 @@
             <h2>¡Visita nuestro blog!</h2>
             <p>Descubre consejos, guías, materiales y herramientas que utilizamos para inspirarte y ayudarte en tus
                 proyectos.</p>
-            <a href="" class="boton btnBorder">Nuestro Blog</a>
+            <a href="/blog" class="boton btnBorder">Nuestro Blog</a>
         </div>
     </div>
 
