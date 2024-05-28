@@ -2134,7 +2134,7 @@ ul {
 
 .blog1seccionesTitulo {
     color: var(--negro);
-    font-size: var(--fontSizeH5);
+    font-size: var(--fontSizeH4);
     display: inline;
     position: relative;
 }
@@ -2154,7 +2154,7 @@ ul {
 }
 
 .blog1Descripcion p {
-    font-size: var(--fuenteParrafoMini);
+    font-size: var(--fuenteParrafo);
     color: var(--negro);
 }
 
@@ -2164,15 +2164,19 @@ ul {
 
 .blog1CaracteristicasContenedor h3 {
     color: var(--negro);
-    font-size: var(--fuenteParrafoLong);
+    font-size: var(--fontSizeH5);
 }
 
 .blog1Caracteristicas {
     list-style-type: circle;
 }
 
+.blog1Caracteristicas li::marker {
+    color: var(--colorPrimario);
+}
+
 .blog1CaracteristicasLi {
-    font-size: var(--fuenteParrafoMini);
+    font-size: var(--fuenteParrafo);
     margin-top: 1rem;
     color: var(--grisOscuro);
 }
@@ -2231,20 +2235,20 @@ ul {
 
     .blog1seccionesTitulo {
         color: var(--negro);
-        font-size: var(--fontSizeH4);
+        font-size: var(--fontSizeH3);
         display: inline;
         position: relative;
     }
 
     .blog1Descripcion p {
-        font-size: var(--fuenteParrafo);
+        font-size: var(--fuenteParrafoLong);
         color: var(--negro);
     }
 
 
     .blog1CaracteristicasContenedor h3 {
         color: var(--negro);
-        font-size: var(--fuenteParrafoLong);
+        font-size: var(--fontSizeH4);
     }
 
     .blog1CaracteristicasLi {
@@ -2270,5 +2274,181 @@ ul {
 }
 
 /* !SECTION Blog1 Particular */
+
+
+
+/* SECTION Blog2 Particular */
+
+.contenedorBlog2Seccion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6rem;
+    margin-top: 6rem;
+}
+
+.blog2Seccion {
+    margin: 2rem 0rem 4rem 0rem;
+    -webkit-box-shadow: 10px 10px 53px -29px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 53px -29px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 53px -29px rgba(0, 0, 0, 0.75);
+    padding: 2rem 1rem 2rem 1rem;
+    border-radius: 1rem;
+    background-color: var(--colorBody);
+    width: 100%;
+}
+
+.blog2Titulo {
+    color: var(--grisOscuro);
+    font-size: var(--fontSizeH3);
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.blog2Titulo span {
+    color: var(--negro);
+}
+
+.blog2Titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    height: 2px;
+    width: 100%;
+    background-color: var(--colorPrimario);
+}
+
+.blog2Seccion h4 {
+    color: var(--negro);
+    font-size: var(--fontSizeH4);
+}
+
+.blog2Seccion p {
+    color: var(--negro);
+    font-size: var(--fuenteParrafo);
+    margin-top: 1rem;
+}
+
+.blog2Consejos {
+    margin-top: 3rem;
+}
+
+.blog2Consejos h3 {
+    color: var(--negro);
+    font-size: var(--fontSizeH4);
+}
+
+.blog2ContenedorLi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.blog2ContenedorLi li {
+    color: var(--negro);
+    font-size: var(--fuenteParrafo);
+    margin-top: 2rem;
+}
+
+.completadoSVG {
+    min-width: 2rem;
+    min-height: 2rem;
+    width: 3rem;
+    height: 3rem;
+    color: var(--colorPrimario);
+}
+
+
+
+.blog2Conclusion {
+    margin-top: 3rem;
+}
+
+.blog2Conclusion h3 {
+    color: var(--negro);
+    font-size: var(--fontSizeH4);
+}
+
+.blog2Conclusion p {
+    color: var(--negro);
+    font-size: var(--fuenteParrafo);
+}
+
+
+.blog2ImagenesGrid {
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.blog2Imagenes {
+    margin: 0 auto;
+    width: 15rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+
+
+
+@media (min-width: 480px) {}
+
+@media (min-width: 768px) {
+    .blog2Seccion {
+        margin: 4rem 0rem 4rem 0rem;
+        -webkit-box-shadow: 10px 10px 53px -29px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 10px 10px 53px -29px rgba(0, 0, 0, 0.75);
+        box-shadow: 10px 10px 53px -29px rgba(0, 0, 0, 0.75);
+        padding: 3rem;
+        border-radius: 1rem;
+        background-color: var(--colorBody);
+        width: 100%;
+    }
+
+
+    .blog2ImagenesGrid {
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .blog2Imagenes {
+        margin: 0 auto;
+        width: 50rem;
+        height: 25rem;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+}
+
+@media (min-width: 992px) {}
+
+
+
+/* !SECTION Blog2 Particular */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* TODO ver el tema de los headers, ya que el top ahora no tiene display:none, sino overflow:hidden */
