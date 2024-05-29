@@ -1,9 +1,11 @@
 <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary navegacion">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img class="imagenLogo"
-                src="{{ asset('imagenes/logoSinFondo.jpg') }}"alt="Logo">
-            <h3 class="navegacion-titulo">Wish Amoblamientos</h3>
-        </a>
+        <div class="navbar-brand" href="#">
+            <a href="/" class="enlanceAInicio">
+                <img class="imagenLogo"src="{{ asset('imagenes/logoSinFondo.jpg') }}" alt="Logo">
+                <h3 class="navegacion-titulo">Wish Amoblamientos</h3>
+            </a>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
