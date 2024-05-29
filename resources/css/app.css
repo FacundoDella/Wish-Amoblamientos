@@ -2498,6 +2498,7 @@ ul {
     background-color: var(--colorBody);
     width: 100%;
 }
+
 .blog3Seccion h2 {
     font-size: var(--fontSizeH4);
     position: relative;
@@ -2515,13 +2516,17 @@ ul {
     background-color: var(--colorPrimario);
 }
 
-.blog3Seccion img {
+.imagenBlog3Contenedor {
+    margin-bottom: 3rem;
+}
+
+.imagenBlog3Contenedor img {
     max-width: 65rem;
     max-height: 35rem;
     object-fit: cover;
     border-radius: 1rem;
     width: 100%;
-    margin-bottom: 3rem;
+    margin: 0 auto;
 }
 
 
@@ -2556,12 +2561,18 @@ ul {
         display: inline-block;
         margin-bottom: 3rem;
     }
-    
+
 
 }
 
 
 /* !SECTION Blog3 Particular */
+
+/* SECTION Blog4 Particular */
+/* Usa el mismo formato que el blog3 */
+
+
+/* !SECTION Blog4 Particular */
 
 
 
