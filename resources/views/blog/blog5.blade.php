@@ -36,7 +36,7 @@
             <section class="blog3Seccion">
                 <h2>Un Legado de Habilidades Tradicionales:</h2>
                 <div class="imagenBlog3Contenedor">
-                    <img src="{{ asset('imagenes/blog/blog4/tradicional.jpg') }}" alt="">
+                    <img src="{{ asset('imagenes/blog/blog5/tradicional.jpg') }}" alt="">
                 </div>
                 <div class="blog3SeccionInfo">
                     <h3>Descripción</h3>
@@ -50,7 +50,7 @@
             <section class="blog3Seccion">
                 <h2>Exclusividad y Personalización:</h2>
                 <div class="imagenBlog3Contenedor">
-                    <img src="{{ asset('imagenes/blog/blog4/unico.jpg') }}" alt="">
+                    <img src="{{ asset('imagenes/blog/blog5/unico.jpg') }}" alt="">
                 </div>
                 <div class="blog3SeccionInfo">
                     <h3>Descripción</h3>
@@ -63,7 +63,7 @@
             <section class="blog3Seccion">
                 <h2>Durabilidad y Valor a Largo Plazo:</h2>
                 <div class="imagenBlog3Contenedor">
-                    <img src="{{ asset('imagenes/blog/blog4/durabilidad.jpg') }}" alt="">
+                    <img src="{{ asset('imagenes/blog/blog5/durabilidad.jpg') }}" alt="">
                 </div>
                 <div class="blog3SeccionInfo">
                     <h3>Descripción</h3>
@@ -77,7 +77,7 @@
             <section class="blog3Seccion">
                 <h2>Un Enfoque Sostenible y Responsable:</h2>
                 <div class="imagenBlog3Contenedor">
-                    <img src="{{ asset('imagenes/blog/blog4/sustentable.jpg') }}" alt="">
+                    <img src="{{ asset('imagenes/blog/blog5/sustentable.jpg') }}" alt="">
                 </div>
                 <div class="blog3SeccionInfo">
                     <h3>Descripción</h3>
@@ -91,7 +91,7 @@
             <section class="blog3Seccion">
                 <h2>Un Apoyo a la Economía Local y al Patrimonio Cultural:</h2>
                 <div class="imagenBlog3Contenedor">
-                    <img src="{{ asset('imagenes/blog/blog4/artesano.jpg') }}" alt="">
+                    <img src="{{ asset('imagenes/blog/blog5/artesano.jpg') }}" alt="">
                 </div>
                 <div class="blog3SeccionInfo">
                     <h3>Descripción</h3>
