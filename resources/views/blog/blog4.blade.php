@@ -160,9 +160,5 @@
             </section>
         </div>
     </main>
-
-
-
-
     @include('includes-generales.footer')
 </body>
