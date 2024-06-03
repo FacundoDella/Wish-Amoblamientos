@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Lista de Trabajos</h1>
+    <h1>
+        Lista de Trabajos @auth de {{ Auth::user()->name }} @endauth
+    </h1>
 
     @if (session('success'))
         <div class="alert alert-success">
@@ -22,18 +24,19 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($trabajos as $trabajo)
+            @foreach ($trabajos as $trabajo)
                 <tr>
                     <td>{{ $trabajo->id }}</td>
                     <td>{{ $trabajo->titulo }}</td>
                     <td>{{ $trabajo->descripcion }}</td>
                     <td>{{ $trabajo->seccion->nombre }}</td>
                     <td>
-                        <a href="{{ route('trabajos.edit', $trabajo->id) }}" class="btn">Editar</a>
-                        <form action="{{ route('trabajos.destroy', $trabajo->id) }}" method="POST" style="display:inline-block;">
+                        <a href="{{ route('trabajos.edit', $trabajo->id) }}" class="btn btnMQAdmin">Editar</a>
+                        <form action="{{ route('trabajos.destroy', $trabajo->id) }}" method="POST"
+                            style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn">Eliminar</button>
+                            <button type="submit" class="btn btnMQAdmin">Eliminar</button>
                         </form>
                     </td>
                 </tr>

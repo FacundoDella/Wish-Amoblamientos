@@ -60,6 +60,13 @@ ul {
     margin: 0;
 }
 
+@media (max-width: 480px) {
+    .btnMQAdmin {
+        margin-bottom: 1rem;
+    }
+}
+
+
 .boton {
     cursor: pointer;
     color: var(--blanco);
@@ -2297,7 +2304,7 @@ ul {
         margin-top: 1rem;
         margin-bottom: 2rem;
     }
-    
+
 }
 
 @media (min-width: 992px) {
@@ -2585,7 +2592,7 @@ ul {
         width: 100%;
         margin: 0 auto;
     }
-    
+
 
 }
 
@@ -2612,3 +2619,6 @@ ul {
 
 
 /* TODO Hacer responsive el blog General */
+
+
+/* TODO hacer sexo */

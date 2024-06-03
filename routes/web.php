@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TrabajoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,22 +89,19 @@ Route::get('/blog/blog6', function () {
 
 // Admin
 
-use App\Http\Controllers\TrabajoController;
+Route::get('admin/trabajos', [TrabajoController::class, 'index'])->middleware('auth')->name('trabajos.index');
 
-
-Route::get('admin/trabajos', [TrabajoController::class, 'index'])->name('trabajos.index');
-
-Route::get('admin/trabajos/create', [TrabajoController::class, 'create'])->name('trabajos.create');
+Route::get('admin/trabajos/create', [TrabajoController::class, 'create'])->middleware('auth')->name('trabajos.create');
 
 // Ruta para almacenar un nuevo trabajo
-Route::post('admin/trabajos', [TrabajoController::class, 'store'])->name('trabajos.store');
+Route::post('admin/trabajos', [TrabajoController::class, 'store'])->middleware('auth')->name('trabajos.store');
 
-Route::get('admin/trabajos/{trabajo}/edit', [TrabajoController::class, 'edit'])->name('trabajos.edit');
+Route::get('admin/trabajos/{trabajo}/edit', [TrabajoController::class, 'edit'])->middleware('auth')->name('trabajos.edit');
 
 // Ruta para actualizar un trabajo existente
-Route::put('admin/trabajos/{trabajo}', [TrabajoController::class, 'update'])->name('trabajos.update');
+Route::put('admin/trabajos/{trabajo}', [TrabajoController::class, 'update'])->middleware('auth')->name('trabajos.update');
 
-Route::delete('admin/trabajos/{trabajo}', [TrabajoController::class, 'destroy'])->name('trabajos.destroy');
+Route::delete('admin/trabajos/{trabajo}', [TrabajoController::class, 'destroy'])->middleware('auth')->name('trabajos.destroy');
 
 
 Route::view('/login', 'admin.login')->name('login');
@@ -111,4 +109,4 @@ Route::view('/registro', 'admin.register')->name('registro');
 
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
 Route::post('/inicia-sesion', [LoginController::class, 'login'])->name('inicia-sesion');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

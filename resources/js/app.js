@@ -145,21 +145,22 @@ let tresPuntos = document.querySelector('.tresPuntos');
 let nosotrosParrafo = document.querySelector('.nosotrosParrafo');
 let nosotrosTextoExtra = document.querySelector('.nosotrosTextoExtra');
 
-
-verMas.addEventListener('click', () => {
-    if (nosotrosTextoExtra.classList.contains('nosotrosTextoExtraOculto')) {
-        verMas.textContent = 'Ver menos';
-        nosotrosParrafo.classList.add('parrafoHeight');
-        nosotrosTextoExtra.classList.remove('nosotrosTextoExtraOculto');
-        nosotrosTextoExtra.classList.add('nosotrosTextoExtraVisible');
-        tresPuntos.classList.remove('nosotrosTextoExtraVisible');
-        tresPuntos.classList.add('nosotrosTextoExtraOculto');
-    } else {
-        verMas.textContent = 'Ver mas';
-        nosotrosParrafo.classList.remove('parrafoHeight');
-        nosotrosTextoExtra.classList.remove('nosotrosTextoExtraVisible');
-        nosotrosTextoExtra.classList.add('nosotrosTextoExtraOculto');
-        tresPuntos.classList.remove('nosotrosTextoExtraOculto');
-        tresPuntos.classList.add('nosotrosTextoExtraVisible');
-    }
-})
+if (verMas) {
+    verMas.addEventListener('click', () => {
+        if (nosotrosTextoExtra.classList.contains('nosotrosTextoExtraOculto')) {
+            verMas.textContent = 'Ver menos';
+            nosotrosParrafo.classList.add('parrafoHeight');
+            nosotrosTextoExtra.classList.remove('nosotrosTextoExtraOculto');
+            nosotrosTextoExtra.classList.add('nosotrosTextoExtraVisible');
+            tresPuntos.classList.remove('nosotrosTextoExtraVisible');
+            tresPuntos.classList.add('nosotrosTextoExtraOculto');
+        } else {
+            verMas.textContent = 'Ver mas';
+            nosotrosParrafo.classList.remove('parrafoHeight');
+            nosotrosTextoExtra.classList.remove('nosotrosTextoExtraVisible');
+            nosotrosTextoExtra.classList.add('nosotrosTextoExtraOculto');
+            tresPuntos.classList.remove('nosotrosTextoExtraOculto');
+            tresPuntos.classList.add('nosotrosTextoExtraVisible');
+        }
+    })
+}

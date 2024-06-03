@@ -15,7 +15,7 @@
 
     <main class="contenedor alingn-center p-5 mt-5">
         <h1 class="mb-5">Iniciar Sesión</h1>
-        <form method="POST" action="{{ route('validar-registro') }}">
+        <form method="POST" action="{{ route('inicia-sesion') }}">
             @csrf
             <div class="mb-3">
                 <label for="emailInput" class="form-label">Emai</label>
