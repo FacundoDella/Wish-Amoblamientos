@@ -12,7 +12,15 @@
 </head>
 
 <body>
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <main class="contenedor alingn-center p-5 mt-5">
         <h1 class="mb-5">Iniciar Sesión</h1>
         <form method="POST" action="{{ route('inicia-sesion') }}">

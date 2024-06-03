@@ -11,13 +11,23 @@ class LoginController extends Controller
 {
     public function register(Request $request)
     {
-        // Falta validar datos
+        // validar datos
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+            'name' => 'required',
+        ], [
+            'email.required' => 'El campo de correo electrónico es obligatorio.',
+            'email.email' => 'Por favor, introduce una dirección de correo electrónico válida.',
+            'password.required' => 'El campo de contraseña es obligatorio.',
+        ]);
+
 
         $user = new User();
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = ($request->password);
+        $user->password =  Hash::make($request->password);
 
         $user->save();
 
@@ -28,6 +38,15 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         // Validacion
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'El campo de correo electrónico es obligatorio.',
+            'email.email' => 'Por favor, introduce una dirección de correo electrónico válida.',
+            'password.required' => 'El campo de contraseña es obligatorio.',
+        ]);
+
 
         $credentials = [
             "email" => $request->email,
