@@ -25,8 +25,16 @@
             <h2>Selecciona una imagen del trabajo "{{ $trabajo->id }}"</h2>
             <div class="imagenesOpcionesContenedor">
                 @foreach ($trabajo->imagenes as $imagen)
-                    <img src="{{ asset($imagen->ruta) }}" alt="Imagen del Trabajo" class="imagenOpciones"
-                        data-imagen-id="{{ $imagen->id }}">
+                    <div class="contenedorImagenOpcional">
+                        <img src="{{ asset($imagen->ruta) }}" alt="Imagen del Trabajo" class="imagenOpciones"
+                            data-imagen-id="{{ $imagen->id }}">
+                        {{-- @foreach ($imagen->botones as $boton)
+                            <button class="boton-elegante"
+                                style="position: absolute; left: {{ $boton->posicion_x }}px; top: {{ $boton->posicion_y }}px;">
+                                {{ $boton->contenido }}
+                            </button>
+                        @endforeach --}}
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -34,6 +42,7 @@
             <div class="imagenEditor">
                 <div class="contenedorImagen"></div>
             </div>
+            <div class="informacionDelBoton"></div>
             <div class="contenidoVariable"></div>
         </div>
         <div class="formularioContenedor">
@@ -44,7 +53,7 @@
                 <input type="hidden" name="posicion_x" id="posicion_x">
                 <input type="hidden" name="posicion_y" id="posicion_y">
                 <button id="guardarBotones" type="submit" class="botonMini btn">Guardar Botones</button>
-            </form>
+            </form>            
         </div>
     </main>
     <script>

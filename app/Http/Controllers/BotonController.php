@@ -9,49 +9,43 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Boton;
 use Illuminate\Http\Request;
 
-// class BotonController extends Controller
-// {
-//     public function store(Request $request)
-//     {
-//         $requestData = $request->all();
-
-
-//         $botones = $requestData;
-
-//         foreach ($botones as $data) {
-//             $validatedData = Validator::make($data, [
-//                 'imagen_id' => 'required|exists:imagenes,id',
-//                 'contenido' => 'required|string',
-//                 'posicion_x' => 'required|numeric',
-//                 'posicion_y' => 'required|numeric',
-
-//             ])->validate();
-
-//             Boton::create($validatedData);
-//         }
-//         // Redireccionar de vuelta a la vista original
-//         return redirect()->route('trabajos.index')->with('success', 'Botones agregados correctamente');
-//     }
-// }
 class BotonController extends Controller
 {
     public function store(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'imagen_id' => 'required',
-            'contenido' => 'required',
-            'posicion_x' => 'required',
-            'posicion_y' => 'required',
+            'contenido' => 'required|array',
+            'posicion_x' => 'required|array',
+            'posicion_y' => 'required|array',
         ]);
 
-        $boton = new Boton();
-        $boton->imagen_id = $request->imagen_id;
-        $boton->contenido = $request->contenido;
-        $boton->posicion_x = $request->posicion_x;
-        $boton->posicion_y = $request->posicion_y;
-        $boton->save();
+        $imagen_id = $request->imagen_id;
+        $contenidos = $request->contenido;
+        $posiciones_x = $request->posicion_x;
+        $posiciones_y = $request->posicion_y;
 
-        // Redireccionar de vuelta a la vista original
-        return redirect()->route('trabajos.index')->with('success', 'Botones agregados correctamente');
+        // Verificamos que el número de botones coincida en todos los campos
+        $num_botones = count($contenidos);
+        if (count($posiciones_x) != $num_botones || count($posiciones_y) != $num_botones) {
+            return redirect()->back()->with('error', 'Los datos de los botones no coinciden.');
+        }
+
+        try {
+            // Guardamos cada botón en la base de datos
+            for ($i = 0; $i < $num_botones; $i++) {
+                $boton = new Boton();
+                $boton->imagen_id = $imagen_id;
+                $boton->contenido = $contenidos[$i];
+                $boton->posicion_x = $posiciones_x[$i];
+                $boton->posicion_y = $posiciones_y[$i];
+                $boton->save();
+            }
+
+            return redirect()->route('trabajos.index')->with('success', 'Botones agregados correctamente');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Hubo un problema al agregar los botones.');
+        }
     }
 }

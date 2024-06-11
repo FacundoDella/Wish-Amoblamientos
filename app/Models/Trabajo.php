@@ -36,6 +36,6 @@ class Trabajo extends Model
 
     public function imagenes()
     {
-        return $this->hasMany(Imagenes::class);
+        return $this->hasMany(Imagenes::class, 'trabajo_id');
     }
 }

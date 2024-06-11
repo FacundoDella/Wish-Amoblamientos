@@ -13,11 +13,22 @@ class Imagenes extends Model
 
     public function trabajo()
     {
-        return $this->belongsTo(Trabajo::class);
+        return $this->belongsTo(Trabajo::class, 'trabajo_id');
     }
 
     public function botones()
-{
-    return $this->hasMany(Boton::class);
-}
+    {
+        return $this->hasMany(Boton::class, 'imagen_id');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($imagen) {
+            // Eliminar botones asociados
+            $imagen->botones()->delete();
+        });
+    }
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BotonController;
+use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TrabajoController;
 use Illuminate\Support\Facades\Route;
@@ -90,6 +91,7 @@ Route::get('/blog/blog6', function () {
 
 // Admin
 
+//Trabajos Controlller
 Route::get('admin/trabajos', [TrabajoController::class, 'index'])->middleware('auth')->name('trabajos.index');
 
 Route::get('admin/trabajos/create', [TrabajoController::class, 'create'])->middleware('auth')->name('trabajos.create');
@@ -103,6 +105,13 @@ Route::get('admin/trabajos/{trabajo}/edit', [TrabajoController::class, 'edit'])-
 Route::put('admin/trabajos/{trabajo}', [TrabajoController::class, 'update'])->middleware('auth')->name('trabajos.update');
 
 Route::delete('admin/trabajos/{trabajo}', [TrabajoController::class, 'destroy'])->middleware('auth')->name('trabajos.destroy');
+
+
+
+// Imagenes Controller
+Route::delete('/imagenes/{imagen}', [ImagenController::class, 'destroy'])->name('imagenes.destroy');
+
+
 
 // Aprartado de inputs
 Route::get('admin/trabajos/{trabajo}/inputs', [TrabajoController::class, 'addInputs'])

@@ -13,6 +13,6 @@ class Boton extends Model
 
     public function imagen()
     {
-        return $this->belongsTo(Imagenes::class);
+        return $this->belongsTo(Imagenes::class, 'imagen_id');
     }
 }

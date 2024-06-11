@@ -172,10 +172,12 @@ if (verMas) {
 let imagenes = document.querySelectorAll('.imagenOpciones');
 let contenedorImagen = document.querySelector('.contenedorImagen');
 let contenidoVariable = document.querySelector('.contenidoVariable');
+let infoBoton = document.querySelector('.informacionDelBoton');
 let parrafoVisible = null;
 let textareaVisible = null;
 let botonEliminarVisible = null;
 let imagen_id = document.querySelector('.imagen_id');
+
 imagenes.forEach(imagen => {
     imagen.addEventListener('click', () => {
         let ImagenSeleccionada = document.createElement('img');
@@ -183,7 +185,6 @@ imagenes.forEach(imagen => {
         ImagenSeleccionada.src = imagen.src;
         let imagenSeleccionadaId = imagen.getAttribute('data-imagen-id');
         imagen_id.value = imagenSeleccionadaId;
-        console.log(imagenSeleccionadaId);
         ImagenSeleccionada.dataset.imagenId = imagen.dataset.imagenId;
         ImagenSeleccionada.style.position = 'relative';
         contenedorImagen.innerHTML = "";
@@ -191,18 +192,19 @@ imagenes.forEach(imagen => {
         ImagenSeleccionada.addEventListener('click', crearBoton);
 
         function crearBoton(e) {
-            let coordenadaX = e.offsetX;
-            let coordenadaY = e.offsetY;
+            let rectImagen = ImagenSeleccionada.getBoundingClientRect();
+            let coordenadaX = e.offsetX / rectImagen.width * 100; // Convertir a porcentaje
+            let coordenadaY = e.offsetY / rectImagen.height * 100; // Convertir a porcentaje
+
             let botonDinamico = document.createElement('button');
             botonDinamico.classList.add('boton-elegante');
-            botonDinamico.style.left = coordenadaX + 'px';
-            botonDinamico.style.top = coordenadaY + 'px';
+            botonDinamico.style.left = coordenadaX + '%'; // Usar porcentaje
+            botonDinamico.style.top = coordenadaY + '%'; // Usar porcentaje
             contenedorImagen.appendChild(botonDinamico);
 
             let textareaTexto = document.createElement('textarea');
             textareaTexto.classList.add('textarea-texto');
-            contenedorImagen.appendChild(textareaTexto);
-
+            infoBoton.appendChild(textareaTexto);
             let parrafoAsociado = document.createElement('p');
             parrafoAsociado.classList.add('parrafo-oculto');
             contenidoVariable.appendChild(parrafoAsociado);
@@ -212,7 +214,7 @@ imagenes.forEach(imagen => {
             botonEliminar.classList.add('boton-eliminar');
             botonEliminar.classList.add('botonMini');
             botonEliminar.classList.add('btn');
-            contenedorImagen.appendChild(botonEliminar);
+            infoBoton.appendChild(botonEliminar);
 
             botonDinamico.textarea = textareaTexto;
             botonDinamico.parrafo = parrafoAsociado;
@@ -247,16 +249,16 @@ imagenes.forEach(imagen => {
                 let clientX = event.clientX || event.touches[0].clientX;
                 let clientY = event.clientY || event.touches[0].clientY;
 
-                let nuevoX = clientX - rectContenedor.left - (botonDinamico.offsetWidth / 2);
-                let nuevoY = clientY - rectContenedor.top - (botonDinamico.offsetHeight / 2);
+                let nuevoX = (clientX - rectContenedor.left - (botonDinamico.offsetWidth / 2)) / rectImagen.width * 100;
+                let nuevoY = (clientY - rectContenedor.top - (botonDinamico.offsetHeight / 2)) / rectImagen.height * 100;
 
                 if (nuevoX < 0) nuevoX = 0;
                 if (nuevoY < 0) nuevoY = 0;
-                if (nuevoX + botonDinamico.offsetWidth > rectImagen.width) nuevoX = rectImagen.width - botonDinamico.offsetWidth;
-                if (nuevoY + botonDinamico.offsetHeight > rectImagen.height) nuevoY = rectImagen.height - botonDinamico.offsetHeight;
+                if (nuevoX + (botonDinamico.offsetWidth / rectImagen.width * 100) > 100) nuevoX = 100 - (botonDinamico.offsetWidth / rectImagen.width * 100);
+                if (nuevoY + (botonDinamico.offsetHeight / rectImagen.height * 100) > 100) nuevoY = 100 - (botonDinamico.offsetHeight / rectImagen.height * 100);
 
-                botonDinamico.style.left = nuevoX + 'px';
-                botonDinamico.style.top = nuevoY + 'px';
+                botonDinamico.style.left = nuevoX + '%';
+                botonDinamico.style.top = nuevoY + '%';
             }
 
             function soltarBoton() {
@@ -317,8 +319,7 @@ if (guardarBotonesBtn) {
         document.querySelectorAll('.boton-elegante').forEach(function (boton) {
             let coordenadaX = boton.style.left;
             let coordenadaY = boton.style.top;
-            let contenido = boton.nextElementSibling.value;
-
+            let contenido = boton.closest('.contenidoVariable').querySelector('parrafo').value;
             botonesData.push({
                 posicion_x: parseFloat(coordenadaX),
                 posicion_y: parseFloat(coordenadaY),
@@ -327,12 +328,13 @@ if (guardarBotonesBtn) {
         });
 
         // Asignamos los datos a los campos ocultos del formulario
-        document.getElementById('contenido').value = JSON.stringify(botonesData[0]["contenido"]);
-        document.getElementById('posicion_x').value = JSON.stringify(botonesData[0]["posicion_x"]);
-        document.getElementById('posicion_y').value = JSON.stringify(botonesData[0]["posicion_y"]);
+        document.getElementById('contenido').value = JSON.stringify(botonesData.map(data => data.contenido));
+        document.getElementById('posicion_x').value = JSON.stringify(botonesData.map(data => data.posicion_x));
+        document.getElementById('posicion_y').value = JSON.stringify(botonesData.map(data => data.posicion_y));
 
-        console.log(botonesData);
         // Enviamos el formulario
         document.getElementById('addInputsForm').submit();
     });
 }
+
+// TODO ver porque el textarea se envia vacio 

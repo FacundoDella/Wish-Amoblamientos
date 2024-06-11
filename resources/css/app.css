@@ -2627,6 +2627,9 @@ ul {
     margin-bottom: 4rem;
 }
 
+.contenedorImagenOpcional{
+    position: relative;
+}
 
 .imagenesOpcionesGeneral {
     text-align: center;
@@ -2672,9 +2675,16 @@ ul {
     height: 100%;
     cursor: pointer;
     height: 30rem;
-    object-fit: cover;
+    object-fit: contain;
     z-index: 0;
     border-radius: 1rem;
+}
+
+.informacionDelBoton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .contenidoVariable {
@@ -2823,15 +2833,42 @@ ul {
     max-width: 120rem;
     margin-top: 2rem;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .imagenEditBlade{
-    height: 10rem;
-    width: 10rem;
+    height: 15rem;
+    width: 15rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    border-radius: 1rem;
 }
 
+.contenedorImagenBorrable{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px ) {
+    .imagenesEditBlade{
+        max-width: 120rem;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: left;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }   
+
+    .imagenEditBlade{
+        height: 15rem;
+        width: 15rem;
+        margin-bottom: 1rem;
+    }
+}
 
 /* TODO Hacer responsive el blog General */
 

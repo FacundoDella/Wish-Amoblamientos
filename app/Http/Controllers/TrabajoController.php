@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Imagenes;
 use App\Models\Trabajo;
-use App\Models\Seccion;
 use App\Models\Secciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
 
 class TrabajoController extends Controller
 {
@@ -77,6 +78,7 @@ class TrabajoController extends Controller
     public function edit(Trabajo $trabajo)
     {
         $secciones = Secciones::all();
+        $trabajo->load('imagenes.botones');
         return view('admin.trabajos.edit', compact('trabajo', 'secciones'));
     }
 
@@ -107,6 +109,23 @@ class TrabajoController extends Controller
         $trabajo->seccion_id = $request->seccion_id;
         $trabajo->save();
 
+        //Eliminar Imagenes
+        if ($request->has('imagenes_a_eliminar')) {
+            $imagenesAEliminar = $request->imagenes_a_eliminar;
+            foreach ($imagenesAEliminar as $imagenId) {
+                $imagen = Imagenes::find($imagenId);
+                if ($imagen) {
+                    // Eliminar el archivo de la imagen del sistema de archivos
+                    if (File::exists(public_path($imagen->ruta))) {
+                        File::delete(public_path($imagen->ruta));
+                    }
+                    // Eliminar la imagen de la base de datos
+                    $imagen->delete();
+                }
+            }
+        }
+
+        //Imagenes Nuevas
         if ($request->hasFile('imagenes')) {
             foreach ($request->file('imagenes') as $imagen) {
                 $nombre = time() . '_' . $imagen->getClientOriginalName();
