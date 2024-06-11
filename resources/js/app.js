@@ -7,25 +7,25 @@ document.addEventListener('DOMContentLoaded', function () {
     let navTitulo = document.querySelector('.navegacion-titulo');
     let scrollThreshold = 100;
     let screenWidth = window.innerWidth;
-
-    window.addEventListener('scroll', function () {
-        navLink.forEach(function (link) {
-            if (screenWidth > 992) {
-                if (window.scrollY > scrollThreshold) {
-                    navegacion.classList.add('scrolled');
-                    link.classList.add('scroll')
-                    navTitulo.classList.add('blanco');
-                } else {
-                    navegacion.classList.remove('scrolled');
-                    link.classList.remove('scroll');
-                    navTitulo.classList.remove('blanco');
+    if (navegacion) {
+        window.addEventListener('scroll', function () {
+            navLink.forEach(function (link) {
+                if (screenWidth > 992) {
+                    if (window.scrollY > scrollThreshold) {
+                        navegacion.classList.add('scrolled');
+                        link.classList.add('scroll')
+                        navTitulo.classList.add('blanco');
+                    } else {
+                        navegacion.classList.remove('scrolled');
+                        link.classList.remove('scroll');
+                        navTitulo.classList.remove('blanco');
+                    }
                 }
-            }
 
 
+            });
         });
-    });
-
+    }
     function handleLinkClick(event) {
 
         navLink.forEach(function (link) {
@@ -163,4 +163,176 @@ if (verMas) {
             tresPuntos.classList.add('nosotrosTextoExtraVisible');
         }
     })
+}
+
+
+
+// Creador de inputs en una imagen
+
+let imagenes = document.querySelectorAll('.imagenOpciones');
+let contenedorImagen = document.querySelector('.contenedorImagen');
+let contenidoVariable = document.querySelector('.contenidoVariable');
+let parrafoVisible = null;
+let textareaVisible = null;
+let botonEliminarVisible = null;
+let imagen_id = document.querySelector('.imagen_id');
+imagenes.forEach(imagen => {
+    imagen.addEventListener('click', () => {
+        let ImagenSeleccionada = document.createElement('img');
+        ImagenSeleccionada.classList.add('imagenOpcionesEdit');
+        ImagenSeleccionada.src = imagen.src;
+        let imagenSeleccionadaId = imagen.getAttribute('data-imagen-id');
+        imagen_id.value = imagenSeleccionadaId;
+        console.log(imagenSeleccionadaId);
+        ImagenSeleccionada.dataset.imagenId = imagen.dataset.imagenId;
+        ImagenSeleccionada.style.position = 'relative';
+        contenedorImagen.innerHTML = "";
+        contenedorImagen.appendChild(ImagenSeleccionada);
+        ImagenSeleccionada.addEventListener('click', crearBoton);
+
+        function crearBoton(e) {
+            let coordenadaX = e.offsetX;
+            let coordenadaY = e.offsetY;
+            let botonDinamico = document.createElement('button');
+            botonDinamico.classList.add('boton-elegante');
+            botonDinamico.style.left = coordenadaX + 'px';
+            botonDinamico.style.top = coordenadaY + 'px';
+            contenedorImagen.appendChild(botonDinamico);
+
+            let textareaTexto = document.createElement('textarea');
+            textareaTexto.classList.add('textarea-texto');
+            contenedorImagen.appendChild(textareaTexto);
+
+            let parrafoAsociado = document.createElement('p');
+            parrafoAsociado.classList.add('parrafo-oculto');
+            contenidoVariable.appendChild(parrafoAsociado);
+
+            let botonEliminar = document.createElement('button');
+            botonEliminar.textContent = 'Eliminar';
+            botonEliminar.classList.add('boton-eliminar');
+            botonEliminar.classList.add('botonMini');
+            botonEliminar.classList.add('btn');
+            contenedorImagen.appendChild(botonEliminar);
+
+            botonDinamico.textarea = textareaTexto;
+            botonDinamico.parrafo = parrafoAsociado;
+            botonDinamico.botonEliminar = botonEliminar;
+
+            botonDinamico.addEventListener('mousedown', iniciarArrastre);
+            botonDinamico.addEventListener('touchstart', iniciarArrastre);
+            botonDinamico.addEventListener('click', function () {
+                mostrarContenido(botonDinamico.parrafo, botonDinamico.textarea, botonDinamico.botonEliminar);
+            });
+
+            botonEliminar.addEventListener('click', function () {
+                eliminarContenido(botonDinamico, textareaTexto, parrafoAsociado, botonEliminar);
+            });
+
+            textareaTexto.addEventListener('input', function () {
+                botonDinamico.parrafo.textContent = textareaTexto.value;
+            });
+
+            function iniciarArrastre(event) {
+                event.preventDefault();
+                document.addEventListener('mousemove', moverBoton);
+                document.addEventListener('mouseup', soltarBoton);
+                document.addEventListener('touchmove', moverBoton);
+                document.addEventListener('touchend', soltarBoton);
+            }
+
+            function moverBoton(event) {
+                event.preventDefault();
+                let rectImagen = ImagenSeleccionada.getBoundingClientRect();
+                let rectContenedor = contenedorImagen.getBoundingClientRect();
+                let clientX = event.clientX || event.touches[0].clientX;
+                let clientY = event.clientY || event.touches[0].clientY;
+
+                let nuevoX = clientX - rectContenedor.left - (botonDinamico.offsetWidth / 2);
+                let nuevoY = clientY - rectContenedor.top - (botonDinamico.offsetHeight / 2);
+
+                if (nuevoX < 0) nuevoX = 0;
+                if (nuevoY < 0) nuevoY = 0;
+                if (nuevoX + botonDinamico.offsetWidth > rectImagen.width) nuevoX = rectImagen.width - botonDinamico.offsetWidth;
+                if (nuevoY + botonDinamico.offsetHeight > rectImagen.height) nuevoY = rectImagen.height - botonDinamico.offsetHeight;
+
+                botonDinamico.style.left = nuevoX + 'px';
+                botonDinamico.style.top = nuevoY + 'px';
+            }
+
+            function soltarBoton() {
+                document.removeEventListener('mousemove', moverBoton);
+                document.removeEventListener('mouseup', soltarBoton);
+                document.removeEventListener('touchmove', moverBoton);
+                document.removeEventListener('touchend', soltarBoton);
+            }
+        }
+    });
+});
+
+function mostrarContenido(parrafo, textareaContenido, botonEliminar) {
+    if (parrafoVisible) {
+        parrafoVisible.classList.remove('parrafo-visible');
+        parrafoVisible.classList.add('parrafo-oculto');
+    }
+    parrafo.classList.remove('parrafo-oculto');
+    parrafo.classList.add('parrafo-visible');
+    parrafoVisible = parrafo;
+
+    if (textareaVisible) {
+        textareaVisible.classList.remove('textarea-visible');
+        textareaVisible.classList.add('textarea-texto');
+    }
+    textareaContenido.classList.remove('textarea-texto');
+    textareaContenido.classList.add('textarea-visible');
+    textareaVisible = textareaContenido;
+
+    if (botonEliminarVisible) {
+        botonEliminarVisible.classList.remove('boton-eliminar-visible');
+        botonEliminarVisible.classList.add('boton-eliminar');
+    }
+    botonEliminar.classList.remove('boton-eliminar');
+    botonEliminar.classList.add('boton-eliminar-visible');
+    botonEliminarVisible = botonEliminar;
+}
+
+function eliminarContenido(boton, textarea, parrafo, botonEliminar) {
+    boton.remove();
+    textarea.remove();
+    parrafo.remove();
+    botonEliminar.remove();
+    parrafoVisible = null;
+    textareaVisible = null;
+    botonEliminarVisible = null;
+}
+
+// Buscamos el botón de "Guardar Botones" en el DOM
+let guardarBotonesBtn = document.getElementById('guardarBotones');
+
+if (guardarBotonesBtn) {
+    guardarBotonesBtn.addEventListener('click', function (e) {
+        e.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+        // Recopilamos la información de los botones
+        let botonesData = [];
+        document.querySelectorAll('.boton-elegante').forEach(function (boton) {
+            let coordenadaX = boton.style.left;
+            let coordenadaY = boton.style.top;
+            let contenido = boton.nextElementSibling.value;
+
+            botonesData.push({
+                posicion_x: parseFloat(coordenadaX),
+                posicion_y: parseFloat(coordenadaY),
+                contenido: contenido
+            });
+        });
+
+        // Asignamos los datos a los campos ocultos del formulario
+        document.getElementById('contenido').value = JSON.stringify(botonesData[0]["contenido"]);
+        document.getElementById('posicion_x').value = JSON.stringify(botonesData[0]["posicion_x"]);
+        document.getElementById('posicion_y').value = JSON.stringify(botonesData[0]["posicion_y"]);
+
+        console.log(botonesData);
+        // Enviamos el formulario
+        document.getElementById('addInputsForm').submit();
+    });
 }

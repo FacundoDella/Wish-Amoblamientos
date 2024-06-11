@@ -38,9 +38,11 @@
                             @method('DELETE')
                             <button type="submit" class="btn btnMQAdmin">Eliminar</button>
                         </form>
+                        <a href="{{ route('addInputs', $trabajo->id) }}" class="btn btnMQAdmin">Inputs</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
+
     </table>
 @endsection

@@ -27,8 +27,9 @@
         <div class="form-group">
             <label for="seccion_id">Sección:</label>
             <select name="seccion_id" class="form-control" required>
-                @foreach($secciones as $seccion)
-                    <option value="{{ $seccion->id }}" {{ $trabajo->seccion_id == $seccion->id ? 'selected' : '' }}>{{ $seccion->nombre }}</option>
+                @foreach ($secciones as $seccion)
+                    <option value="{{ $seccion->id }}" {{ $trabajo->seccion_id == $seccion->id ? 'selected' : '' }}>
+                        {{ $seccion->nombre }}</option>
                 @endforeach
             </select>
         </div>
@@ -36,6 +37,13 @@
         <div class="form-group">
             <label for="imagenes">Imágenes:</label>
             <input type="file" name="imagenes[]" class="form-control" multiple>
+            <div class="imagenesEditBlade">
+                @foreach ($trabajo->imagenes as $imagen)
+                    <img src="{{ asset($imagen->ruta) }}" alt="Imagen del Trabajo" class="imagenEditBlade"
+                        data-imagen-id="{{ $imagen->id }}">
+                        
+                @endforeach
+            </div>
         </div>
 
         <button type="submit" class="btn mt-3">Actualizar</button>

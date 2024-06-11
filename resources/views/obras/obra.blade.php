@@ -55,7 +55,6 @@
                             <div class="botonElegante"></div>
                         </button>
 
-
                     </div>
                     <div class=" carrouselItemObraWish carousel-item">
                         <img src="{{ asset('imagenes/carrousel-3.jpg') }}" class="d-block w-100" alt="...">

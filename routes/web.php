@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BotonController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TrabajoController;
 use Illuminate\Support\Facades\Route;
@@ -93,17 +94,27 @@ Route::get('admin/trabajos', [TrabajoController::class, 'index'])->middleware('a
 
 Route::get('admin/trabajos/create', [TrabajoController::class, 'create'])->middleware('auth')->name('trabajos.create');
 
-// Ruta para almacenar un nuevo trabajo
+// almacenar un nuevo trabajo
 Route::post('admin/trabajos', [TrabajoController::class, 'store'])->middleware('auth')->name('trabajos.store');
 
 Route::get('admin/trabajos/{trabajo}/edit', [TrabajoController::class, 'edit'])->middleware('auth')->name('trabajos.edit');
 
-// Ruta para actualizar un trabajo existente
+// actualizar un trabajo existente
 Route::put('admin/trabajos/{trabajo}', [TrabajoController::class, 'update'])->middleware('auth')->name('trabajos.update');
 
 Route::delete('admin/trabajos/{trabajo}', [TrabajoController::class, 'destroy'])->middleware('auth')->name('trabajos.destroy');
 
+// Aprartado de inputs
+Route::get('admin/trabajos/{trabajo}/inputs', [TrabajoController::class, 'addInputs'])
+    ->middleware('auth')
+    ->name('addInputs');
 
+Route::post('admin/botones', [BotonController::class, 'store'])
+    ->middleware('auth')
+    ->name('botones.store');
+
+
+// Aprartado de Login/Register
 Route::view('/login', 'admin.login')->name('login');
 Route::view('/registro', 'admin.register')->name('registro');
 

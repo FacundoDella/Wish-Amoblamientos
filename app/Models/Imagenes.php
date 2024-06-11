@@ -15,4 +15,9 @@ class Imagenes extends Model
     {
         return $this->belongsTo(Trabajo::class);
     }
+
+    public function botones()
+{
+    return $this->hasMany(Boton::class);
+}
 }
