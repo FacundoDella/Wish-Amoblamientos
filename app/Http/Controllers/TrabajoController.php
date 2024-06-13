@@ -143,4 +143,67 @@ class TrabajoController extends Controller
         $trabajo->delete();
         return redirect()->route('trabajos.index')->with('success', 'Trabajo eliminado exitosamente');
     }
+
+
+
+
+    // Apartado de vistas obras
+
+    private function obtenerObras($seccionId)
+    {
+        return Secciones::with(['trabajos.imagenes'])->findOrFail($seccionId)->trabajos;
+    }
+
+    public function cocina()
+    {
+        $trabajos = $this->obtenerObras(1);
+        return view('obras.cocina', compact('trabajos'));
+    }
+    public function salaDeEstar()
+    {
+        $trabajos = $this->obtenerObras(2);
+        return view('obras.salaDeEstar', compact('trabajos'));
+    }
+    public function comedor()
+    {
+        $trabajos = $this->obtenerObras(3);
+        return view('obras.comedor', compact('trabajos'));
+    }
+    public function dormitorio()
+    {
+        $trabajos = $this->obtenerObras(4);
+        return view('obras.dormitorio', compact('trabajos'));
+    }
+    public function baño()
+    {
+        $trabajos = $this->obtenerObras(5);
+        return view('obras.baño', compact('trabajos'));
+    }
+    public function oficina()
+    {
+        $trabajos = $this->obtenerObras(6);
+        return view('obras.oficina', compact('trabajos'));
+    }
+    public function exterior()
+    {
+        $trabajos = $this->obtenerObras(7);
+        return view('obras.exterior', compact('trabajos'));
+    }
+    public function multifuncionales()
+    {
+        $trabajos = $this->obtenerObras(8);
+        return view('obras.multifuncionales', compact('trabajos'));
+    }
+    public function personalizados()
+    {
+        $trabajos = $this->obtenerObras(9);
+        return view('obras.personalizados', compact('trabajos'));
+    }
+
+
+    public function show($id)
+    {
+        $trabajo = Trabajo::with('imagenes')->findOrFail($id);
+        return view('obras.show', compact('trabajo'));
+    }
 }

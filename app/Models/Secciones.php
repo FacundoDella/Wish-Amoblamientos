@@ -11,6 +11,6 @@ class Secciones extends Model
 
     public function trabajos()
     {
-        return $this->hasMany(Trabajo::class);
+        return $this->hasMany(Trabajo::class,'seccion_id');
     }
 }

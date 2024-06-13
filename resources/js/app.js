@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
         event.currentTarget.classList.add('selected');
     }
 
-    // Agregar el evento de clic a cada enlace
     navLink.forEach(function (link) {
         link.addEventListener('click', handleLinkClick);
     });
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Carrousel 
-
 let carouselInstance;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -78,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 currentIndex++;
                 if (currentIndex >= carrouselItems.length) {
-                    currentIndex = 0; // Reinicia el índice al principio
+                    currentIndex = 0; 
                     carouselInstance.next();
                 }
                 setTimeout(alternarClases, 5000);
@@ -96,8 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initCarousel();
-
-    // Si estás utilizando un enrutador JavaScript, puedes necesitar volver a inicializar y destruir cuando cambias de ruta
     window.addEventListener('popstate', () => {
         destroyCarousel();
         initCarousel();
@@ -168,7 +164,6 @@ if (verMas) {
 
 
 // Creador de inputs en una imagen
-
 let imagenes = document.querySelectorAll('.imagenOpciones');
 let contenedorImagen = document.querySelector('.contenedorImagen');
 let contenidoVariable = document.querySelector('.contenidoVariable');
@@ -198,8 +193,8 @@ imagenes.forEach(imagen => {
 
             let botonDinamico = document.createElement('button');
             botonDinamico.classList.add('boton-elegante');
-            botonDinamico.style.left = coordenadaX + '%'; // Usar porcentaje
-            botonDinamico.style.top = coordenadaY + '%'; // Usar porcentaje
+            botonDinamico.style.left = coordenadaX + '%';
+            botonDinamico.style.top = coordenadaY + '%'; 
             contenedorImagen.appendChild(botonDinamico);
 
             let textareaTexto = document.createElement('textarea');
@@ -307,27 +302,35 @@ function eliminarContenido(boton, textarea, parrafo, botonEliminar) {
     botonEliminarVisible = null;
 }
 
-// Buscamos el botón de "Guardar Botones" en el DOM
 let guardarBotonesBtn = document.getElementById('guardarBotones');
 
 if (guardarBotonesBtn) {
     guardarBotonesBtn.addEventListener('click', function (e) {
-        e.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-        // Recopilamos la información de los botones
+        e.preventDefault();
         let botonesData = [];
+        let contador = -1;
+        let contenido = [];
         document.querySelectorAll('.boton-elegante').forEach(function (boton) {
             let coordenadaX = boton.style.left;
             let coordenadaY = boton.style.top;
-            let contenido = boton.closest('.contenidoVariable').querySelector('parrafo').value;
+            contador++;
+            let contenedorInformacion = boton.closest('.contenidoVariableContenedor').querySelector('.contenidoVariable');
+            let parrafos = contenedorInformacion.querySelectorAll('p');
+            contenido = [];
+
+            parrafos.forEach(function (parrafo) {
+                contenido.push(parrafo.textContent); // Foreach a todos los parrafos que se crean, para tomar su contenido e insertarlo en el array contenido
+            });
+
             botonesData.push({
                 posicion_x: parseFloat(coordenadaX),
                 posicion_y: parseFloat(coordenadaY),
-                contenido: contenido
+                contenido: contenido[contador] // De esta manera accedo al array contenido en cada posicion corresponiente con ayuda del contador
             });
         });
 
-        // Asignamos los datos a los campos ocultos del formulario
+        console.log(botonesData);
+
         document.getElementById('contenido').value = JSON.stringify(botonesData.map(data => data.contenido));
         document.getElementById('posicion_x').value = JSON.stringify(botonesData.map(data => data.posicion_x));
         document.getElementById('posicion_y').value = JSON.stringify(botonesData.map(data => data.posicion_y));
@@ -337,4 +340,3 @@ if (guardarBotonesBtn) {
     });
 }
 
-// TODO ver porque el textarea se envia vacio 

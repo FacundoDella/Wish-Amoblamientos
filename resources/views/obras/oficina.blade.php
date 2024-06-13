@@ -20,16 +20,17 @@
 
     @include('includes-generales.obras.oficinaHeader')
 
-
     <main class="contenedor">
-        <div class="trabajosGrid">
-            @include('obras.obras')
-            @include('obras.obras')
-            @include('obras.obras')
-            @include('obras.obras')
-            @include('obras.obras')
-        </div>
+        @if ($trabajos->isEmpty())
+            <p>No hay trabajos disponibles en esta sección.</p>
+        @else
+            <div class="trabajosGrid">
+                @foreach ($trabajos as $trabajo)
+                    @include('obras.obras')
+                @endforeach
+            </div>
+        @endif
     </main>
-
+    
     @include('includes-generales.footer')
 </body>

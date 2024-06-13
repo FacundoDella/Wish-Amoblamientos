@@ -60,11 +60,11 @@ ul {
     margin: 0;
 }
 
-@media (max-width: 480px) {
-    .btnMQAdmin {
-        margin-bottom: 1rem;
-    }
+
+.btnMQAdmin {
+    margin-bottom: 1rem;
 }
+
 
 
 .boton {
@@ -1782,7 +1782,7 @@ ul {
 
 }
 
-.trabajoName {
+.trabajoName h3 {
     font-size: var(--fontSizeH5);
     color: var(--negro);
     text-align: center;
@@ -1868,6 +1868,7 @@ ul {
     object-fit: cover;
     position: relative;
     min-height: 40rem;
+    max-height: 40rem;
 }
 
 .informacionObraContenedor {
@@ -1956,6 +1957,17 @@ ul {
         width: 100%;
         height: 100%;
     }
+
+
+    .carrouselItemObraWish img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        min-height: 40rem;
+        max-height: 80rem;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -1963,7 +1975,6 @@ ul {
         height: 16rem;
         padding-top: 0.1rem;
     }
-
 }
 
 
@@ -2627,7 +2638,7 @@ ul {
     margin-bottom: 4rem;
 }
 
-.contenedorImagenOpcional{
+.contenedorImagenOpcional {
     position: relative;
 }
 
@@ -2680,7 +2691,7 @@ ul {
     border-radius: 1rem;
 }
 
-.informacionDelBoton{
+.informacionDelBoton {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2829,7 +2840,7 @@ ul {
 
 /* !SECTION Añadir inputs a imagenes */
 
-.imagenesEditBlade{
+.imagenesEditBlade {
     max-width: 120rem;
     margin-top: 2rem;
     display: flex;
@@ -2838,7 +2849,7 @@ ul {
     flex-wrap: wrap;
 }
 
-.imagenEditBlade{
+.imagenEditBlade {
     height: 15rem;
     width: 15rem;
     margin-bottom: 1rem;
@@ -2846,24 +2857,24 @@ ul {
     border-radius: 1rem;
 }
 
-.contenedorImagenBorrable{
+.contenedorImagenBorrable {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-@media (min-width: 768px ) {
-    .imagenesEditBlade{
+@media (min-width: 768px) {
+    .imagenesEditBlade {
         max-width: 120rem;
         margin-top: 2rem;
         display: flex;
         justify-content: left;
         gap: 2rem;
         flex-wrap: wrap;
-    }   
+    }
 
-    .imagenEditBlade{
+    .imagenEditBlade {
         height: 15rem;
         width: 15rem;
         margin-bottom: 1rem;

@@ -21,6 +21,11 @@
     <main class=" addInputContenedor">
         <h1 class="tituloDelCreadorInputs">Creador de inputs para una imagen</h1>
 
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="imagenesOpcionesGeneral">
             <h2>Selecciona una imagen del trabajo "{{ $trabajo->id }}"</h2>
             <div class="imagenesOpcionesContenedor">
@@ -53,7 +58,7 @@
                 <input type="hidden" name="posicion_x" id="posicion_x">
                 <input type="hidden" name="posicion_y" id="posicion_y">
                 <button id="guardarBotones" type="submit" class="botonMini btn">Guardar Botones</button>
-            </form>            
+            </form>
         </div>
     </main>
     <script>

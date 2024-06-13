@@ -31,38 +31,18 @@ Route::get('/colaboradores/1', function () {
 
 
 // Obras
-Route::get('/cocina', function () {
-    return view('obras.cocina');
-});
-Route::get('/salaDeEstar', function () {
-    return view('obras.salaDeEstar');
-});
-Route::get('/comedor', function () {
-    return view('obras.comedor');
-});
-Route::get('/dormitorio', function () {
-    return view('obras.dormitorio');
-});
-Route::get('/baño', function () {
-    return view('obras.baño');
-});
-Route::get('/oficina', function () {
-    return view('obras.oficina');
-});
-Route::get('/exterior', function () {
-    return view('obras.exterior');
-});
-Route::get('/multifuncionales', function () {
-    return view('obras.multifuncionales');
-});
-Route::get('/personalizados', function () {
-    return view('obras.personalizados');
-});
+Route::get('/cocina', [TrabajoController::class, 'cocina'])->name('cocina');
+Route::get('/salaDeEstar', [TrabajoController::class, 'salaDeEstar'])->name('salaDeEstar');
+Route::get('/comedor', [TrabajoController::class, 'comedor'])->name('comedor');
+Route::get('/dormitorio', [TrabajoController::class, 'dormitorio'])->name('dormitorio');
+Route::get('/baño', [TrabajoController::class, 'baño'])->name('baño');
+Route::get('/oficina', [TrabajoController::class, 'oficina'])->name('oficina');
+Route::get('/exterior', [TrabajoController::class, 'exterior'])->name('exterior');
+Route::get('/multifuncionales', [TrabajoController::class, 'multifuncionales'])->name('multifuncionales');
+Route::get('/personalizados', [TrabajoController::class, 'personalizados'])->name('personalizados');
 
+Route::get('/obra/{id}', [TrabajoController::class, 'show'])->name('obras.show');
 
-Route::get('/obra', function () {
-    return view('obras.obra');
-});
 
 // Blog
 Route::get('/blog', function () {
