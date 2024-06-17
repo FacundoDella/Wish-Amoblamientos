@@ -49,7 +49,7 @@
                     <a href="/blog/blog2"class="botonMini btn">Ver</a>
                 </div>
             </div>
-            <div class="blog3 blog">
+            <div class="blog3 blog m0">
                 <img src="{{ asset('imagenes/blog/blog3.jpg') }}" alt="">
                 <div class="infoBlog">
                     <h3>Innovaciones en la Carpintería: Tendencias y Tecnologías</h3>

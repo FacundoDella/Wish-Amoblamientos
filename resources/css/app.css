@@ -60,6 +60,9 @@ ul {
     margin: 0;
 }
 
+.m0 {
+    margin: 0 !important;
+}
 
 .btnMQAdmin {
     margin-bottom: 1rem;
@@ -734,6 +737,12 @@ ul {
         font-size: var(--fuenteParrafoLong);
     }
 }
+
+/* SECTION 4 */
+
+
+
+/* !SECTION 4 */
 
 
 
@@ -2053,11 +2062,11 @@ ul {
 }
 
 .blog1 {
-    grid-column: 1/8;
+    grid-column: 1/13;
 }
 
 .blog2 {
-    grid-column: 8/13;
+    grid-column: 1/13;
 }
 
 .blog3 {
@@ -2065,15 +2074,15 @@ ul {
 }
 
 .blog4 {
-    grid-column: 1/6;
+    grid-column: 1/13;
 }
 
 .blog5 {
-    grid-column: 6/13;
+    grid-column: 1/13;
 }
 
 .blog6 {
-    grid-column: 1/8;
+    grid-column: 1/13;
 }
 
 .infoBlog {
@@ -2099,6 +2108,30 @@ ul {
         justify-content: center;
         align-items: center;
         margin-top: 9rem;
+    }
+
+    .blog1 {
+        grid-column: 1/8;
+    }
+
+    .blog2 {
+        grid-column: 8/13;
+    }
+
+    .blog3 {
+        grid-column: 1/13;
+    }
+
+    .blog4 {
+        grid-column: 1/6;
+    }
+
+    .blog5 {
+        grid-column: 6/13;
+    }
+
+    .blog6 {
+        grid-column: 1/8;
     }
 }
 
@@ -2881,8 +2914,5 @@ ul {
     }
 }
 
-/* TODO Hacer responsive el blog General */
 
-
-/* TODO ver el espacio que hay en blog */
 /* TODO ver el css de las cards grices que decia luca en colaboradores */

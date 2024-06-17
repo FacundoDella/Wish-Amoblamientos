@@ -28,7 +28,7 @@
                 <tr>
                     <td>{{ $trabajo->id }}</td>
                     <td>{{ $trabajo->titulo }}</td>
-                    <td>{{ $trabajo->descripcion }}</td>
+                    <td>{{ Str::limit($trabajo->descripcion, 100) }}</td>
                     <td>{{ $trabajo->seccion->nombre }}</td>
                     <td>
                         <a href="{{ route('trabajos.edit', $trabajo->id) }}" class="btn btnMQAdmin">Editar</a>
