@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feplacTableros', function (Blueprint $table) {
+        Schema::create('eggerTableros', function (Blueprint $table) {
             $table->id();
-            $table->string('titleItem');
-            $table->string('imagenItem', 2048);
-            $table->unsignedBigInteger('feplacLinea_id');
-            $table->foreign('feplacLinea_id')->references('id')->on('feplacLineas')->onDelete('cascade');
+            $table->string('title');
+            $table->string('codigo');
+            $table->string('imagen', 2048);
             $table->timestamps();
         });
     }
@@ -26,7 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feplacTableros');
+        Schema::dropIfExists('eggerTableros');
     }
 };
-

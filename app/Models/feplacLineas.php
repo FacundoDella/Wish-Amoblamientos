@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FeplacLineas extends Model
 {
+    protected $table = 'feplacLineas'; 
     protected $fillable = ['nombre'];
 
     public function feplacTableros()

@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\BotonController;
+use App\Http\Controllers\EggerTablerosController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TrabajoController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FeplacTablerosUploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -110,3 +111,10 @@ Route::view('/registro', 'admin.register')->name('registro');
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
 Route::post('/inicia-sesion', [LoginController::class, 'login'])->name('inicia-sesion');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+// Subir las lineas de Feplac
+Route::post('/upload-json', [FeplacTablerosUploadController::class, 'uploadJson']);
+
+// Subir las lineas de Egger
+Route::post('/uploadJsonEgger', [EggerTablerosController::class, 'uploadJsonEgger']);
