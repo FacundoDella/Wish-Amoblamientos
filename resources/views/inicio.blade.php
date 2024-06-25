@@ -97,16 +97,30 @@
         </div>
     </div>
 
+    <div class="muebleEditableInicio">
+        <div class="contenedor contenedorMuebleEditor">
+            <div class="imagenMuebleEditorInicio">
+                <img src="{{ asset('imagenes/muebleEditor/editorManos.jpg') }}" alt="">
+            </div>
+            <div class="contenidoMuebleEditorInicio">
+                <h2>Colorize</h2>
+                <p>Explora nuestra herramienta de personalización de colores, donde puedes experimentar y visualizar cómo se verían diferentes tonos en tu mueble. ¡Encuentra el color perfecto que complemente tu espacio y refleje tu estilo único!</p>
+                <a href="/blog" class="boton btnNegro">Explorar</a>
+            </div>
+        </div>
+    </div>
+
     <div class="sobreNosotrosContainer">
         <div class="grid">
             <div class="nosotrosInfo">
                 <h2>¿Quienes Somos?</h2>
-                <p class="nosotrosParrafo">En Wish Amoblamientos, contamos con 20 años de experiencia en la creación de muebles y soluciones
+                <p class="nosotrosParrafo">En Wish Amoblamientos, contamos con 20 años de experiencia en la creación de
+                    muebles y soluciones
                     personalizadas en madera. Nuestro equipo de artesanos combina tradición y tecnología moderna para
                     ofrecer calidad y diseño en cada proyecto.
                     Nos especializamos en muebles a medida, remodelaciones de interiores y carpintería estructural,
                     siempre utilizando materiales
-                    de la más alta calidad.<span class="tresPuntos nosotrosTextoExtraVisible">...</span> 
+                    de la más alta calidad.<span class="tresPuntos nosotrosTextoExtraVisible">...</span>
                     <span class="nosotrosTextoExtra nosotrosTextoExtraOculto">
                         <br>
                         Nuestra pasión por la madera
@@ -157,7 +171,7 @@
 
     <div class="seccion4">
         <div class="contenedor">
-            
+
         </div>
     </div>
 

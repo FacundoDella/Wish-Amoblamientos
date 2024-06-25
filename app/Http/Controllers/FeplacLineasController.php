@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FeplacLineas;
 use Illuminate\Http\Request;
-use App\Models\FeplacTableros;
 
-class FeplacTablerosUploadController extends Controller
+class FeplacLineasController extends Controller
 {
-    public function uploadJsonFeplacTableros(Request $request)
+    public function uploadJsonFeplac(Request $request)
     {
         $jsonData = json_decode($request->getContent(), true);
 
         try {
             foreach ($jsonData as $data) {
-                FeplacTableros::create([
-                    'titleItem' => $data['titleItem'],
-                    'imagenItem' => $data['imagenItem'],
-                    'feplacLinea_id' => $data['feplacLinea_id'],
+                FeplacLineas::create([
+                    'nombre' => $data['nombre'],
+                    'imagenLinea' => $data['imagenLinea']
                 ]);
             }
             return response()->json(['message' => 'Data uploaded successfully'], 201);
@@ -25,5 +24,3 @@ class FeplacTablerosUploadController extends Controller
         }
     }
 }
-
-// TODO ver la subia de archivos mediante Postman

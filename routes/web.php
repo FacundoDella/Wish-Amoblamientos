@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BotonController;
 use App\Http\Controllers\EggerTablerosController;
+use App\Http\Controllers\FeplacLineasController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TrabajoController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\FeplacTablerosUploadController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// SECTION PUBLIC
 
 Route::get('/', function () {
     return view('inicio');
@@ -69,8 +71,13 @@ Route::get('/blog/blog6', function () {
 });
 
 
+// Colorize
 
-// Admin
+
+// !SECTION PUBLIC
+
+
+// SECTION ADMIN
 
 //Trabajos Controlller
 Route::get('admin/trabajos', [TrabajoController::class, 'index'])->middleware('auth')->name('trabajos.index');
@@ -112,9 +119,13 @@ Route::post('/validar-registro', [LoginController::class, 'register'])->name('va
 Route::post('/inicia-sesion', [LoginController::class, 'login'])->name('inicia-sesion');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
 // Subir las lineas de Feplac
-Route::post('/upload-json', [FeplacTablerosUploadController::class, 'uploadJson']);
+Route::post('/upload-jsonFeplac', [FeplacLineasController::class, 'uploadJsonFeplac']);
 
-// Subir las lineas de Egger
+// Subir los tabletos de Feplac
+Route::post('/upload-jsonFeplacTableros', [FeplacTablerosUploadController::class, 'uploadJsonFeplacTableros']);
+
+// Subir los tableros de Egger
 Route::post('/uploadJsonEgger', [EggerTablerosController::class, 'uploadJsonEgger']);
+
+// !SECTION ADMIN

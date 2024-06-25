@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('feplacLineas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('imagenLinea', 2048);
             $table->timestamps();
         });
     }

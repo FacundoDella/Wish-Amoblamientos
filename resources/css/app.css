@@ -108,6 +108,17 @@ ul {
     background-color: var(--colorPrimario);
 }
 
+.btnNegro {
+    background-color: var(--colorSecundario);
+    color: var(--blanco);
+    border: 1px solid var(--colorSecundario);
+}
+
+.btnNegro:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
+    border: 1px solid var(--colorSecundario);
+}
 
 
 @media (min-width: 480px) {}
@@ -2915,4 +2926,86 @@ ul {
 }
 
 
-/* TODO ver el css de las cards grices que decia luca en colaboradores */
+
+/* SECTION Mubele editor Inicio */
+
+.muebleEditableInicio {
+    background-color: var(--colorBody);
+    min-height: 45rem;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorMuebleEditor {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    width: 95%;
+    gap: 2rem;
+}
+
+
+.imagenMuebleEditorInicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagenMuebleEditorInicio img {
+    max-width: 55rem;
+    height: 100%;
+    max-height: 35rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.contenidoMuebleEditorInicio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenidoMuebleEditorInicio h2 {
+    font-size: var(--fontSizeH3);
+    background-color: var(--grisClaro);
+    padding: .5rem;
+    border-radius: 1rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contenidoMuebleEditorInicio p {
+    font-size: var(--fuenteParrafo);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .contenedorMuebleEditor {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 auto;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .contenidoMuebleEditorInicio h2 {
+        font-size: var(--fontSizeH2);
+    }
+
+    .contenidoMuebleEditorInicio p {
+        font-size: var(--fuenteParrafoLong);
+    }
+
+}
+
+/* !SECTION Mubele editor Inicio */
