@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 currentIndex++;
                 if (currentIndex >= carrouselItems.length) {
-                    currentIndex = 0; 
+                    currentIndex = 0;
                     carouselInstance.next();
                 }
                 setTimeout(alternarClases, 5000);
@@ -194,7 +194,7 @@ imagenes.forEach(imagen => {
             let botonDinamico = document.createElement('button');
             botonDinamico.classList.add('boton-elegante');
             botonDinamico.style.left = coordenadaX + '%';
-            botonDinamico.style.top = coordenadaY + '%'; 
+            botonDinamico.style.top = coordenadaY + '%';
             contenedorImagen.appendChild(botonDinamico);
 
             let textareaTexto = document.createElement('textarea');
@@ -340,3 +340,221 @@ if (guardarBotonesBtn) {
     });
 }
 
+// SECTION Colorize
+
+$(document).ready(function () {
+    $('.load-files').click(function (event) {
+        event.preventDefault();
+
+        let opcion = $(this).data('option');
+        let colorizeOpciones = $('.colorizeOpciones');
+
+        $.ajax({
+            url: '/get-files/' + opcion,
+            method: 'GET',
+            success: function (response) {
+
+                if (opcion == 1) {
+                    colorizeOpciones.empty();
+                    if (colorizeOpciones.hasClass('loaded')) {
+                        return;
+                    } else {
+                        colorizeOpciones.addClass('loaded');
+                        setTimeout(function () {
+                            // se carga el contenido del carrusel desde el archivo Blade, definido en las rutas
+                            $.get('/feplacLineas', function (containerFeplacString) { // Retorna un string
+
+                                const tempDiv = document.createElement('div');
+                                tempDiv.innerHTML = containerFeplacString; // inserto el sgring en el div temporal
+
+                                // saco el contenido del div temporal y lo agrego al DOM
+                                while (tempDiv.firstChild) {
+                                    colorizeOpciones.append(tempDiv.firstChild);
+                                }
+
+                                const containerFeplac = colorizeOpciones.find('.containerFeplacLinea');
+
+                                let fragment = document.createDocumentFragment();
+
+                                response.forEach(function (file) {
+                                    let lineaFeplacEnlace = document.createElement('a');
+                                    lineaFeplacEnlace.classList.add('lineaFeplacEnlace');
+
+                                    let lineaFeplac = document.createElement('div');
+                                    lineaFeplac.classList.add('lineaFeplac');
+
+                                    let imgFeplacLinea = document.createElement('img');
+                                    imgFeplacLinea.src = file.imagenLinea;
+                                    imgFeplacLinea.classList.add('imgFeplacLinea');
+
+                                    lineaFeplacEnlace.append(lineaFeplac);
+                                    lineaFeplac.append(imgFeplacLinea);
+                                    fragment.append(lineaFeplacEnlace);
+                                });
+
+                                containerFeplac.append(fragment);
+                            });
+                        }, 100)
+                    }
+                } else if (opcion == 2) {
+                    colorizeOpciones.empty();
+                    if (colorizeOpciones.hasClass('loaded')) {
+                        return;
+                    } else {
+                        colorizeOpciones.addClass('loaded');
+                        setTimeout(function () {
+                            $.get('/eggerTableros', function (carruselEggerString) {
+
+                                const tempDiv = document.createElement('div');
+                                tempDiv.innerHTML = carruselEggerString;
+
+                                while (tempDiv.firstChild) {
+                                    colorizeOpciones.append(tempDiv.firstChild);
+                                }
+
+                                const containerEgger = colorizeOpciones.find('.containerEggerTableros');
+                                const slider = document.createElement('div');
+                                slider.classList.add('slider');
+                                containerEgger.append(slider);
+
+                                // creo cada elemento a partir de la respuesta y lo inserto en el slider
+                                response.forEach(item => {
+                                    let itemEgger = document.createElement('div');
+                                    itemEgger.classList.add('item');
+
+                                    let imagenEgger = document.createElement('img');
+                                    imagenEgger.src = item.imagen;
+
+                                    let titleEgger = document.createElement('p');
+                                    titleEgger.textContent = item.title;
+
+                                    let codigoEgger = document.createElement('p');
+                                    codigoEgger.textContent = item.codigo;
+
+                                    itemEgger.append(imagenEgger);
+                                    itemEgger.append(titleEgger);
+                                    itemEgger.append(codigoEgger);
+
+                                    slider.append(itemEgger);
+
+                                })
+
+
+
+
+                            });
+
+                        }, 100)
+                    }
+
+
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error en la solicitud AJAX:', error);
+            }
+        });
+    });
+});
+
+
+// Codigo para el slider de colorize
+document.addEventListener('DOMContentLoaded', () => {
+    let sliderTablerosBoton = document.querySelector('.boton1');
+    let sliderTablerosBoton2 = document.querySelector('.boton2');
+    let sliderTableros = document.querySelector('.slider');
+
+    const itemHeight = sliderTableros.firstElementChild.clientHeight + 10;
+    const itemWidth = sliderTableros.firstElementChild.clientWidth + 10;
+
+    let itemsCantidad = document.querySelectorAll('.itemSlider');
+    let cantidad = 0;
+    itemsCantidad.forEach(item => {
+        cantidad++;
+    })
+    let posicion = 0;
+    let posicionX = 0;
+
+    if (sliderTablerosBoton) {
+        sliderTablerosBoton.addEventListener('click', () => {
+            if (posicionX > 0 && window.innerWidth < 768) {
+                posicionX -= itemWidth;
+                console.log('izquierda');
+                console.log(posicionX);
+                sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+
+
+            } else if (posicion > 0 && window.innerWidth > 768) {
+                posicion -= itemHeight;
+                console.log('arriba');
+                console.log(posicion);
+                sliderTableros.style.transform = `translateY(${-posicion}px)`;
+            }
+        });
+    }
+    if (sliderTablerosBoton2) {
+        sliderTablerosBoton2.addEventListener('click', () => {
+
+            if (window.innerWidth < 380) {
+                if (posicionX < (cantidad * itemWidth) - itemWidth * 3) {
+                    posicionX += itemWidth;
+                    console.log('derecha 380');
+                    console.log(posicionX);
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                }
+
+            }
+            else if (window.innerWidth < 469) {
+
+                if (posicionX < (cantidad * itemWidth) - itemWidth * 4) {
+                    posicionX += itemWidth;
+                    console.log('derecha 469');
+                    console.log(posicionX);
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                }
+            }
+            else if (window.innerWidth < 560) {
+                if (posicionX < (cantidad * itemWidth) - itemWidth * 5) {
+                    posicionX += itemWidth;
+                    console.log('derecha 560');
+                    console.log(posicionX);
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                }
+
+            }
+            else if (window.innerWidth < 645) {
+
+                if (posicionX < (cantidad * itemWidth) - itemWidth * 6) {
+                    posicionX += itemWidth;
+                    console.log('derecha 645');
+                    console.log(posicionX);
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                }
+            }
+            else if (window.innerWidth < 730) {
+                if (posicionX < (cantidad * itemWidth) - itemWidth * 7) {
+                    posicionX += itemWidth;
+                    console.log('derecha 730');
+                    console.log(posicionX);
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                }
+
+            }
+            else if (window.innerWidth > 768 && window.innerWidth < 992) {
+                if (posicion < (cantidad * itemHeight) - itemHeight * 3) {
+                    posicion += itemHeight;
+                    console.log('abajo');
+                    console.log(posicion);
+                    sliderTableros.style.transform = `translateY(${-posicion}px)`;
+                }
+            } else if (window.innerWidth >= 992) {
+                if (posicion < (cantidad / 2) * itemHeight - itemHeight * 3) {
+                    posicion += itemHeight;
+                    console.log('abajo');
+                    console.log(posicion);
+                    sliderTableros.style.transform = `translateY(${-posicion}px)`;
+                }
+            }
+        });
+    }
+})

@@ -105,7 +105,7 @@
             <div class="contenidoMuebleEditorInicio">
                 <h2>Colorize</h2>
                 <p>Explora nuestra herramienta de personalización de colores, donde puedes experimentar y visualizar cómo se verían diferentes tonos en tu mueble. ¡Encuentra el color perfecto que complemente tu espacio y refleje tu estilo único!</p>
-                <a href="/blog" class="boton btnNegro">Explorar</a>
+                <a href="/colorize" class="boton btnNegro">Explorar</a>
             </div>
         </div>
     </div>

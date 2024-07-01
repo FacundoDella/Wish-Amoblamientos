@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BotonController;
+use App\Http\Controllers\ColorizeController;
 use App\Http\Controllers\EggerTablerosController;
 use App\Http\Controllers\FeplacLineasController;
 use App\Http\Controllers\ImagenController;
@@ -72,6 +73,20 @@ Route::get('/blog/blog6', function () {
 
 
 // Colorize
+Route::get('/colorize', [ColorizeController::class, 'colorize']);
+
+Route::get('/get-files/{option}', [ColorizeController::class, 'getFiles']);
+
+// Ruta para el JS de la opocion 1
+Route::get('/feplacLineas', function () {
+    return view('colorize.feplacInclude'); 
+});
+
+// Ruta para el JS de la opocion 2
+Route::get('/tablerosCarrousel', function () {
+    return view('colorize.colorizeCarrousel'); 
+});
+
 
 
 // !SECTION PUBLIC
