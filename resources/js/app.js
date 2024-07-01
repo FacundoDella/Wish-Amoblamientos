@@ -342,6 +342,7 @@ if (guardarBotonesBtn) {
 
 // SECTION Colorize
 
+
 $(document).ready(function () {
     $('.load-files').click(function (event) {
         event.preventDefault();
@@ -376,7 +377,9 @@ $(document).ready(function () {
 
                                 let fragment = document.createDocumentFragment();
 
+                                let i = 0;
                                 response.forEach(function (file) {
+                                    i++;
                                     let lineaFeplacEnlace = document.createElement('a');
                                     lineaFeplacEnlace.classList.add('lineaFeplacEnlace');
 
@@ -387,12 +390,85 @@ $(document).ready(function () {
                                     imgFeplacLinea.src = file.imagenLinea;
                                     imgFeplacLinea.classList.add('imgFeplacLinea');
 
-                                    lineaFeplacEnlace.append(lineaFeplac);
+                                    // let lineaInput = document.createElement('input');
+                                    // lineaInput.textContent = i;
+                                    // lineaInput.classList.add('inputLienaFeplacOculto');
                                     lineaFeplac.append(imgFeplacLinea);
+                                    // lineaFeplac.append(lineaInput);
+                                    lineaFeplacEnlace.append(lineaFeplac);
                                     fragment.append(lineaFeplacEnlace);
                                 });
 
                                 containerFeplac.append(fragment);
+
+                                containerFeplac.each(function (index, element) {
+                                    // console.log('Elemento principal:', element);
+                                    $(element).children().each(function (hijoIndex, hijoElement) {
+
+                                        hijoElement.addEventListener('click', function () {
+                                            let linea = hijoIndex + 1;
+                                            $.ajax({
+                                                url: '/get-feplac/' + linea,
+                                                method: 'GET',
+                                                success: function (response) {
+                                                    colorizeOpciones.empty();
+                                                    $('.colorizeOpciones').css('margin-bottom', '0px');
+                                                    $.get('/tablerosCarrousel', function (carruselString) {
+                                                        const tempDiv = document.createElement('div');
+                                                        tempDiv.innerHTML = carruselString;
+
+                                                        while (tempDiv.firstChild) {
+                                                            colorizeOpciones.append(tempDiv.firstChild);
+                                                        }
+
+                                                        const silderContenedor = colorizeOpciones.find('.silderContenedor');
+                                                        const slider = silderContenedor.find('.slider');
+                                                        let fragment = document.createDocumentFragment();
+
+
+                                                        response.forEach(item => {
+                                                            let itemSlider = document.createElement('div');
+                                                            itemSlider.classList.add('itemSlider');
+
+                                                            let itemImagen = document.createElement('img');
+                                                            itemImagen.src = item.imagenItem;
+                                                            itemImagen.classList.add('itemImagen');
+
+                                                            let itemTitulo = document.createElement('p');
+                                                            itemTitulo.textContent = item.titleItem;
+                                                            itemTitulo.classList.add('itemTitulo');
+                                                            itemTitulo.classList.add('itemTituloOnly');
+
+                                                            itemSlider.append(itemImagen);
+                                                            itemSlider.append(itemTitulo);
+
+                                                            fragment.append(itemSlider);
+                                                        });
+
+                                                        slider.append(fragment);
+
+                                                        setTimeout(validarSlider, 100); 
+                                                    })
+
+                                                    console.log(response);
+                                                    validarSlider();
+                                                }, error: function (xhr, status, error) {
+                                                    console.error('Error en la solicitud AJAX:', error);
+                                                }
+
+                                            });
+
+
+                                        })
+
+                                    });
+                                });
+
+
+
+
+
+
                             });
                         }, 100)
                     }
@@ -402,52 +478,50 @@ $(document).ready(function () {
                         return;
                     } else {
                         colorizeOpciones.addClass('loaded');
+                        $('.colorizeOpciones').css('margin-bottom', '0');
                         setTimeout(function () {
-                            $.get('/eggerTableros', function (carruselEggerString) {
-
+                            $.get('/tablerosCarrousel', function (carruselString) {
                                 const tempDiv = document.createElement('div');
-                                tempDiv.innerHTML = carruselEggerString;
-
+                                tempDiv.innerHTML = carruselString;
+                    
                                 while (tempDiv.firstChild) {
                                     colorizeOpciones.append(tempDiv.firstChild);
                                 }
-
-                                const containerEgger = colorizeOpciones.find('.containerEggerTableros');
-                                const slider = document.createElement('div');
-                                slider.classList.add('slider');
-                                containerEgger.append(slider);
-
-                                // creo cada elemento a partir de la respuesta y lo inserto en el slider
-                                response.forEach(item => {
-                                    let itemEgger = document.createElement('div');
-                                    itemEgger.classList.add('item');
-
-                                    let imagenEgger = document.createElement('img');
-                                    imagenEgger.src = item.imagen;
-
-                                    let titleEgger = document.createElement('p');
-                                    titleEgger.textContent = item.title;
-
-                                    let codigoEgger = document.createElement('p');
-                                    codigoEgger.textContent = item.codigo;
-
-                                    itemEgger.append(imagenEgger);
-                                    itemEgger.append(titleEgger);
-                                    itemEgger.append(codigoEgger);
-
-                                    slider.append(itemEgger);
-
-                                })
-
-
-
-
+                    
+                                const slider = colorizeOpciones.find('.slider');
+                                let fragment = document.createDocumentFragment();
+                    
+                                // Crear cada elemento a partir de la respuesta y añadirlo al slider
+                                response.slice(0, 10).forEach(item => {
+                                    let itemSlider = document.createElement('div');
+                                    itemSlider.classList.add('itemSlider');
+                    
+                                    let itemImagen = document.createElement('img');
+                                    itemImagen.src = item.imagen;
+                                    itemImagen.classList.add('itemImagen');
+                    
+                                    let itemTitulo = document.createElement('p');
+                                    itemTitulo.textContent = item.title;
+                                    itemTitulo.classList.add('itemTitulo');
+                    
+                                    let itemCodigo = document.createElement('p');
+                                    itemCodigo.textContent = item.codigo;
+                                    itemCodigo.classList.add('itemCodigo');
+                    
+                                    itemSlider.append(itemImagen);
+                                    itemSlider.append(itemTitulo);
+                                    itemSlider.append(itemCodigo);
+                    
+                                    fragment.append(itemSlider);
+                                });
+                    
+                                slider.append(fragment);
+                    
+                                // Llamar a validarSlider después de insertar los elementos en el slider
+                                setTimeout(validarSlider, 100); 
                             });
-
-                        }, 100)
+                        }, 100);
                     }
-
-
                 }
             },
             error: function (xhr, status, error) {
@@ -459,102 +533,59 @@ $(document).ready(function () {
 
 
 // Codigo para el slider de colorize
-document.addEventListener('DOMContentLoaded', () => {
+function validarSlider() {
     let sliderTablerosBoton = document.querySelector('.boton1');
     let sliderTablerosBoton2 = document.querySelector('.boton2');
     let sliderTableros = document.querySelector('.slider');
 
-    const itemHeight = sliderTableros.firstElementChild.clientHeight + 10;
-    const itemWidth = sliderTableros.firstElementChild.clientWidth + 10;
+    if (sliderTableros) {
+        const itemHeight = sliderTableros.firstElementChild.clientHeight + 10;
+        const itemWidth = sliderTableros.firstElementChild.clientWidth + 10;
+        let itemsCantidad = document.querySelectorAll('.itemSlider');
+        let cantidad = itemsCantidad.length; // Obtener la cantidad de elementos directamente
 
-    let itemsCantidad = document.querySelectorAll('.itemSlider');
-    let cantidad = 0;
-    itemsCantidad.forEach(item => {
-        cantidad++;
-    })
-    let posicion = 0;
-    let posicionX = 0;
+        let posicion = 0;
+        let posicionX = 0;
 
-    if (sliderTablerosBoton) {
-        sliderTablerosBoton.addEventListener('click', () => {
-            if (posicionX > 0 && window.innerWidth < 768) {
-                posicionX -= itemWidth;
-                console.log('izquierda');
-                console.log(posicionX);
-                sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-
-
-            } else if (posicion > 0 && window.innerWidth > 768) {
-                posicion -= itemHeight;
-                console.log('arriba');
-                console.log(posicion);
-                sliderTableros.style.transform = `translateY(${-posicion}px)`;
-            }
-        });
-    }
-    if (sliderTablerosBoton2) {
-        sliderTablerosBoton2.addEventListener('click', () => {
-
-            if (window.innerWidth < 380) {
-                if (posicionX < (cantidad * itemWidth) - itemWidth * 3) {
-                    posicionX += itemWidth;
-                    console.log('derecha 380');
-                    console.log(posicionX);
+        if (sliderTablerosBoton) {
+            sliderTablerosBoton.addEventListener('click', () => {
+                if (posicionX > 0 && window.innerWidth < 768) {
+                    posicionX -= itemWidth;
                     sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                }
-
-            }
-            else if (window.innerWidth < 469) {
-
-                if (posicionX < (cantidad * itemWidth) - itemWidth * 4) {
-                    posicionX += itemWidth;
-                    console.log('derecha 469');
-                    console.log(posicionX);
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                }
-            }
-            else if (window.innerWidth < 560) {
-                if (posicionX < (cantidad * itemWidth) - itemWidth * 5) {
-                    posicionX += itemWidth;
-                    console.log('derecha 560');
-                    console.log(posicionX);
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                }
-
-            }
-            else if (window.innerWidth < 645) {
-
-                if (posicionX < (cantidad * itemWidth) - itemWidth * 6) {
-                    posicionX += itemWidth;
-                    console.log('derecha 645');
-                    console.log(posicionX);
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                }
-            }
-            else if (window.innerWidth < 730) {
-                if (posicionX < (cantidad * itemWidth) - itemWidth * 7) {
-                    posicionX += itemWidth;
-                    console.log('derecha 730');
-                    console.log(posicionX);
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                }
-
-            }
-            else if (window.innerWidth > 768 && window.innerWidth < 992) {
-                if (posicion < (cantidad * itemHeight) - itemHeight * 3) {
-                    posicion += itemHeight;
-                    console.log('abajo');
-                    console.log(posicion);
+                } else if (posicion > 0 && window.innerWidth > 768) {
+                    posicion -= itemHeight;
                     sliderTableros.style.transform = `translateY(${-posicion}px)`;
                 }
-            } else if (window.innerWidth >= 992) {
-                if (posicion < (cantidad / 2) * itemHeight - itemHeight * 3) {
+            });
+        }
+
+        if (sliderTablerosBoton2) {
+            sliderTablerosBoton2.addEventListener('click', () => {
+                if (window.innerWidth < 380 && posicionX < (cantidad * itemWidth) - itemWidth * 3) {
+                    posicionX += itemWidth;
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                } else if (window.innerWidth < 469 && posicionX < (cantidad * itemWidth) - itemWidth * 4) {
+                    posicionX += itemWidth;
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                } else if (window.innerWidth < 560 && posicionX < (cantidad * itemWidth) - itemWidth * 5) {
+                    posicionX += itemWidth;
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                } else if (window.innerWidth < 645 && posicionX < (cantidad * itemWidth) - itemWidth * 6) {
+                    posicionX += itemWidth;
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                } else if (window.innerWidth < 730 && posicionX < (cantidad * itemWidth) - itemWidth * 7) {
+                    posicionX += itemWidth;
+                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                } else if (window.innerWidth > 768 && window.innerWidth < 992 && posicion < (cantidad * itemHeight) - itemHeight * 3) {
                     posicion += itemHeight;
-                    console.log('abajo');
-                    console.log(posicion);
+                    sliderTableros.style.transform = `translateY(${-posicion}px)`;
+                } else if (window.innerWidth >= 992 && posicion < (cantidad / 2) * itemHeight - itemHeight * 3) {
+                    posicion += itemHeight;
                     sliderTableros.style.transform = `translateY(${-posicion}px)`;
                 }
-            }
-        });
+            });
+        }
+    } else {
+        console.log('Slider no encontrado');
     }
-})
+}

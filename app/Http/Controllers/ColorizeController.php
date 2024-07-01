@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EggerTableros;
 use App\Models\FeplacLineas;
+use App\Models\FeplacTableros;
 use Illuminate\Http\Request;
 
 class ColorizeController extends Controller
@@ -22,5 +23,13 @@ class ColorizeController extends Controller
             $files = EggerTableros::all();
             return response()->json($files);
         }
+    }
+
+
+    public function getFelac($lineaId)
+    {
+        $files = FeplacTableros::where('feplacLinea_id', $lineaId)->get();
+
+        return $files;
     }
 }

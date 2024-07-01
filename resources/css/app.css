@@ -3168,7 +3168,7 @@ ul {
         align-items: center;
         gap: 2rem;
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 10rem;
     }
 
     .load-files {
@@ -3215,6 +3215,7 @@ ul {
 
 
 /* SECTION Feplac Mueble editor */
+
 .containerFeplacLinea {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -3447,6 +3448,11 @@ ul {
         margin-bottom: 0.2rem;
         text-align: center;
     }
+
+    .itemTituloOnly{
+        margin-bottom: 2rem !important;
+    }
+    
 
     .itemCodigo {
         font-size: 1.1rem;
