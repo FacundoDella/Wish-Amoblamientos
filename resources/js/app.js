@@ -361,6 +361,9 @@ $(document).ready(function () {
                         return;
                     } else {
                         colorizeOpciones.addClass('loaded');
+                        if(window.innerWidth > 768 && window.innerWidth < 992){
+                            $('.colorizeOpciones').css('margin-bottom', '10px');
+                        }
                         setTimeout(function () {
                             // se carga el contenido del carrusel desde el archivo Blade, definido en las rutas
                             $.get('/feplacLineas', function (containerFeplacString) { // Retorna un string
@@ -412,7 +415,9 @@ $(document).ready(function () {
                                                 method: 'GET',
                                                 success: function (response) {
                                                     colorizeOpciones.empty();
-                                                    $('.colorizeOpciones').css('margin-bottom', '0px');
+                                                    if(window.innerWidth > 768){
+                                                        $('.colorizeOpciones').css('margin-bottom', '10px');
+                                                    }
                                                     $.get('/tablerosCarrousel', function (carruselString) {
                                                         const tempDiv = document.createElement('div');
                                                         tempDiv.innerHTML = carruselString;
@@ -444,14 +449,13 @@ $(document).ready(function () {
 
                                                             fragment.append(itemSlider);
                                                         });
+                                                        setTimeout(() => {
+                                                            slider.append(fragment);
+                                                            correjirItemsSlider();
+                                                        }, 50);
 
-                                                        slider.append(fragment);
-
-                                                        setTimeout(validarSlider, 100); 
+                                                        setTimeout(moverSlider, 100);
                                                     })
-
-                                                    console.log(response);
-                                                    validarSlider();
                                                 }, error: function (xhr, status, error) {
                                                     console.error('Error en la solicitud AJAX:', error);
                                                 }
@@ -463,62 +467,60 @@ $(document).ready(function () {
 
                                     });
                                 });
-
-
-
-
-
-
                             });
                         }, 100)
                     }
                 } else if (opcion == 2) {
                     colorizeOpciones.empty();
+                    if(window.innerWidth > 768 && window.innerWidth < 992){
+                        $('.colorizeOpciones').css('margin-bottom', '10px');
+                    }
                     if (colorizeOpciones.hasClass('loaded')) {
                         return;
                     } else {
                         colorizeOpciones.addClass('loaded');
-                        $('.colorizeOpciones').css('margin-bottom', '0');
                         setTimeout(function () {
                             $.get('/tablerosCarrousel', function (carruselString) {
                                 const tempDiv = document.createElement('div');
                                 tempDiv.innerHTML = carruselString;
-                    
+
                                 while (tempDiv.firstChild) {
                                     colorizeOpciones.append(tempDiv.firstChild);
                                 }
-                    
+
                                 const slider = colorizeOpciones.find('.slider');
                                 let fragment = document.createDocumentFragment();
-                    
+
                                 // Crear cada elemento a partir de la respuesta y añadirlo al slider
                                 response.slice(0, 10).forEach(item => {
                                     let itemSlider = document.createElement('div');
                                     itemSlider.classList.add('itemSlider');
-                    
+
                                     let itemImagen = document.createElement('img');
                                     itemImagen.src = item.imagen;
                                     itemImagen.classList.add('itemImagen');
-                    
+
                                     let itemTitulo = document.createElement('p');
                                     itemTitulo.textContent = item.title;
                                     itemTitulo.classList.add('itemTitulo');
-                    
+
                                     let itemCodigo = document.createElement('p');
                                     itemCodigo.textContent = item.codigo;
                                     itemCodigo.classList.add('itemCodigo');
-                    
+
                                     itemSlider.append(itemImagen);
                                     itemSlider.append(itemTitulo);
                                     itemSlider.append(itemCodigo);
-                    
+
                                     fragment.append(itemSlider);
                                 });
-                    
-                                slider.append(fragment);
-                    
-                                // Llamar a validarSlider después de insertar los elementos en el slider
-                                setTimeout(validarSlider, 100); 
+
+                                setTimeout(() => {
+                                    slider.append(fragment);
+                                    correjirItemsSlider();
+                                }, 50);
+
+                                setTimeout(moverSlider, 100);
                             });
                         }, 100);
                     }
@@ -532,60 +534,90 @@ $(document).ready(function () {
 });
 
 
-// Codigo para el slider de colorize
-function validarSlider() {
-    let sliderTablerosBoton = document.querySelector('.boton1');
-    let sliderTablerosBoton2 = document.querySelector('.boton2');
+function correjirItemsSlider() {
+    console.log('se ejecuta correjirItemsSlider');
     let sliderTableros = document.querySelector('.slider');
+    let colorizeOpciones = document.querySelector('.colorizeOpciones');
 
     if (sliderTableros) {
-        const itemHeight = sliderTableros.firstElementChild.clientHeight + 10;
-        const itemWidth = sliderTableros.firstElementChild.clientWidth + 10;
-        let itemsCantidad = document.querySelectorAll('.itemSlider');
-        let cantidad = itemsCantidad.length; // Obtener la cantidad de elementos directamente
+        let colorizeAncho = colorizeOpciones.clientWidth;
 
-        let posicion = 0;
-        let posicionX = 0;
+        const sliderItems = sliderTableros.children;
+        [...sliderItems].forEach(sliderItem => {
+            // console.log(sliderItem);
+            if (window.innerWidth < 480) {
+                sliderItem.style.width = (colorizeAncho / 3 - 10) + 'px';
+            } else if (window.innerWidth < 768) {
+                sliderItem.style.width = (colorizeAncho / 5 - 10) + 'px';
+            }
 
-        if (sliderTablerosBoton) {
-            sliderTablerosBoton.addEventListener('click', () => {
-                if (posicionX > 0 && window.innerWidth < 768) {
-                    posicionX -= itemWidth;
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                } else if (posicion > 0 && window.innerWidth > 768) {
-                    posicion -= itemHeight;
-                    sliderTableros.style.transform = `translateY(${-posicion}px)`;
-                }
-            });
-        }
-
-        if (sliderTablerosBoton2) {
-            sliderTablerosBoton2.addEventListener('click', () => {
-                if (window.innerWidth < 380 && posicionX < (cantidad * itemWidth) - itemWidth * 3) {
-                    posicionX += itemWidth;
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                } else if (window.innerWidth < 469 && posicionX < (cantidad * itemWidth) - itemWidth * 4) {
-                    posicionX += itemWidth;
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                } else if (window.innerWidth < 560 && posicionX < (cantidad * itemWidth) - itemWidth * 5) {
-                    posicionX += itemWidth;
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                } else if (window.innerWidth < 645 && posicionX < (cantidad * itemWidth) - itemWidth * 6) {
-                    posicionX += itemWidth;
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                } else if (window.innerWidth < 730 && posicionX < (cantidad * itemWidth) - itemWidth * 7) {
-                    posicionX += itemWidth;
-                    sliderTableros.style.transform = `translateX(${-posicionX}px)`;
-                } else if (window.innerWidth > 768 && window.innerWidth < 992 && posicion < (cantidad * itemHeight) - itemHeight * 3) {
-                    posicion += itemHeight;
-                    sliderTableros.style.transform = `translateY(${-posicion}px)`;
-                } else if (window.innerWidth >= 992 && posicion < (cantidad / 2) * itemHeight - itemHeight * 3) {
-                    posicion += itemHeight;
-                    sliderTableros.style.transform = `translateY(${-posicion}px)`;
-                }
-            });
-        }
+        })
     } else {
-        console.log('Slider no encontrado');
+        console.log('No se encontro el sliderTablero');
     }
+}
+
+
+
+function moverSlider() {
+    console.log('se ejecuta moverSlider');
+    setTimeout(() => {
+
+        let sliderTablerosBoton = document.querySelector('.boton1');
+        let sliderTableros = document.querySelector('.slider');
+        let sliderTablerosBoton2 = document.querySelector('.boton2');
+        let colorizeOpciones = document.querySelector('.colorizeOpciones');
+
+        if (sliderTableros) {
+            let colorizeAncho = colorizeOpciones.clientWidth;
+
+            const itemHeight = sliderTableros.firstElementChild.clientHeight + 10;
+            const itemWidth = sliderTableros.firstElementChild.clientWidth + 10;
+
+
+            let itemsCantidad = document.querySelectorAll('.itemSlider');
+            let cantidad = itemsCantidad.length; // Obtener la cantidad de elementos directamente
+            console.log(cantidad);
+
+            let posicion = 0;
+            let posicionX = 0;
+
+
+            if (sliderTablerosBoton) {
+                sliderTablerosBoton.addEventListener('click', () => {
+                    if (posicionX > 0 && window.innerWidth < 768) {
+                        posicionX -= itemWidth;
+                        sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                    } else if (posicion > 0 && window.innerWidth > 768) {
+                        posicion -= itemHeight;
+                        sliderTableros.style.transform = `translateY(${-posicion}px)`;
+                    }
+                });
+            }
+
+            if (sliderTablerosBoton2) {
+                sliderTablerosBoton2.addEventListener('click', () => {
+                    if (window.innerWidth < 480 && posicionX < cantidad * itemWidth - itemWidth * 3) {
+                        posicionX += itemWidth;
+                        sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                        console.log('-480');
+                    } else if (window.innerWidth > 480 && window.innerWidth < 768 && posicionX < cantidad * itemWidth - itemWidth * 5) {
+                        posicionX += itemWidth;
+                        sliderTableros.style.transform = `translateX(${-posicionX}px)`;
+                        console.log('+480 -720');
+                    } else if (window.innerWidth > 768 && window.innerWidth < 992 && posicion < cantidad * itemHeight - itemHeight * 3) {
+                        posicion += itemHeight;
+                        sliderTableros.style.transform = `translateY(${-posicion}px)`;
+                        console.log('+720 -992');
+                    } else if (window.innerWidth > 992 && posicion < (cantidad / 2) * itemHeight - itemHeight * 3) {
+                        posicion += itemHeight;
+                        sliderTableros.style.transform = `translateY(${-posicion}px)`;
+                        console.log('+992');
+                    }
+                });
+            }
+        } else {
+            console.log('No se encontro el sliderTablero');
+        }
+    }, 300)
 }

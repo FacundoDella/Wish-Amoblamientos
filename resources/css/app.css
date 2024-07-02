@@ -3287,7 +3287,7 @@ ul {
 
 /* !SECTION Feplac Mueble editor */
 
-/* SECTION Egger Mueble editor */
+/* SECTION Slider Mueble editor */
 .silderContenedor {
     width: 100%;
     position: relative;
@@ -3339,7 +3339,6 @@ ul {
 }
 
 .itemSlider {
-    width: 7.2rem;
     background-color: var(--blanco);
     border-radius: 1rem;
     display: flex;
@@ -3480,7 +3479,7 @@ ul {
 
 }
 
-/* !SECTION Egger Mueble editor */
+/* !SECTION Slider Mueble editor */
 /* !SECTION Mubele editor  */
 
 
