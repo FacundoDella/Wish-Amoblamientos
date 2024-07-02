@@ -13,9 +13,9 @@
         <div class=" collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav navegacion-enlaces">
                 <a class="nav-link navlinkEdit" href="/">Inicio</a>
-                <a class="nav-link navlinkEdit" aria-current="page" href="#">Sobre Nosotros</a>
+                <a class="nav-link navlinkEdit" id="nosotrosNavLink" href="sobreNosotrosContainer" aria-current="page" href="#">Sobre Nosotros</a>
                 <a class="nav-link navlinkEdit" href="/blog">Blog</a>
-                <a class="nav-link navlinkEdit" id="obrasNavLink" href="#">Obras</a>
+                <a class="nav-link navlinkEdit" id="obrasNavLink" href="seccionProductos">Obras</a>
                 <a class="nav-link navlinkEdit" href="/colaboradores">Colaboradores</a>
                 <a class="nav-link navlinkEdit" href="#">Contacto</a>
             </div>

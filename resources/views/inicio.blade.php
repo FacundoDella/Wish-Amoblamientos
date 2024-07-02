@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     {{-- Fuentes  --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +33,7 @@
         </div>
     </div>
 
-    <div class="seccionProductos">
+    <div class="seccionProductos" id="seccionProductos">
         <div class="productosContenedor">
             <div class="productosInfo">
                 <h2>Nuestros Productos</h2>
@@ -110,7 +109,7 @@
         </div>
     </div>
 
-    <div class="sobreNosotrosContainer">
+    <div class="sobreNosotrosContainer" id="sobreNosotros">
         <div class="grid">
             <div class="nosotrosInfo">
                 <h2>¿Quienes Somos?</h2>

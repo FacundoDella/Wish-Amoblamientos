@@ -39,7 +39,64 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', handleLinkClick);
     });
 
-    // Scroll suave para obras
+    // Scroll suave 
+    let obrasEnlace = document.getElementById('obrasNavLink');
+    let nosotrosEnlace = document.getElementById('nosotrosNavLink');
+
+    if (obrasEnlace || nosotrosEnlace) {
+        // Obras
+        let obras = document.getElementById('seccionProductos');
+        obrasEnlace.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (window.location.pathname !== '/') {
+                window.location.href = '/?scrollTo=obras';
+            } else {
+                obras.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "start"
+                });
+            }
+        });
+
+        // Sobre Nosotros
+        let sobreNosotros = document.getElementById('sobreNosotros');
+        nosotrosEnlace.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (window.location.pathname !== '/') {
+                window.location.href = '/?scrollTo=nosotros';
+            } else {
+                sobreNosotros.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "start"
+                });
+            }
+        });
+    }
+
+    // Verificar si hay un parámetro de consulta para desplazarse
+    window.addEventListener('load', () => {
+        const params = new URLSearchParams(window.location.search);
+        const scrollTo = params.get('scrollTo');
+
+        if (scrollTo) {
+            let elementToScroll;
+            if (scrollTo === 'obras') {
+                elementToScroll = document.getElementById('seccionProductos');
+            } else if (scrollTo === 'nosotros') {
+                elementToScroll = document.getElementById('sobreNosotros');
+            }
+
+            if (elementToScroll) {
+                elementToScroll.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "start"
+                });
+            }
+        }
+    });
 });
 
 
