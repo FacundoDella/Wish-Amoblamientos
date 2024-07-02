@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
     navLink.forEach(function (link) {
         link.addEventListener('click', handleLinkClick);
     });
+
+    // Scroll suave para obras
 });
 
 
@@ -342,7 +344,6 @@ if (guardarBotonesBtn) {
 
 // SECTION Colorize
 
-
 $(document).ready(function () {
     $('.load-files').click(function (event) {
         event.preventDefault();
@@ -361,7 +362,7 @@ $(document).ready(function () {
                         return;
                     } else {
                         colorizeOpciones.addClass('loaded');
-                        if(window.innerWidth > 768 && window.innerWidth < 992){
+                        if (window.innerWidth > 768 && window.innerWidth < 992) {
                             $('.colorizeOpciones').css('margin-bottom', '10px');
                         }
                         setTimeout(function () {
@@ -392,12 +393,7 @@ $(document).ready(function () {
                                     let imgFeplacLinea = document.createElement('img');
                                     imgFeplacLinea.src = file.imagenLinea;
                                     imgFeplacLinea.classList.add('imgFeplacLinea');
-
-                                    // let lineaInput = document.createElement('input');
-                                    // lineaInput.textContent = i;
-                                    // lineaInput.classList.add('inputLienaFeplacOculto');
                                     lineaFeplac.append(imgFeplacLinea);
-                                    // lineaFeplac.append(lineaInput);
                                     lineaFeplacEnlace.append(lineaFeplac);
                                     fragment.append(lineaFeplacEnlace);
                                 });
@@ -415,7 +411,7 @@ $(document).ready(function () {
                                                 method: 'GET',
                                                 success: function (response) {
                                                     colorizeOpciones.empty();
-                                                    if(window.innerWidth > 768){
+                                                    if (window.innerWidth > 768) {
                                                         $('.colorizeOpciones').css('margin-bottom', '10px');
                                                     }
                                                     $.get('/tablerosCarrousel', function (carruselString) {
@@ -472,7 +468,7 @@ $(document).ready(function () {
                     }
                 } else if (opcion == 2) {
                     colorizeOpciones.empty();
-                    if(window.innerWidth > 768 && window.innerWidth < 992){
+                    if (window.innerWidth > 768 && window.innerWidth < 992) {
                         $('.colorizeOpciones').css('margin-bottom', '10px');
                     }
                     if (colorizeOpciones.hasClass('loaded')) {
@@ -481,6 +477,9 @@ $(document).ready(function () {
                         colorizeOpciones.addClass('loaded');
                         setTimeout(function () {
                             $.get('/tablerosCarrousel', function (carruselString) {
+                                if (window.innerWidth > 768) {
+                                    $('.colorizeOpciones').css('margin-bottom', '10px');
+                                }
                                 const tempDiv = document.createElement('div');
                                 tempDiv.innerHTML = carruselString;
 
@@ -533,7 +532,7 @@ $(document).ready(function () {
     });
 });
 
-
+// Funcion que corrije el tamaño de los items dependiendo de la pantalla
 function correjirItemsSlider() {
     console.log('se ejecuta correjirItemsSlider');
     let sliderTableros = document.querySelector('.slider');
@@ -550,7 +549,13 @@ function correjirItemsSlider() {
             } else if (window.innerWidth < 768) {
                 sliderItem.style.width = (colorizeAncho / 5 - 10) + 'px';
             }
+            sliderItem.addEventListener('click', () => {
+                let img = sliderItem.children;
+                let imgSrc = img[0].src;
+                console.log(imgSrc);
 
+                cambiarMueble(imgSrc);
+            })
         })
     } else {
         console.log('No se encontro el sliderTablero');
@@ -558,7 +563,7 @@ function correjirItemsSlider() {
 }
 
 
-
+// Funcion que mueve el slider dependiendo de la pantalla
 function moverSlider() {
     console.log('se ejecuta moverSlider');
     setTimeout(() => {
@@ -620,4 +625,16 @@ function moverSlider() {
             console.log('No se encontro el sliderTablero');
         }
     }, 300)
+}
+
+function cambiarMueble(src) {
+    let imagenDefault = document.querySelector('.imagenDefault');
+    let imagenSinFondo = document.querySelector('.imagenEditable');
+    let imagenDeFondo = document.querySelector('.imagenFondo');
+
+    imagenDefault.style.display = 'none';
+    imagenSinFondo.style.display = 'block';
+    imagenDeFondo.style.display = 'block';
+    imagenDeFondo.src = src;
+
 }

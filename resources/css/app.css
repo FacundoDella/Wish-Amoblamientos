@@ -3026,10 +3026,14 @@ ul {
 .colorizeImagenEdit {
     width: 100%;
     height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .imagenDefault {
-    object-fit: cover;
+    object-fit: fill;
     width: 100%;
     height: 100%;
     border-radius: 1rem;
@@ -3037,19 +3041,23 @@ ul {
 }
 
 .imagenEditable {
-    object-fit: cover;
+    object-fit: fill;
     display: none;
     width: 100%;
     height: 100%;
     border-radius: 1rem;
+    z-index: 998;
+    position: absolute;
 }
 
 .imagenFondo {
-    object-fit: cover;
+    object-fit: fill;
     display: none;
     width: 100%;
     height: 100%;
     border-radius: 1rem;
+    z-index: -1;
+    position: absolute;
 }
 
 

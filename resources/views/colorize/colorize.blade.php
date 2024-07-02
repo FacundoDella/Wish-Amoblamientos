@@ -27,7 +27,7 @@
                         alt="">
                     <img class="imagenEditable" src="{{ asset('imagenes/muebleEditor/imagenMuebleEditable.png') }}"
                         alt="">
-                    <img class="imagenFondo" src="{{ asset('imagenes/muebleEditor/imagenMuebleDefault.jpg') }}"
+                    <img class="imagenFondo" src=""
                         alt="">
                 </div>
                 <div class="colorizeEditor">
