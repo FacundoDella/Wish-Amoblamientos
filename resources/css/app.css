@@ -3032,22 +3032,59 @@ ul {
     position: relative;
 }
 
+.seleccionaImagen {
+    position: absolute;
+    top: 17%;
+    left: 2%;
+    display: none;
+}
+
+.seleccionaImagen p {
+    color: var(--blanco);
+    background-color: var(--colorPrimario);
+    font-size: 1rem;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+.formColorizeOptions {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 998;
+}
+
+.opcionColorize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+}
+
+.opcionColorize label {
+    font-size: 1rem;
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.opcionColorize input {
+    font-size: 1rem;
+    opacity: 70%;
+    cursor: pointer;
+}
+
 .imagenDefault {
     object-fit: fill;
     width: 100%;
     height: 100%;
     border-radius: 1rem;
     display: block;
-}
-
-.imagenEditable {
-    object-fit: fill;
-    display: none;
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-    z-index: 998;
-    position: absolute;
 }
 
 .imagenFondo {
@@ -3058,6 +3095,38 @@ ul {
     border-radius: 1rem;
     z-index: -1;
     position: absolute;
+}
+
+.imagenEditable {
+    object-fit: fill;
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    z-index: 2;
+    position: absolute;
+}
+
+.imagenFondo2 {
+    object-fit: fill;
+    display: none;
+    z-index: 3;
+    position: absolute;
+    top: 23%;
+    height: calc(46% - 23%);
+    left: 29%;
+    width: calc(57% - 29%);
+}
+
+.imagenEditable2 {
+    object-fit: fill;
+    display: none;
+    z-index: 4;
+    position: absolute;
+    top: 23%;
+    height: calc(46% - 23%);
+    left: 29%;
+    width: calc(57% - 29%);
 }
 
 
@@ -3192,6 +3261,24 @@ ul {
         border-radius: 1rem;
         width: 100%;
         height: 100%;
+    }
+
+    .formColorizeOptions {
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .seleccionaImagen p {
+        color: var(--blanco);
+        background-color: var(--colorPrimario);
+        font-size: 1rem;
+        padding: .5rem;
+        border-radius: 1rem;
     }
 }
 
@@ -3390,8 +3477,9 @@ ul {
         display: flex;
         justify-content: center;
         overflow: hidden;
-        
+
     }
+
     .slider {
         width: 95%;
         height: 46rem;
@@ -3456,10 +3544,10 @@ ul {
         text-align: center;
     }
 
-    .itemTituloOnly{
+    .itemTituloOnly {
         margin-bottom: 2rem !important;
     }
-    
+
 
     .itemCodigo {
         font-size: 1.1rem;

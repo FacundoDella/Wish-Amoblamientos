@@ -97,6 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
+    validarSeleccionado();
 });
 
 
@@ -589,6 +591,26 @@ $(document).ready(function () {
     });
 });
 
+let opcionSeleccionada = null; // Variable global 
+function validarSeleccionado() {
+    let formOpciones = document.getElementById('formColorizeOptions');
+    const opcionesRadio = document.querySelectorAll('input[type="radio"]');
+
+    opcionesRadio.forEach((radio) => {
+        radio.addEventListener('click', (e) => {
+            opcionSeleccionada = e.target.value;
+            console.log('seleccionado');
+            console.log(opcionSeleccionada);
+        });
+    });
+
+}
+
+function obtenerOpcionSeleccionada() {
+    return opcionSeleccionada; // Cuando llamo a esta funcion, me va a retornar el valor actual de la opcionSeleccionada
+}
+
+
 // Funcion que corrije el tamaño de los items dependiendo de la pantalla
 function correjirItemsSlider() {
     console.log('se ejecuta correjirItemsSlider');
@@ -606,13 +628,25 @@ function correjirItemsSlider() {
             } else if (window.innerWidth < 768) {
                 sliderItem.style.width = (colorizeAncho / 5 - 10) + 'px';
             }
-            sliderItem.addEventListener('click', () => {
-                let img = sliderItem.children;
-                let imgSrc = img[0].src;
-                console.log(imgSrc);
 
-                cambiarMueble(imgSrc);
-            })
+            function validador() {
+                let imagenDefault = document.querySelector('.imagenDefault');
+                let seleccionaAlert = document.querySelector('.seleccionaImagen');
+                sliderItem.addEventListener('click', () => {
+                    let opcion = obtenerOpcionSeleccionada();
+                    if (opcion) {
+                        imagenDefault.style.display = 'none';
+                        let img = sliderItem.children;
+                        let imgSrc = img[0].src;
+                        cambiarMueble(imgSrc, opcion);
+                        console.log(opcion);
+                        seleccionaAlert.style.display = 'none';
+                    } else {
+                        seleccionaAlert.style.display = 'block';
+                    }
+                });
+            }
+            validador();
         })
     } else {
         console.log('No se encontro el sliderTablero');
@@ -684,14 +718,25 @@ function moverSlider() {
     }, 300)
 }
 
-function cambiarMueble(src) {
-    let imagenDefault = document.querySelector('.imagenDefault');
+function cambiarMueble(src, opcion) {
     let imagenSinFondo = document.querySelector('.imagenEditable');
+    let imagenSinFondo2 = document.querySelector('.imagenEditable2');
     let imagenDeFondo = document.querySelector('.imagenFondo');
-
-    imagenDefault.style.display = 'none';
-    imagenSinFondo.style.display = 'block';
-    imagenDeFondo.style.display = 'block';
-    imagenDeFondo.src = src;
-
+    let imagenDeFondo2 = document.querySelector('.imagenFondo2');
+    console.log(opcion);
+    if (opcion === 'opcion1') {
+        imagenSinFondo2.style.display = 'block';
+        imagenSinFondo.style.display = 'block';
+        imagenDeFondo.style.display = 'block';
+        imagenDeFondo.src = src;
+    } else if (opcion === 'opcion2') {
+        imagenSinFondo.style.display = 'block';
+        imagenSinFondo2.style.display = 'block';
+        imagenDeFondo2.style.display = 'block';
+        imagenDeFondo2.src = src;
+    } else {
+        console.log('Selecciona una imagen');
+    }
 }
+
+// TODO me queda ver como hago la valdiacion de si hay un mueble seleccionado o no para recien ahi aplicar estilos

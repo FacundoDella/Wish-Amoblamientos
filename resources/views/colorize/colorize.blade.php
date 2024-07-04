@@ -23,17 +23,39 @@
         <div class="contenedor">
             <div class="colorize">
                 <div class="colorizeImagenEdit">
+                    <div class="seleccionaImagen">
+                        <p>Debes seleccionar una imagen</p>
+                    </div>
+                    <form class="formColorizeOptions" id="formColorizeOptions">
+                        <div class="opcionColorize">
+                            <input type="radio" id="opcion2" name="opcion" value="opcion2">
+                            <label for="opcion2">Mueble Superior</label><br>
+                        </div>
+                        <div class="opcionColorize">
+                            <input type="radio" id="opcion1" name="opcion" value="opcion1">
+                            <label for="opcion1">Mueble Inferior</label><br>
+                        </div>
+                    </form>
+
+
                     <img class="imagenDefault" src="{{ asset('imagenes/muebleEditor/imagenMuebleDefault.jpg') }}"
                         alt="">
-                    <img class="imagenEditable" src="{{ asset('imagenes/muebleEditor/imagenMuebleEditable.png') }}"
+
+
+                    <img class="imagenEditable" src="{{ asset('imagenes/muebleEditor/imagenMuebleEditable1.png') }}"
                         alt="">
-                    <img class="imagenFondo" src=""
+
+                    <img class="imagenEditable2" src="{{ asset('imagenes/muebleEditor/imagenMuebleEditable2.png') }}"
                         alt="">
+
+
+                    <img class="imagenFondo" src="" alt="">
+                    <img class="imagenFondo2" src="" alt="">
                 </div>
                 <div class="colorizeEditor">
                     <h3>Colorize</h3>
                     <div class="colorizeOpciones">
-                        
+
                         <a class="load-files" href="#" data-option="1">
                             <img src="imagenes/muebleEditor/feplac.jpg" alt="Opción 1">
                         </a>
