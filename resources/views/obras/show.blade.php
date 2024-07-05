@@ -18,8 +18,6 @@
     @include('includes-generales.top')
     @include('includes-generales.navegacion')
 
-
-
     <div class="headerObra">
         <div class="contenedor">
             <div class="presetacionObras">
@@ -27,7 +25,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="contenedor">
         <div class="obraWish">
@@ -46,6 +43,12 @@
                             <div class=" carrouselItemObraWish carousel-item {{ $index === 0 ? 'active' : '' }}">
                                 <img src="{{ asset($imagen->ruta) }}" class="d-block w-100 itemActiveButons"
                                     alt="{{ $trabajo->titulo }}">
+                                @foreach ($imagen->botones as $boton)
+                                    <button class="boton-elegante"
+                                        style="position: absolute; left: {{ $boton->posicion_x }}%; top: {{ $boton->posicion_y }}%;"
+                                        data-contenido="{{ $boton->contenido }}">
+                                    </button>
+                                @endforeach
                             </div>
                         @endforeach
                     @else
@@ -64,8 +67,6 @@
                 </button>
             </div>
 
-
-
             <div class="informacionObraContenedor">
                 <div class="logoEnObra">
                     <h4>Wish Amoblamientos</h4>
@@ -76,25 +77,13 @@
                     <p>{{ $trabajo->detalles }}</p>
                     <p>{{ $trabajo->materiales }}</p>
                 </div>
-                {{-- Informacion variable que va a ser leida de la base de datos, dependiendo de a que boton se le haga click --}}
                 <div class="informacionVariable informacionVariableOculto">
-                    <p>Los materiales utilizados en esta obra incluyen pigmentos de alta
-                        calidad, lienzos de algodón, y barnices protectores que garantizan la durabilidad y preservación
-                        de
-                        los colores originales a lo largo del tiempo.
-                        Los materiales utilizados en esta obra incluyen pigmentos de alta
-                        calidad, lienzos de algodón, y barnices protectores que garantizan la durabilidad y preservación
-                        de
-                        los colores originales a lo largo del tiempo
-                    </p>
+                    <!-- Aquí se mostrará el contenido dinámico -->
+                    <p id="contenido-dinamico"></p>
                 </div>
             </div>
         </div>
     </div>
 
-
     @include('includes-generales.footer')
 </body>
-{{-- <button class="boton-elegante botonEleganteOculto" style="top: 66%; left: 45%;">
-                            <div class="botonElegante"></div>
-                        </button> --}}

@@ -162,38 +162,38 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-let imagenesConBotones = document.querySelector('.itemActiveButons');
-let botonesDeImagen = document.querySelectorAll('.boton-elegante');
-let informacionVariable = document.querySelector('.informacionVariable');
-if (imagenesConBotones) {
-    imagenesConBotones.addEventListener('click', () => {
-        botonesDeImagen.forEach(boton => {
-            if (boton.classList.contains('botonEleganteOculto')) {
-                boton.classList.remove('botonEleganteOculto');
-                boton.classList.add('botonEleganteVisible');
-            } else {
-                boton.classList.remove('botonEleganteVisible');
-                boton.classList.add('botonEleganteOculto');
-                informacionVariable.classList.remove('informacionVariableVisible');
-                informacionVariable.classList.add('informacionVariableOculto');
-            }
-        });
-    });
-}
+document.addEventListener('DOMContentLoaded', () => {
+    let botonesDeImagen = document.querySelectorAll('.boton-elegante');
+    let informacionVariable = document.querySelector('.informacionVariable');
+    let contenidoDinamico = document.getElementById('contenido-dinamico');
 
-botonesDeImagen.forEach(boton => {
-    boton.addEventListener('click', () => {
-        if (informacionVariable.classList.contains('informacionVariableOculto')) {
-            informacionVariable.classList.remove('informacionVariableOculto');
-            informacionVariable.classList.add('informacionVariableVisible');
-            console.log('visible');
-        } else {
-            informacionVariable.classList.remove('informacionVariableVisible');
-            informacionVariable.classList.add('informacionVariableOculto');
-            console.log('oculto');
-        }
-    })
-})
+    if (botonesDeImagen) {
+        botonesDeImagen.forEach(boton => {
+            boton.addEventListener('click', () => {
+
+
+                let contenido = boton.getAttribute('data-contenido');
+                contenidoDinamico.textContent = contenido;
+
+                if (informacionVariable.classList.contains('informacionVariableOculto')) {
+                    informacionVariable.classList.remove('informacionVariableOculto');
+                    informacionVariable.classList.add('informacionVariableVisible');
+                    if (window.innerWidth < 768) {
+                        informacionVariable.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center",
+                            inline: "start"
+                        });
+                    }
+                } else {
+                    informacionVariable.classList.add('informacionVariableOculto');
+                    informacionVariable.classList.remove('informacionVariableVisible');
+                }
+            });
+        });
+    }
+});
+
 
 // Sobre Nosotros Ver mas 
 

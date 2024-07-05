@@ -33,12 +33,12 @@
                     <div class="contenedorImagenOpcional">
                         <img src="{{ asset($imagen->ruta) }}" alt="Imagen del Trabajo" class="imagenOpciones"
                             data-imagen-id="{{ $imagen->id }}">
-                        {{-- @foreach ($imagen->botones as $boton)
+                        @foreach ($imagen->botones as $boton)
                             <button class="boton-elegante"
-                                style="position: absolute; left: {{ $boton->posicion_x }}px; top: {{ $boton->posicion_y }}px;">
+                                style="position: absolute; left: {{ $boton->posicion_x }}%; top: {{ $boton->posicion_y }}%;">
                                 {{ $boton->contenido }}
                             </button>
-                        @endforeach --}}
+                        @endforeach
                     </div>
                 @endforeach
             </div>
