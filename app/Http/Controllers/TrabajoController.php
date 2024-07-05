@@ -25,13 +25,15 @@ class TrabajoController extends Controller
     }
 
     public function store(Request $request)
-    {  // Validar los datos
+    {
+        // Validar los datos
         $request->validate([
             'titulo' => 'required',
             'descripcion' => 'required',
             'detalles' => 'required',
             'materiales' => 'required',
             'seccion_id' => 'required',
+            'imagenes' => 'required|array',
             'imagenes.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120' // 5MB por imagen
         ]);
 
@@ -73,6 +75,7 @@ class TrabajoController extends Controller
             return redirect()->route('trabajos.index')->with('error', 'Hubo un problema al crear el trabajo.');
         }
     }
+
 
     // editar un trabajo existente
     public function edit(Trabajo $trabajo)
