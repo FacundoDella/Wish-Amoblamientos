@@ -3129,7 +3129,6 @@ ul {
     width: calc(57% - 29%);
 }
 
-
 .colorizeEditor {
     width: 100%;
     height: 10rem;
@@ -3140,14 +3139,14 @@ ul {
     justify-content: center;
     align-items: center;
     padding-left: 0rem;
-    padding-right: 0rem;
+    position: relative;
+    margin-bottom: 2rem;
 }
 
 .colorizeEditor h3 {
     font-size: 1.2rem;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 1rem;
     color: var(--blanco);
     background-color: var(--colorSecundario);
     display: inline-block;
@@ -3158,25 +3157,61 @@ ul {
     width: 20%;
     max-width: 7.2rem;
     min-width: 6.5rem;
+    transform: rotate(-90deg);
+}
+
+.colorizeBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--negro);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 112%;
+    background-color: var(--blanco);
+    padding: .5rem;
+    border-radius: 1rem;
+    display: none;
+}
+.colorizeBack:hover {
+    -webkit-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+    transition: all .3s ease;
+    background-color: var(--colorBody);
+}
+
+.colorizeBack img {
+    width: 2rem;
+}
+
+.colorizeBack p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0;
+    margin-left: .5rem;
 }
 
 .colorizeOpciones {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0rem;
     width: 100%;
     overflow: hidden;
 }
 
 .load-files {
-    width: 10rem;
+    width: 12rem;
     height: 9rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
     border-radius: 1rem;
     transition: all .3s ease;
+    margin-right: 1rem
 }
 
 .load-files:hover {
@@ -3220,6 +3255,7 @@ ul {
         align-items: center;
         padding-left: 0rem;
         padding-right: 0rem;
+        margin-bottom: 0rem;
     }
 
     .colorizeEditor h3 {
@@ -3236,6 +3272,7 @@ ul {
         width: 80%;
         max-width: 20rem;
         text-align: center;
+        transform: rotate(0deg);
     }
 
     .colorizeOpciones {
@@ -3273,12 +3310,29 @@ ul {
         justify-content: center;
         gap: 2rem;
     }
+
     .seleccionaImagen p {
         color: var(--blanco);
         background-color: var(--colorPrimario);
         font-size: 1rem;
         padding: .5rem;
         border-radius: 1rem;
+    }
+
+    .colorizeBack {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: var(--negro);
+        position: absolute;
+        left: 8%;
+        top: 12%;
+        background-color: var(--blanco);
+        padding: .5rem;
+        border-radius: 1rem;
+        transform: translateX(0%);
+        display: none;
     }
 }
 

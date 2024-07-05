@@ -402,128 +402,166 @@ if (guardarBotonesBtn) {
 }
 
 // SECTION Colorize
-
+let colorizeInicioBack = document.getElementById('Inicio');
 $(document).ready(function () {
     $('.load-files').click(function (event) {
         event.preventDefault();
 
         let opcion = $(this).data('option');
         let colorizeOpciones = $('.colorizeOpciones');
+        let colorizeBack = document.getElementById('feplacLineas');
 
         $.ajax({
             url: '/get-files/' + opcion,
             method: 'GET',
             success: function (response) {
-
+                console.log(response);
                 if (opcion == 1) {
                     colorizeOpciones.empty();
                     if (colorizeOpciones.hasClass('loaded')) {
                         return;
                     } else {
                         colorizeOpciones.addClass('loaded');
+                        colorizeInicioBack.style.display = "flex";
+                        volverInicioColorize();
                         if (window.innerWidth > 768 && window.innerWidth < 992) {
                             $('.colorizeOpciones').css('margin-bottom', '10px');
                         }
-                        setTimeout(function () {
-                            // se carga el contenido del carrusel desde el archivo Blade, definido en las rutas
-                            $.get('/feplacLineas', function (containerFeplacString) { // Retorna un string
-
-                                const tempDiv = document.createElement('div');
-                                tempDiv.innerHTML = containerFeplacString; // inserto el sgring en el div temporal
-
-                                // saco el contenido del div temporal y lo agrego al DOM
-                                while (tempDiv.firstChild) {
-                                    colorizeOpciones.append(tempDiv.firstChild);
+                        getFeplacLineas();
+                        function getFeplacLineas() {
+                            setTimeout(() => {
+                                if (window.innerWidth > 992) {
+                                    $('.colorizeOpciones').css('margin-bottom', '10rem');
                                 }
+                                // se carga el contenido del carrusel desde el archivo Blade, definido en las rutas
+                                let callFeplac = true;
+                                $.get('/feplacLineas', function (containerFeplacString) { // Retorna un string
+                                    if (callFeplac == false) {
+                                        return;
+                                    } else {
+                                        callFeplac = false;
+                                        volverInicioColorize();
+                                        const tempDiv = document.createElement('div');
+                                        tempDiv.innerHTML = containerFeplacString; // inserto el sgring en el div temporal
 
-                                const containerFeplac = colorizeOpciones.find('.containerFeplacLinea');
+                                        // saco el contenido del div temporal y lo agrego al DOM
+                                        while (tempDiv.firstChild) {
+                                            colorizeOpciones.append(tempDiv.firstChild);
+                                        }
 
-                                let fragment = document.createDocumentFragment();
+                                        const containerFeplac = colorizeOpciones.find('.containerFeplacLinea');
 
-                                let i = 0;
-                                response.forEach(function (file) {
-                                    i++;
-                                    let lineaFeplacEnlace = document.createElement('a');
-                                    lineaFeplacEnlace.classList.add('lineaFeplacEnlace');
+                                        let fragment = document.createDocumentFragment();
 
-                                    let lineaFeplac = document.createElement('div');
-                                    lineaFeplac.classList.add('lineaFeplac');
+                                        let i = 0;
+                                        response.forEach(function (file) {
+                                            i++;
+                                            let lineaFeplacEnlace = document.createElement('a');
+                                            lineaFeplacEnlace.classList.add('lineaFeplacEnlace');
 
-                                    let imgFeplacLinea = document.createElement('img');
-                                    imgFeplacLinea.src = file.imagenLinea;
-                                    imgFeplacLinea.classList.add('imgFeplacLinea');
-                                    lineaFeplac.append(imgFeplacLinea);
-                                    lineaFeplacEnlace.append(lineaFeplac);
-                                    fragment.append(lineaFeplacEnlace);
-                                });
+                                            let lineaFeplac = document.createElement('div');
+                                            lineaFeplac.classList.add('lineaFeplac');
 
-                                containerFeplac.append(fragment);
+                                            let imgFeplacLinea = document.createElement('img');
+                                            imgFeplacLinea.src = file.imagenLinea;
+                                            imgFeplacLinea.classList.add('imgFeplacLinea');
+                                            lineaFeplac.append(imgFeplacLinea);
+                                            lineaFeplacEnlace.append(lineaFeplac);
+                                            fragment.append(lineaFeplacEnlace);
+                                        });
 
-                                containerFeplac.each(function (index, element) {
-                                    // console.log('Elemento principal:', element);
-                                    $(element).children().each(function (hijoIndex, hijoElement) {
+                                        containerFeplac.append(fragment);
 
-                                        hijoElement.addEventListener('click', function () {
-                                            let linea = hijoIndex + 1;
-                                            $.ajax({
-                                                url: '/get-feplac/' + linea,
-                                                method: 'GET',
-                                                success: function (response) {
-                                                    colorizeOpciones.empty();
-                                                    if (window.innerWidth > 768) {
-                                                        $('.colorizeOpciones').css('margin-bottom', '10px');
-                                                    }
-                                                    $.get('/tablerosCarrousel', function (carruselString) {
-                                                        const tempDiv = document.createElement('div');
-                                                        tempDiv.innerHTML = carruselString;
-
-                                                        while (tempDiv.firstChild) {
-                                                            colorizeOpciones.append(tempDiv.firstChild);
-                                                        }
-
-                                                        const silderContenedor = colorizeOpciones.find('.silderContenedor');
-                                                        const slider = silderContenedor.find('.slider');
-                                                        let fragment = document.createDocumentFragment();
+                                        containerFeplac.each(function (index, element) {
+                                            // console.log('Elemento principal:', element);
+                                            $(element).children().each(function (hijoIndex, hijoElement) {
+                                                let callChildren = true;
+                                                // console.log('es true');
+                                                hijoElement.addEventListener('click', function () {
+                                                    if (callChildren == false) {
+                                                        // console.log('si hago click y es false retorna');
+                                                        return;
+                                                    } else {
+                                                        let linea = hijoIndex + 1;
+                                                        callChildren = false;
+                                                        // console.log('lo transformo en false, para que no se repita el codigo');
+                                                        $.ajax({
+                                                            url: '/get-feplac/' + linea,
+                                                            method: 'GET',
+                                                            success: function (response) {
+                                                                colorizeOpciones.empty();
 
 
-                                                        response.forEach(item => {
-                                                            let itemSlider = document.createElement('div');
-                                                            itemSlider.classList.add('itemSlider');
+                                                                colorizeBack.style.display = "flex";
+                                                                colorizeInicioBack.style.display = "none";
 
-                                                            let itemImagen = document.createElement('img');
-                                                            itemImagen.src = item.imagenItem;
-                                                            itemImagen.classList.add('itemImagen');
 
-                                                            let itemTitulo = document.createElement('p');
-                                                            itemTitulo.textContent = item.titleItem;
-                                                            itemTitulo.classList.add('itemTitulo');
-                                                            itemTitulo.classList.add('itemTituloOnly');
+                                                                if (window.innerWidth > 768) {
+                                                                    $('.colorizeOpciones').css('margin-bottom', '10px');
+                                                                }
+                                                                $.get('/tablerosCarrousel', function (carruselString) {
+                                                                    const tempDiv = document.createElement('div');
+                                                                    tempDiv.innerHTML = carruselString;
 
-                                                            itemSlider.append(itemImagen);
-                                                            itemSlider.append(itemTitulo);
+                                                                    while (tempDiv.firstChild) {
+                                                                        colorizeOpciones.append(tempDiv.firstChild);
+                                                                    }
 
-                                                            fragment.append(itemSlider);
+                                                                    const silderContenedor = colorizeOpciones.find('.silderContenedor');
+                                                                    const slider = silderContenedor.find('.slider');
+                                                                    let fragment = document.createDocumentFragment();
+
+
+                                                                    response.forEach(item => {
+                                                                        let itemSlider = document.createElement('div');
+                                                                        itemSlider.classList.add('itemSlider');
+
+                                                                        let itemImagen = document.createElement('img');
+                                                                        itemImagen.src = item.imagenItem;
+                                                                        itemImagen.classList.add('itemImagen');
+
+                                                                        let itemTitulo = document.createElement('p');
+                                                                        itemTitulo.textContent = item.titleItem;
+                                                                        itemTitulo.classList.add('itemTitulo');
+                                                                        itemTitulo.classList.add('itemTituloOnly');
+
+                                                                        itemSlider.append(itemImagen);
+                                                                        itemSlider.append(itemTitulo);
+
+                                                                        fragment.append(itemSlider);
+                                                                    });
+                                                                    setTimeout(() => {
+                                                                        slider.append(fragment);
+                                                                        correjirItemsSlider();
+                                                                    }, 50);
+
+                                                                    setTimeout(moverSlider, 100);
+                                                                })
+
+                                                            }, error: function (xhr, status, error) {
+                                                                console.error('Error en la solicitud AJAX:', error);
+                                                            }
+
                                                         });
-                                                        setTimeout(() => {
-                                                            slider.append(fragment);
-                                                            correjirItemsSlider();
-                                                        }, 50);
-
-                                                        setTimeout(moverSlider, 100);
-                                                    })
-                                                }, error: function (xhr, status, error) {
-                                                    console.error('Error en la solicitud AJAX:', error);
-                                                }
+                                                    }
+                                                })
 
                                             });
-
-
-                                        })
-
-                                    });
+                                        });
+                                    }
                                 });
-                            });
-                        }, 100)
+
+                            }, 100)
+                        }
+
+                        colorizeBack.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            colorizeOpciones.empty();
+                            colorizeBack.style.display = "none";
+                            colorizeInicioBack.style.display = "flex";
+                            getFeplacLineas();
+                            // console.log('se llama getLineas');
+                        })
                     }
                 } else if (opcion == 2) {
                     colorizeOpciones.empty();
@@ -535,6 +573,9 @@ $(document).ready(function () {
                     } else {
                         colorizeOpciones.addClass('loaded');
                         setTimeout(function () {
+                            colorizeInicioBack.style.display = "flex";
+                            volverInicioColorize();
+
                             $.get('/tablerosCarrousel', function (carruselString) {
                                 if (window.innerWidth > 768) {
                                     $('.colorizeOpciones').css('margin-bottom', '10px');
@@ -591,6 +632,12 @@ $(document).ready(function () {
     });
 });
 
+function volverInicioColorize() {
+    colorizeInicioBack.addEventListener('click', (e) => {
+        colorizeInicioBack.src = '/colorize';
+    })
+}
+
 let opcionSeleccionada = null; // Variable global 
 function validarSeleccionado() {
     let formOpciones = document.getElementById('formColorizeOptions');
@@ -613,7 +660,7 @@ function obtenerOpcionSeleccionada() {
 
 // Funcion que corrije el tamaño de los items dependiendo de la pantalla
 function correjirItemsSlider() {
-    console.log('se ejecuta correjirItemsSlider');
+    // console.log('se ejecuta correjirItemsSlider');
     let sliderTableros = document.querySelector('.slider');
     let colorizeOpciones = document.querySelector('.colorizeOpciones');
 
@@ -642,6 +689,7 @@ function correjirItemsSlider() {
                         console.log(opcion);
                         seleccionaAlert.style.display = 'none';
                     } else {
+
                         seleccionaAlert.style.display = 'block';
                     }
                 });
@@ -656,7 +704,7 @@ function correjirItemsSlider() {
 
 // Funcion que mueve el slider dependiendo de la pantalla
 function moverSlider() {
-    console.log('se ejecuta moverSlider');
+    // console.log('se ejecuta moverSlider');
     setTimeout(() => {
 
         let sliderTablerosBoton = document.querySelector('.boton1');

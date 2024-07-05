@@ -54,6 +54,16 @@
                 </div>
                 <div class="colorizeEditor">
                     <h3>Colorize</h3>
+
+                    <a href="" class="colorizeBack" id="feplacLineas">
+                        <img src="{{ asset('imagenes/arrow.png') }}" alt="">
+                        <p>Volver</p>
+                    </a>
+                    <a href="" class="colorizeBack" id="Inicio">
+                        <img src="{{ asset('imagenes/arrow.png') }}" alt="">
+                        <p>Volver</p>
+                    </a>
+
                     <div class="colorizeOpciones">
 
                         <a class="load-files" href="#" data-option="1">
