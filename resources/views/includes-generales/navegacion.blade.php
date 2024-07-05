@@ -17,6 +17,7 @@
                 <a class="nav-link navlinkEdit" href="/blog">Blog</a>
                 <a class="nav-link navlinkEdit" id="obrasNavLink" href="seccionProductos">Obras</a>
                 <a class="nav-link navlinkEdit" href="/colaboradores">Colaboradores</a>
+                <a class="nav-link navlinkEdit" href="/colorize">Colorize</a>
                 <a class="nav-link navlinkEdit" href="#">Contacto</a>
             </div>
         </div>
