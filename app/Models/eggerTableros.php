@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EggerTableros extends Model
+class eggertableros extends Model
 {
-    protected $table = 'EggerTableros';
+    protected $table = 'eggertableros';
     protected $fillable = ['title', 'codigo', 'imagen'];
 }

@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FeplacTableros extends Model
+class feplactableros extends Model
 {
-    protected $table = 'FeplacTableros'; 
-    protected $fillable = ['titleItem', 'imagenItem', 'FeplacLinea_id'];
+    protected $table = 'feplactableros'; 
+    protected $fillable = ['titleItem', 'imagenItem', 'feplacLinea_id'];
 
     public function feplacLineas()
     {

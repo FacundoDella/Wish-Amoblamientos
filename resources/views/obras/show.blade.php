@@ -72,7 +72,7 @@
                 <div class="logoEnObra">
                     <h4>Wish Amoblamientos</h4>
                 </div>
-                @include('includes-generales\separador')
+                @include('includes-generales.separador')
                 <div class="informacionObraWish">
                     <p class="descripcionObraWish">{{ $trabajo->descripcion }}</p>
                     <p>{{ $trabajo->detalles }}</p>

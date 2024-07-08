@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FeplacLineas;
+use App\Models\feplaclineas;
 use Illuminate\Http\Request;
 
 class FeplacLineasController extends Controller
@@ -13,7 +13,7 @@ class FeplacLineasController extends Controller
 
         try {
             foreach ($jsonData as $data) {
-                FeplacLineas::create([
+                feplaclineas::create([
                     'nombre' => $data['nombre'],
                     'imagenLinea' => $data['imagenLinea']
                 ]);

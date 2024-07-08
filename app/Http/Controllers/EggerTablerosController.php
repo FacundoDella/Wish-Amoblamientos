@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EggerTableros;
+use App\Models\eggertableros;
 use Illuminate\Http\Request;
 
 class EggerTablerosController extends Controller
@@ -13,7 +13,7 @@ class EggerTablerosController extends Controller
 
         try {
             foreach ($jsonData as $data) {
-                EggerTableros::create([
+                eggertableros::create([
                     'title' => $data['title'],
                     'codigo' => $data['codigo'],
                     'imagen' => $data['imagen'],

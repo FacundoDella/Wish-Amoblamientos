@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\feplactableros;
 use Illuminate\Http\Request;
-use App\Models\FeplacTableros;
+
 
 class FeplacTablerosUploadController extends Controller
 {
@@ -13,7 +14,7 @@ class FeplacTablerosUploadController extends Controller
 
         try {
             foreach ($jsonData as $data) {
-                FeplacTableros::create([
+                feplactableros::create([
                     'titleItem' => $data['titleItem'],
                     'imagenItem' => $data['imagenItem'],
                     'feplacLinea_id' => $data['feplacLinea_id'],
