@@ -39,9 +39,6 @@
                 <input type="checkbox" class="form-check-input p-2" id="rememberCheck" name="remember">
                 <label for="rememberCheck" class="form-check-label">Mantener sesión iniciada</label>
             </div>
-            <div>
-                <p>¿No tienes Cuenta? <a href="{{ route('registro') }}">Regístrate</a></p>
-            </div>
             <button type="submit" class="btn">Iniciar Sesión</button>
         </form>
     </main>

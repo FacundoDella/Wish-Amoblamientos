@@ -12,15 +12,15 @@
 
         <div class="contacto">
             <h3 class="footerTitulo">Contacto</h3>
-            <a href="" class="enlaceFooter">correo@coreo.com</a>
+            <a href="mailto:wishamoblamientos@gmail.com" class="enlaceFooter">correo@coreo.com</a>
             <a href="" class="enlaceFooter">+54 9 2914 29-6878</a>
-            <a href="" class="enlaceFooter">Whatsapp</a>
+            <a href="https://bit.ly/WishAmoblamientos" class="enlaceFooter">Whatsapp</a>
         </div>
 
         <div class="seguinos">
             <h3 class="footerTitulo">Seguinos</h3>
             <div class="cardFooter">
-                <a class="socialContainer containerOne" href="#">
+                <a class="socialContainer containerOne" href="https://www.instagram.com/amoblamientoswish/">
                     <svg class="instagramSvg socialSvg " xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24"
                         viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
@@ -31,7 +31,7 @@
                         <path d="M16.5 7.5l0 .01" />
                     </svg>
                 </a>
-                <a class="socialContainer containerTwo" href="#">
+                <a class="socialContainer containerTwo" href="https://www.youtube.com/">
                     <svg class="socialSvg" xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-brand-youtube-filled" width="24" height="24"
                         viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"

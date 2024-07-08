@@ -14,7 +14,7 @@
       <div class="info-container">
         <h2 class="info-titulo">Creando Muebles Excepcionales: Diseño y Fabricación de Alta Calidad</h2>
         <p class="info-descripcion">Personaliza tu ambiente con muebles de alta calidad</p>
-        <a class="boton btn">Contactanos ahora</a>
+        <a href="https://bit.ly/WishAmoblamientos" class="boton btn">Contactanos ahora</a>
     </div>
     </div>
   </div>

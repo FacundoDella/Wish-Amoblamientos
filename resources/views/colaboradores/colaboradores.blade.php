@@ -36,84 +36,45 @@
 
     <div class="contenedor">
         <div class="cardGrid">
-           
+
             <div class="card">
                 <div class="cardHeader">
-                    <img class="imagenCard" src="{{asset('/imagenes/colaboradores/arquitectoEjemplo.jpg')}}" alt="">
+                    <img class="imagenCard" src="{{ asset('/imagenes/colaboradores/diseñadoraLorena.jpg') }}"
+                        alt="">
                     <div class="cardInfo">
-                        <h4 class="cardTitle">Carlos Ramírez</h4>
-                        <h5 class="cardSubtitle">Arquitecto</h5>
+                        <h4 class="cardTitle">Ianni Lorena Interiorismo</h4>
+                        <h5 class="cardSubtitle">Diseñadora</h5>
                     </div>
                 </div>
                 <div class="cardBody">
-                    <p class="cardText">Carlos Ramírez es un arquitecto con más de 15 años de experiencia en diseño
-                        urbano y proyectos de infraestructura. Reconocido por su innovación y enfoque sostenible. Carlos es
-                        parte de nuestro equipo desde hace más de 7 años, aportando su visión y experiencia en la creación de
-                        entornos urbanos eficientes y sostenibles.</p>
+                    <p class="cardText">Ianni Lorena Interiorismo es una diseñadora destacada por su habilidad para
+                        crear espacios únicos y personalizados, reflejando la esencia y personalidad de sus clientes con
+                        innovación y estilo. Wish Amoblamientos confía plenamente en el trabajo de Ianni Lorena
+                        Interiorismo, asegurando resultados excepcionales y una experiencia de diseño incomparable.</p>
                     <div class="btnContenedor">
-                        <a href="#" class="botonMini btn">Contacto</a>
+                        <a href="https://www.instagram.com/iannilorenainteriorismo" class="botonMini btn">Contacto</a>
                         <a href="/colaboradores/1" class="botonMini btn">Nuestros Trabajos</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="card">
-                <div class="cardHeader">
-                    <img class="imagenCard" src="{{asset('/imagenes/colaboradores/ingenieraEjemplo.jpg')}}" alt="">
-                    <div class="cardInfo">
-                        <h4 class="cardTitle">Ana López</h4>
-                        <h5 class="cardSubtitle">Ingeniera Civil</h5>
-                    </div>
-                </div>
-                <div class="cardBody">
-                    <p class="cardText">Ana López es una ingeniera civil con más de 10 años de experiencia en la gestión de
-                        proyectos de construcción. Destacada por su capacidad de liderazgo y su enfoque en la seguridad y
-                        eficiencia. Ana ha sido una pieza clave en la finalización exitosa de varios proyectos de gran escala.</p>
-                    <div class="btnContenedor">
-                        <a href="#" class="botonMini btn">Contacto</a>
-                        <a href="/colaboradores/2" class="botonMini btn">Nuestros Trabajos</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="cardHeader">
-                    <img class="imagenCard" src="{{asset('/imagenes/colaboradores/diseñadoraEjemplo.jpg')}}" alt="">
-                    <div class="cardInfo">
-                        <h4 class="cardTitle">Luciana Morales</h4>
-                        <h5 class="cardSubtitle">Diseñadora Industrial</h5>
-                    </div>
-                </div>
-                <div class="cardBody">
-                    <p class="cardText">Luciana Morales es una diseñadora industrial con un enfoque en la creación de productos funcionales y estéticamente atractivos. Con más de 8 años de experiencia, ha trabajado en una variedad de proyectos, desde mobiliario urbano hasta electrodomésticos innovadores.</p>
-                    <div class="btnContenedor">
-                        <a href="#" class="botonMini btn">Contacto</a>
-                        <a href="/colaboradores/3" class="botonMini btn">Nuestros Trabajos</a>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="card">
-                <div class="cardHeader">
-                    <img class="imagenCard" src="{{asset('/imagenes/colaboradores/arquitectoEjemplo.jpg')}}" alt="">
-                    <div class="cardInfo">
-                        <h4 class="cardTitle">María González</h4>
-                        <h5 class="cardSubtitle">Urbanista</h5>
-                    </div>
-                </div>
-                <div class="cardBody">
-                    <p class="cardText">María González es una urbanista con un enfoque en el desarrollo sostenible y la
-                        planificación comunitaria. Con 12 años de experiencia, ha contribuido a la creación de espacios públicos
-                        que promueven la cohesión social y el bienestar ambiental.</p>
-                    <div class="btnContenedor">
-                        <a href="#" class="botonMini btn">Contacto</a>
-                        <a href="/colaboradores/4" class="botonMini btn">Nuestros Trabajos</a>
-                    </div>
-                </div>
-            </div>
-            
 
+            <div class="card">
+                <div class="cardHeader">
+                    <img class="imagenCard" src="{{ asset('/imagenes/colaboradores/arquitectaMariana.jpg') }}"
+                        alt="">
+                    <div class="cardInfo">
+                        <h4 class="cardTitle">Mariana Gentilini</h4>
+                        <h5 class="cardSubtitle">Arquitectura y Diseño</h5>
+                    </div>
+                </div>
+                <div class="cardBody">
+                    <p class="cardText">Mariana Gentilini es una arquitecta diseñadora destacada por su habilidad para crear espacios únicos y personalizados, reflejando la esencia y personalidad de sus clientes con innovación y estilo.Wish Amoblamientos confía plenamente en el trabajo de Mariana Gentilini, asegurando resultados excepcionales y una experiencia de diseño incomparable.</p>
+                    <div class="btnContenedor">
+                        <a href="https://www.instagram.com/danussigentilini.arq/" class="botonMini btn">Contacto</a>
+                        <a href="/colaboradores/1" class="botonMini btn">Nuestros Trabajos</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>

@@ -22,14 +22,14 @@
         </div>
 
             <div class="cardFooter">
-                <a class="socialContainer containerCero" href="#">
+                <a class="socialContainer containerCero" href="https://bit.ly/WishAmoblamientos">
                     <svg class="instagramSvg socialSvg "  xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
                         <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
                       </svg>
                 </a>
-                <a class="socialContainer containerOne" href="#">
+                <a class="socialContainer containerOne" href="https://www.instagram.com/amoblamientoswish/">
                     <svg class="instagramSvg socialSvg " xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24"
                         viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
@@ -40,7 +40,7 @@
                         <path d="M16.5 7.5l0 .01" />
                     </svg>
                 </a>
-                <a class="socialContainer containerTwo" href="#">
+                <a class="socialContainer containerTwo" href="https://www.youtube.com/">
                     <svg class="socialSvg" xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-brand-youtube-filled" width="24" height="24"
                         viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
