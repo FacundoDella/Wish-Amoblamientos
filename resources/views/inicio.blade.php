@@ -63,7 +63,7 @@
                 </a>
                 <a href="/baño" class="productos producto5">
                     <h3 class="productosTitulo">Baño</h3>
-                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/baño.jpg') }}" alt="Imagen Producto">
+                    <img class="imagenProductos" src="{{ asset('imagenes/trabajos/wc.jpg') }}" alt="Imagen Producto">
                 </a>
                 <a href="/oficina" class="productos producto6">
                     <h3 class="productosTitulo">Oficina o Estudio</h3>

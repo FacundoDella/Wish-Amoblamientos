@@ -180,7 +180,7 @@ class TrabajoController extends Controller
     public function baño()
     {
         $trabajos = $this->obtenerObras(5);
-        return view('obras.baño', compact('trabajos'));
+        return view('obras.wc', compact('trabajos'));
     }
     public function oficina()
     {
